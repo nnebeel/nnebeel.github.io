@@ -18,7 +18,6 @@ $(document).ready(function() {
   while (divs.length) {
   	var record = divs.splice(Math.floor(Math.random() * divs.length), 1)[0];
     $(record).addClass(colors[Math.floor(Math.random() * colors.length)]);
-    console.log($(record).data("url"));
     void 0 != $(record).data("url") ? ($(record).addClass("link"), $(record).click(function() { window.open($(record).data("url")); })) : ($(record).addClass("search"), $(record).click(function() { window.open("https://www.google.com/search?q=" + ($(record).find(".title").html() + " " + $(record).find(".subtitle,.author").html()).split(" ").join("+").split("<br>").join(" ") + " lds"); }));
     untilted++;
     untilted > spacing && 1 == Math.floor(randomness * Math.random()) && ($(record).addClass("tilted"), untilted = 0);
