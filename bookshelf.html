@@ -5,6 +5,7 @@
 <meta name ="author" content="nnebeel">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://github.com/davidbau/seedrandom/seedrandom.js"></script>
 <script>
 $(document).ready(function() {
   let untilted = 3, spacing = 3, randomness = 6, colors = "green red tan brown blue orange".split(" ");
@@ -20,11 +21,11 @@ $(document).ready(function() {
 	var parent = $("#bookshelf");
   var divs = parent.children();
   while (divs.length) {
-  	let record = divs.splice(Math.floor(Math.random() * divs.length), 1)[0];
-    $(record).addClass(colors[Math.floor(Math.random() * colors.length)]);
+  	let record = divs.splice(Math.floor(Math.seedrandom("nnebeel") * divs.length), 1)[0];
+    $(record).addClass(colors[Math.floor(Math.seedrandom("nnebeel") * colors.length)]);
     void 0 != $(record).attr("onClick") ? $(record).addClass("link") : ($(record).addClass("search"), $(record).attr("title", "No link yet. Search Google."), $(record).click(function() { window.open("https://www.google.com/search?q=" + ($(record).find(".title").html() + " " + $(record).find(".subtitle,.author").html()).split(" ").join("+").split("<br>").join(" ") + " lds"); }));
     untilted++;
-    untilted > spacing && 1 == Math.floor(randomness * Math.random()) && ($(record).addClass("tilted"), untilted = 0);
+    untilted > spacing && 1 == Math.floor(randomness * Math.seedrandom("nnebeel")) && ($(record).addClass("tilted"), untilted = 0);
     parent.append(record);
   }
 });
