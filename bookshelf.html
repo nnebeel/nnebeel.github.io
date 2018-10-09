@@ -10,22 +10,16 @@
 $(document).ready(function() {
   Math.seedrandom("nnebeel");
   let untilted = 3, spacing = 3, randomness = 6, colors = "green red tan brown blue orange".split(" ");
-  $('h2').replaceWith(function() {
-  	return "<div class='title'>" + $(this).html() + "</div>";
-  })
-  $('h3').replaceWith(function() {
-  	return "<div class='subtitle'>" + $(this).html() + "</div>";
-  })
-  $('h4').replaceWith(function() {
-  	return "<div class='author'><span>" + $(this).html() + "</span></div>";
-  })
+  $('h2').replaceWith(function() { return "<div class='title'>" + $(this).html() + "</div>"; })
+  $('h3').replaceWith(function() { return "<div class='subtitle'>" + $(this).html() + "</div>"; })
+  $('h4').replaceWith(function() { return "<div class='author'><span>" + $(this).html() + "</span></div>"; })
 	var parent = $("#bookshelf");
   var divs = parent.children();
   while (divs.length) {
   	var record = divs.splice(Math.floor(Math.random() * divs.length), 1)[0];
     $(record).addClass(colors[Math.floor(Math.random() * colors.length)]);
     console.log($(record).data("url"));
-    void 0 != $(record).data("url") ? $(record).addClass("link").click(function() { window.open($(record).data("url")); }) : $(record).addClass("search").click(function() { window.open("https://www.google.com/search?g=" + ($(record).find(".title").html() + " " + $(record).find(".subtitle,.author").html()).split(" ").join("+").split("<br>").join(" ") + " lds"); });
+    void 0 != $(record).data("url") ? $(record).addClass("link").click(function() { window.open("" + $(record).data("url")); }) : $(record).addClass("search").click(function() { window.open("https://www.google.com/search?g=" + ($(record).find(".title").html() + " " + $(record).find(".subtitle,.author").html()).split(" ").join("+").split("<br>").join(" ") + " lds"); });
     untilted++;
     untilted > spacing && 1 == Math.floor(randomness * Math.random()) && ($(record).addClass("tilted"), untilted = 0);
     parent.append(record);
