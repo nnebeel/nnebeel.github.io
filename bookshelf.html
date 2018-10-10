@@ -17,10 +17,10 @@ $(document).ready(function() {
   var divs = parent.children();
   while (divs.length) {
   	let record = divs.splice(Math.floor(Math.random() * divs.length), 1)[0];
-    let url = $(record).data("url").toString();
+    let url = typeof $(record).data("url") === "undefined" ? "" : $(record).data("url").toString();
     console.log(url);
     $(record).addClass(colors[Math.floor(Math.random() * colors.length)]);
-    void 0 != $(record).data("url") ? ($(record).addClass("link"), $(record).click(function() { window.open("***" + $(record).data("url")); }), console.log($(record).bind())) : ($(record).addClass("search"), $(record).click(function() { window.open("https://www.google.com/search?q=" + ($(record).find(".title").html() + " " + $(record).find(".subtitle,.author").html()).split(" ").join("+").split("<br>").join(" ") + " lds"); }));
+    "" != url ? ($(record).addClass("link"), $(record).click(function() { window.open(url); })) : ($(record).addClass("search"), $(record).click(function() { window.open("https://www.google.com/search?q=" + ($(record).find(".title").html() + " " + $(record).find(".subtitle,.author").html()).split(" ").join("+").split("<br>").join(" ") + " lds"); }));
     untilted++;
     untilted > spacing && 1 == Math.floor(randomness * Math.random()) && ($(record).addClass("tilted"), untilted = 0);
     parent.append(record);
