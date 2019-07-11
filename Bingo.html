@@ -21,22 +21,22 @@
       .col-12{width:100%}
       .btn-group .button{background-color:white;border:none;color:white;/*padding:1vw 2vw;*/text-align:center;text-decoration:none;display:inline-block;cursor:pointer;float:left}
       .btn-group .button:hover {background-color:grey}
-      [class*="col-"]{float:left;padding:15px}
+      [class*="col-"]{float:left;padding:7px}
       .row::after{content:"";clear:both;display:table}
       .card{width:100%;padding-bottom:166%;height:0;border-radius:8.3%/5%;box-shadow:2px 2px 5px 2px grey;text-align:center;user-select:none}
-      [id$="-name"]{padding:1vw;margin:auto;font-size:4vw;font-weight:800;text-transform:uppercase}
+      [id$="-name"]{padding:0.5vw;margin:auto;font-size:2vw;font-weight:800;text-transform:uppercase}
       th{color:#000;mix-blend-mode:difference}
       #card-contents{width:100%;height:100%;text-align:center;display:inline-block;vertical-align:middle}
       [id^="number"]{font-weight:600}
       .numberfound::before{content:" ";position:absolute;height:1em;width:1em;background-color:rgba(255,0,0,0.6);border-radius:50%;display:inline-block;box-shadow:1px 1px 3px 1px rgba(0,0,0,0.5)}
       .bingo::before{background-color:rgba(0,255,0,0.6) !important;}
-      [id$="-grid"] table {width:90%;font-size:3vw;margin:auto}
+      [id$="-grid"] table {width:90%;font-size:1.5vw;margin:auto}
       [id$="-grid"] tbody td {padding-top:1vw;padding-bottom:1vw;text-align:center; vertical-align:middle}
       [id$="-grid"] th span{color:#ddd;mix-blend-mode:luminosity}
       [id$="-bingo"],#bingo-winner{text-align:center;background-color:green;color:#fff}
-      [id$="-bingo"]{font-size:7vw;font-weight:600}
+      [id$="-bingo"]{font-size:3vw;font-weight:600}
       [id$="-blackout"],#blackout-winner{text-align:center;background-color:#000;color:#fff}
-      [id$="-blackout"]{font-size:6vw;font-weight:600}
+      [id$="-blackout"]{font-size:2vw;font-weight:600}
     </style>
     <script>
       const letters = [{letter:"B", min:1, max:15, color:"#0F56A2", bgColor:"#82B9F3"},
@@ -230,7 +230,7 @@
       
       function addBoard() {
         let n = boards.length + 1;
-        document.getElementById("other-players").innerHTML += `<div class="col-6">
+        document.getElementById("other-players").innerHTML += `<div class="col-3">
         <div class="card" id="player-${n}">
           <div id="player-${n}-name">Player ${n}</div>
           <div id="player-${n}-grid"></div>
@@ -257,7 +257,7 @@
 
   <body onload="initialize();resetGame()">
     <div class="row">
-      <div class="col-5">
+      <div class="col-3">
         <div class="card" id="player-1">
           <div id="player-1-name">Player 1</div>
           <div id="player-1-grid"></div>
@@ -294,7 +294,7 @@
           <div id="blackout-winner"></div>
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-3">
         <div class="card" id="player-2">
           <div id="player-2-name">Player 2</div>
           <div id="player-2-grid"></div>
@@ -302,9 +302,8 @@
           <div id="player-2-blackout"></div>
         </div>
       </div>
+      <div id="other-players"></div>
     </div>
-    <div class="row" id="other-players"></div>
-
   </body>
 
 </html>
