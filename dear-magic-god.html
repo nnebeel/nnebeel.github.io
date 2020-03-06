@@ -5,7 +5,38 @@
 <title>Dear Magic God (a satirical prayer)</title>
 <link href="https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
 <style>
-body {
+body, html {
+  margin:0;
+  padding:0;
+}
+.wrapper {
+  padding-top: 5em;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective:10px;
+}
+
+section {
+  position: relative;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;  
+}
+
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-10px) scale(10);
+  background-size: 200%;
+  z-index: -1;
+  background-image: url('https://live.staticflickr.com/2869/9228533366_0100a45613_b.jpg');
+}
+article {
   width:30em;
   margin:auto;
 }
@@ -23,6 +54,9 @@ p.cursive {
 </style>
 </head>
 <body>
+<main class="wrapper">
+<section class="parallax">
+<article>
 <p class="cursive">Dear Magic God,</p>
 <p class="drop-cap">I don&rsquo;t know if you can see us because I can&rsquo;t see you&mdash;not even with my eyes closed&mdash;so it&rsquo;s us again, powerful god, and we&rsquo;re sitting around the dinner table.</p>
 <p>I was looking around just now, and it seems that the universe is in working order. Thanks for not changing things too much and letting us see the light of the star we&rsquo;re orbiting around again.</p>
@@ -42,5 +76,10 @@ p.cursive {
 <p>We love you, magic god, and we know you love us, but I think you don&rsquo;t listen very well when I don&rsquo;t end my prayers right, so I end this prayer with an incantation that contains your illegitimate child&rsquo;s alleged name and a Hebrew word that means &ldquo;truth,&rdquo; but I&rsquo;ll say it differently, and it might mean something else:</p>
 <p class="cursive">Jesus Christ!</p>
 <p class="cursive">Amen</p>
+</article>
+<a href="https://www.flickr.com/photos/59660606@N07/9228533366">"Clouds"</a><span> by <a href="https://www.flickr.com/photos/59660606@N07">Chris.L.Dodds</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=ccsearch&atype=html" style="margin-right: 5px;">CC BY-SA 2.0</a><a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=ccsearch&atype=html" target="_blank" rel="noopener noreferrer" style="display: inline-block;white-space: none;margin-top: 2px;margin-left: 3px;height: 22px !important;"><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-sa_icon.svg" /></a>
+</section>
+</main>
+
 </body>
 </html>
