@@ -2,6 +2,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.nidec-sankyo.co.jp/audition/e/tuneobjs.js"></script>
 <script>
+	let table = "<table><thead><tr>";
+	let keys = Object.getOwnPropertyNames(tuneObjs[0]);
+	keys.forEach(function(k) {
+		table += "<th>" + k + "</th>";
+	});
+	table += "</tr></thead><tbody>";
+	tuneObjs.forEach(function(o) {
+		table += "<tr>";
+		keys.forEach(function(k) {
+			table += "<td>" + o[k] + "</td>;
+		});
+		table += "</tr>";		
+	});
+	table += "</tbody></table";
+	let parent = document.createElement("div");
+	
+	with(parent) {
+		append(table);
+	}
+	
+
+	
+/* // jQuery version
+
 $(document).ready(function() {
 	console.log(JSON.stringify(tuneObjs));
 	let template = {};
@@ -26,15 +50,17 @@ $(document).ready(function() {
     $("#tunesbody").append(`<tr>${trString}</tr>`);
   });
 });
+*/
 </script>
 </head>
 
 <body>
-  <table id="tunes">
+  
+	<!-- <table id="tunes">
     <thead>
       <tr id="tuneshead"></tr>
     </thead>
     <tbody id="tunesbody">
     </tbody>
-  </table>
+  </table>-->
 </body>
