@@ -12,7 +12,11 @@
 	tuneObjs.forEach(function(o) {
 		table += "<tr>";
 		keys.forEach(function(k) {
-			table += "<td>" + o[k] + "</td>";
+			if (k == "MP3") {
+				table += '<td><a href="http://www.nidec-sankyo.co.jp/audition/mp3/' + o[k] + '.mp3">' + o[k] + "</a></td>";
+			} else {
+				table += "<td>" + o[k] + "</td>";
+			}
 		});
 		table += "</tr>";		
 	});
