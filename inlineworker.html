@@ -11,10 +11,9 @@ let arr = [1,2,3];
 let str = "Hi";
   
 var myWorker = createWorker(function (e) {
-  arr.push(4);
-  str+="!";
-  e.text = toUpperCase(e.text);
-  self.postMessage(e.data.text.toUpperCase(), [arr,str]);
+  e.data[0].push(4);
+  e.data[1]+="!";
+  self.postMessage([e.data[0],e.data[1]]);
 });
 console.log("Hi");
 
@@ -22,7 +21,7 @@ myWorker.onmessage = function (e) {
   console.log(e.data); // HELLO FROM AN INLINE WORKER!
 }
 
-myWorker.postMessage({text:"Hello",arr:arr,str:str}, [arr,str]);
+myWorker.postMessage([arr,str]);
   
 console.log(arr,str);
 debugger;
