@@ -13,7 +13,7 @@ var myWorker = createWorker(function (e) {
 });
 console.log("Hi");
 
-myWorker.onMessage = function (e) {
+myWorker.onmessage = function (e) {
   console.log(e.data); // HELLO FROM AN INLINE WORKER!
 }
 
