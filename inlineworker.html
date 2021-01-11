@@ -7,9 +7,14 @@ function createWorker(fn) {
   var url = URL.createObjectURL(blob); 
   return new Worker(url);
 }
-
+let arr = [1,2,3];
+let str = "Hi";
+  
 var myWorker = createWorker(function (e) {
-  self.postMessage(e.data.toUpperCase());
+  arr.push(4);
+  str+="!";
+  e.text = toUpperCase(e.text);
+  self.postMessage(e.data.text.toUpperCase(), [arr,str]);
 });
 console.log("Hi");
 
@@ -17,8 +22,9 @@ myWorker.onmessage = function (e) {
   console.log(e.data); // HELLO FROM AN INLINE WORKER!
 }
 
-myWorker.postMessage('hello from an inline worker!')
-
+myWorker.postMessage({text:"Hello",arr:arr,str:str}, [arr,str]);
+  
+console.log(arr,str);
 debugger;
   
 </script>
