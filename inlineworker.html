@@ -11,6 +11,7 @@ function createWorker(fn) {
 var myWorker = createWorker(function (e) {
   self.postMessage(e.data.toUpperCase());
 });
+console.log("Hi");
 
 myWorker.onMessage = function (e) {
   console.log(e.data); // HELLO FROM AN INLINE WORKER!
