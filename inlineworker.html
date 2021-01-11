@@ -1,0 +1,19 @@
+<script>
+
+function createWorker(fn) {
+  var blob = new Blob(['self.onmessage = ', fn.toString()], { type: 'text/javascript' });
+  var url = URL.createObjectURL(blob); 
+  return new Worker(url);
+}
+
+var myWorker = createWorker(function (e) {
+  self.postMessage(e.data.toUpperCase());
+});
+
+myWorker.onMessage = function (e) {
+  console.log(e.data); // HELLO FROM AN INLINE WORKER!
+}
+
+myWorker.postMessage('hello from an inline worker!')
+
+</script>
