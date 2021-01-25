@@ -9,7 +9,7 @@ $(document).ready(function() {
 				w.data.shift();
 				let [simulations] = w.data;
 
-				for (let n = 1; n <= 10; n++) { // faces
+				for (let n = 2; n <= 10; n++) { // faces
 					for (let v = 0; v <= n + 10; v++) { // rolls
 						for (let x = 0; x <= n; x++) { // number of faces to NOT see
 							let t = 0;
@@ -36,7 +36,7 @@ $(document).ready(function() {
 	});
 
 	let stats = {};
-	let simulations = 1e7;
+	let simulations = 1e8;
 	
 	worker.postMessage(["roll_dice",simulations]);
 	
