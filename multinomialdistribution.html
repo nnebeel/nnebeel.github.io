@@ -13,6 +13,7 @@ $(document).ready(function() {
 					for (let v = 0; v <= n + 10; v++) { // rolls
 						for (let x = 0; x <= n; x++) { // number of faces to NOT see
 							let t = 0;
+							console.log(n,v,x,simulations);
 							for (let i = 1; i <= simulations; i++) {
 								let rolls = [...Array(v)].map(() => Math.ceil(Math.random() * n));
 								let numbersRolled = rolls.filter((a,b,c) => c.indexOf(a) === b);
