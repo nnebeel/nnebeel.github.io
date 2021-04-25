@@ -1,3 +1,8 @@
+
+// task: code review
+// task: add spinboxes and fields for low/high note
+// task: centDiff: make it analyze rational frequencies and integer frequencies...
+
 const flat =  "&#x266d;";
 const natural = "&#x266e;";
 const sharp = "&#x266f;";
