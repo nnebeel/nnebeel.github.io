@@ -7,7 +7,7 @@
     high percentage of rational relationships between overtones of scale degrees
 */
 
-var flat, natural, sharp, scaleLetters, justNoticeableDiff, maxRationalDenominator, absoluteThreshold;
+var flat, natural, sharp, scaleLetters, justNoticeableDiff, maxHarmonics, absoluteThreshold;
 var scale, key;
 var degrees;
 
@@ -85,7 +85,6 @@ function initialize() {
     },
     diff: 5 // 5 cents (0.05 semitones) - the human ear's pitch resolution (https://en.wikipedia.org/wiki/Just-noticeable_difference)
   }; // ref: http://uoneuro.uoregon.edu/wehr/coursepapers/Rasch-Plomp.html
-
-  }
+ 
   maxHarmonics = 32; // also max denominator of rational consonances, includes everything up to tritones
 }
