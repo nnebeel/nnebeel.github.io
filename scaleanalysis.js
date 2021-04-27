@@ -61,7 +61,7 @@ function centDiff(freq1,freq2) {
 function isNoticeableDiff(f1,f2) {
   let diff = Math.abs(f1-f2);
   let avg = (f1+f2)/2
-  if (diff < justNoticeableDiff(avg))
+  return diff >= justNoticeableDiff(avg);
 }
 
 function justNoticeableDiff(f) {
