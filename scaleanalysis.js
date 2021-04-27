@@ -14,6 +14,7 @@ var degrees;
 initialize();
 
 $("#createkeyboard").on("click", function () {
+  scale = [];
   degrees = +$("#degrees").val();
   console.log(degrees);
   buildScale();
