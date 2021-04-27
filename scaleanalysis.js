@@ -45,7 +45,8 @@ function buildScale() {
 function getHarmonics(freq, direction = 1) {
   let arr = [];
   for (let i = 1; i <= maxHarmonics; i++) {
-    arr.push(freq*Math.pow(i,direction));
+    let tone = freq*Math.pow(i,direction);
+    if (tone >= thresholds.pitch.low && tone <= thresholds.pitch.high) arr.push(tone);
   }
   return arr;
 }
