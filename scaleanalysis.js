@@ -142,5 +142,5 @@ function initialize() {
   
  
   maxHarmonics = 32; // also max denominator of rational consonances, includes everything up to tritones  
-  ratioTolerance = 1/maxHarmonics;
+  ratioTolerance = 1/(maxHarmonics+1);
 }
