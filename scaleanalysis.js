@@ -7,7 +7,7 @@
     high percentage of rational relationships between overtones of scale degrees
 */
 
-var flat, natural, sharp, scaleLetters, justNoticeableDiff, maxHarmonics, absoluteThreshold;
+var flat, natural, sharp, halfflat, halfsharp, scaleLetters, justNoticeableDiff, maxHarmonics, absoluteThreshold;
 var scale, key;
 var degrees;
 
@@ -28,8 +28,8 @@ function buildKeyboard() {
 function buildScale() {
   let note = 27.5// A0
   for (let octave = 0; octave <= 7; octave++) {
-    for (let degree = 1; degree <= degrees; degree++) {
-      let fundamental = 27.5*Math.pow(Math.pow(2,1/degrees),octave*degrees+degree);
+    for (let degree = 0; degree < degrees; degree++) {
+      let fundamental = 27.5*Math.pow(Math.pow(2,1/degrees), absoluteKey(octave,degree));
       scale.push({
         letter: getScaleLetter(degree),
         octave: octave,
@@ -40,6 +40,10 @@ function buildScale() {
       })
     }
   }
+}
+
+function absoluteKey(octave, degree) {
+  return octave * degrees + degree;
 }
 
 function getHarmonics(freq, direction = 1) {
@@ -54,7 +58,7 @@ function getHarmonics(freq, direction = 1) {
 function getScaleLetter(d) {
   let letteringMode = $("#lettermode").val();
   let arr = scaleLetters[letteringMode];
-  return arr[Math.round((d-1)/degrees*arr.length)];
+  return arr[Math.round(d/degrees*arr.length)];
 }
 
 function centDiff(freq1,freq2) {
@@ -77,9 +81,19 @@ function initialize() {
   flat =  "&#x266d;";
   natural = "&#x266e;";
   sharp = "&#x266f;";
+  halfflat = `<img alt="half flat" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Llpd-%C2%BD.svg/6px-Llpd-%C2%BD.svg.png" width="6" height="16">`;
+  halfsharp = `<img alt="half flat" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Arabic_music_notation_half_sharp.svg/6px-Arabic_music_notation_half_sharp.svg.png" width="6" height="16">`;
+  schwa = `&#x0259;`
   scaleLetters = {
-    Equal: [`A`,`A${sharp}`,`B${flat}`,`B`,`B`,`B${sharp}`,`C${flat}`,`C`,`C`,`C${sharp}`,`D${flat}`,`D`,`D`,`D${sharp}`,`E${flat}`,`E`,`E`,`E${sharp}`,`F${flat}`,`F`,`F`,`F${sharp}`,`G${flat}`,`G`,`G`,`G${sharp}`,`A${flat}`,`A`],
-    Piano: [`A`,`A${sharp}`,`B${flat}`,`B`,`B${sharp}/C${flat}`,`C`,`C`,`C${sharp}`,`D${flat}`,`D`,`D`,`D${sharp}`,`E${flat}`,`E`,`E${sharp}/F${flat}`,`F`,`F${sharp}`,`G${flat}`,`G`,`G`,`G${sharp}`,`A${flat}`,`A`]
+    Numeric: [0,1,2,3,4,5,6,7,8,9,10,11],
+    SolfegeC: [`La`,`Li/Te`,`Ti`,`Do`,`Di/Ra`,`Re`,`Ri/Me`,`Mi`,`Fa`,`Fi/Se`,`Sol`,`Si/Le`],
+    Solfege: [`Do`,`Di/Ra`,`Re`,`Ri/Me`,`Mi`,`Fa`,`Fi/Se`,`Sol`,`Si/Le`,`La`,`Li/Te`,`Ti`],
+    SolfegeQuartertonal: [`Do`,`Dih`,`Di/Ra`,`Reh`,`Re`,`Rih`,`Ri/Me`,`Meh`,`Mi`,`Mih/Feh`,`Fa`,`Fih`,`Fi/Se`,`Seh`,`Sol`,`Sih`,`Si/Le`,`Leh`,`La`,`Lih`,`Li/Te`,`Teh`,`Ti`,`Tih/Deh`], 
+    SolfegeCQuartertonal: [`La`,`Lih`,`Li/Te`,`Teh`,`Ti`,`Tih/Deh`,`Do`,`Dih`,`Di/Ra`,`Reh`,`Re`,`Rih`,`Ri/Me`,`Meh`,`Mi`,`Mih/Feh`,`Fa`,`Fih`,`Fi/Se`,`Seh`,`Sol`,`Sih`,`Si/Le`,`Leh`], // https://nmbx.newmusicusa.org/getting-your-hands-dirty-performing-microtonal-choral-music-part-2/
+    Sharps: [`A`,`A${sharp}`,`B`,`C`,`C${sharp}`,`D`,`D${sharp}`,`E`,`F`,`F${sharp}`,`G`,`G${sharp}`],
+    Flats: [`A`,`B${flat}`,`B`,`C`,`D${flat}`,`D`,`E${flat}`,`E`,`F`,`G${flat}`,`G`,`A${flat}`],
+    Piano: [`A`,`A${sharp}/B${flat}`,`B`,`C`,`C${sharp}/D${flat}`,`D`,`D${sharp}/E${flat}`,`E`,`F`,`F${sharp}/G${flat}`,`G`,`G${sharp}/A${flat}`],
+    Quartertonal: [`A`,`A${halfsharp}`,`A${sharp}/B${flat}`,`B${halfflat}`,`B`,`B${halfsharp}/C${halfflat}`,`C`,`C${halfsharp}`,`C${sharp}/D${flat}`,`D${halfflat}`,`D`,`D${halfsharp}`,`D${sharp}/E${flat}`,`E${halfflat}`,`E`,`E${halfsharp}/F${halfflat}`,`F`,`F${halfsharp}`,`F${sharp}/G${flat}`,`G${halfflat}`,`G`,`G${halfsharp}`,`G${sharp}/A${flat}`,`A${halfflat}`]
   };
   thresholds = {
     pitch: {
