@@ -105,7 +105,7 @@ function rationalComparison(tones1,tones2) {
       for(let d = 1; d <= maxHarmonics; d++) {
         if (Math.abs(tr*d - Math.round(tr*d)) <= tolerance) {
           matches[`${t1k}:${t2k}`] = `${Math.round(tr*d)}/${d}`;
-          score += 1/Math.max(Math.abs(t1k),Math.abs(t2k))/d;
+          score += 1/Math.max(Math.abs(t1k)+1,Math.abs(t2k)+1)/d;
           break;
         }
       }
