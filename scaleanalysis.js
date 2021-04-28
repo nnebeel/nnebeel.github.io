@@ -103,7 +103,7 @@ function rationalComparison(tones1,tones2) {
     $.each(tones2,(t2k,t2) => {
       let tr = t2/t1;
       for(let d = 1; d <= maxHarmonics; d++) {
-        if (Math.abs(tr*d - Math.round(tr*d)) <= tolerance) {
+        if (Math.abs(tr*d - Math.round(tr*d)) <= ratioTolerance) {
           matches[`${t1k}:${t2k}`] = `${Math.round(tr*d)}/${d}`;
           score += 1/Math.max(Math.abs(t1k)+1,Math.abs(t2k)+1)/d;
           break;
@@ -139,7 +139,8 @@ function initialize() {
     },
     diff: 5 // 5 cents (0.05 semitones) - the human ear's pitch resolution (https://en.wikipedia.org/wiki/Just-noticeable_difference)
   }; // ref: http://uoneuro.uoregon.edu/wehr/coursepapers/Rasch-Plomp.html
-  tolerance = 0.05;
+  
  
-  maxHarmonics = 32; // also max denominator of rational consonances, includes everything up to tritones
+  maxHarmonics = 32; // also max denominator of rational consonances, includes everything up to tritones  
+  ratioTolerance = 1/maxHarmonics;
 }
