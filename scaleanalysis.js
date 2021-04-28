@@ -89,7 +89,7 @@ function computeConsonance() {
       if (n1i == n2i) return true; // don't compare the same notes
       let harmonicResults = rationalComparison(n1.harmonics,n2.harmonics);
       scale[n1i].consonance[n2i] = {
-        matches: harmonicResults.results,
+        matches: harmonicResults.matches,
         score: harmonicResults.score
       };
     });
