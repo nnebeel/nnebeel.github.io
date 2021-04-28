@@ -58,7 +58,7 @@ function getHarmonics(freq, direction = 1) {
 function getScaleLetter(d) {
   let letteringMode = $("#lettermode").val();
   let arr = scaleLetters[letteringMode];
-  return arr[Math.round(d/degrees*arr.length)];
+  return arr[Math.round(d/degrees*arr.length) % arr.length];
 }
 
 function centDiff(freq1,freq2) {
