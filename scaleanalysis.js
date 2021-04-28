@@ -103,8 +103,10 @@ function rationalComparison(tones1,tones2) {
     $.each(tones2,(t2k,t2) => {
       let tr = t2/t1;
       for(let d = 1; d <= maxHarmonics; d++) {
-        if (Math.abs(tr*d - Math.round(tr*d)) <= ratioTolerance) {
-          if (Math.round(tr*d) == 0) break;
+        let exact = tr*d;
+        let approx = Math.round(tr*d);
+        if (approx == 0 || approx >= d * 2) break;
+        if (Math.abs(exact - approx) <= ratioTolerance) {
           matches[`${t1k}:${t2k}`] = `${Math.round(tr*d)}/${d}`;
           score += 1/Math.max(Math.abs(t1k)+1,Math.abs(t2k)+1)/d;
           break;
