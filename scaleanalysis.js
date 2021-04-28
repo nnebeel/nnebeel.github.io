@@ -9,15 +9,17 @@
 
 var flat, natural, sharp, halfflat, halfsharp, scaleLetters, justNoticeableDiff, maxHarmonics, absoluteThreshold;
 var scale, key;
-var degrees;
+var degrees, tolerance;
 
 initialize();
 
 $("#createkeyboard").on("click", function () {
   scale = [];
   degrees = +$("#degrees").val();
+  maxDistance = +$("#maxdistance").val();
   console.log(degrees);
   buildScale();
+  computeConsonance();
   console.log(scale);
 });
 
@@ -35,8 +37,7 @@ function buildScale() {
         octave: octave,
         degree: degree,
         fundamental: fundamental,
-        overtone: getHarmonics(fundamental),
-        undertone: getHarmonics(fundamental, -1)
+        harmonics: getHarmonics(fundamental),
       })
     }
   }
@@ -46,13 +47,15 @@ function absoluteKey(octave, degree) {
   return octave * degrees + degree;
 }
 
-function getHarmonics(freq, direction = 1) {
-  let arr = [];
-  for (let i = 1; i <= maxHarmonics; i++) {
-    let tone = freq*Math.pow(i,direction);
-    if (tone >= thresholds.pitch.low && tone <= thresholds.pitch.high) arr.push(tone);
+function getHarmonics(freq) {
+  let obj = {};
+  for (let i = 0; i <= maxHarmonics; i++) {
+    let overtone = freq*(i+1);
+    let undertone = freq/(i+1);
+    if (overtone >= thresholds.pitch.low && overtone <= thresholds.pitch.high) obj[parseInt(i).toString()] = overtone;
+    if (undertone >= thresholds.pitch.low && undertone <= thresholds.pitch.high) obj[parseInt(-i).toString()] = undertone;
   }
-  return arr;
+  return obj;
 }
 
 function getScaleLetter(d) {
@@ -76,6 +79,39 @@ function justNoticeableDiff(f) {
   if (f < 500) return 3;
   if (f > 1000) return .6*f;
   // ref: https://www.google.com/books/edition/Springer_Handbook_of_Speech_Processing/Slg10ekZBkAC?hl=en&gbpv=1&pg=PA65&printsec=frontcover
+}
+
+function computeConsonance() {
+  $.each(scale,(n1i,n1) => {
+    scale[n1i].consonance = {};
+    $.each(scale,(n2i,n2) => {
+      if (Math.abs(n2i - n1i) > degrees * maxDistance) return true; // don't compare notes beyond the maximum distance
+      if (n1i == n2i) return true; // don't compare the same notes
+      let harmonicResults = rationalComparison(n1.harmonics,n2.harmonics);
+      scale[n1i].consonance[n2i] = {
+        matches: harmonicResults.results,
+        score: harmonicResults.score
+      };
+    });
+  });
+}
+
+function rationalComparison(tones1,tones2) {
+  let matches = {};
+  let score = 0;
+  $.each(tones1,(t1k,t1) => {
+    $.each(tones2,(t2k,t2) => {
+      let tr = t2/t1;
+      for(let d = 1; d <= maxHarmonics; d++) {
+        if (Math.abs(tr*d - Math.round(tr*d)) <= tolerance) {
+          matches[`${t1k}:${t2k}`] = `${Math.round(tr*d)}/${d}`;
+          score += 1/Math.max(Math.abs(t1k),Math.abs(t2k))/d;
+          break;
+        }
+      }
+    });
+  });
+  return {matches:matches, score:score};
 }
 
 function initialize() {
@@ -103,6 +139,7 @@ function initialize() {
     },
     diff: 5 // 5 cents (0.05 semitones) - the human ear's pitch resolution (https://en.wikipedia.org/wiki/Just-noticeable_difference)
   }; // ref: http://uoneuro.uoregon.edu/wehr/coursepapers/Rasch-Plomp.html
+  tolerance = 0.05;
  
   maxHarmonics = 32; // also max denominator of rational consonances, includes everything up to tritones
 }
