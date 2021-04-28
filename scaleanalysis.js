@@ -86,7 +86,7 @@ function computeConsonance() {
     scale[n1i].consonance = {};
     $.each(scale,(n2i,n2) => {
       if (Math.abs(n2i - n1i) > degrees * maxDistance) return true; // don't compare notes beyond the maximum distance
-      if (n1i == n2i) return true; // don't compare the same notes
+      // if (n1i == n2i) return true; // don't compare the same notes
       let harmonicResults = rationalComparison(n1.harmonics,n2.harmonics);
       scale[n1i].consonance[n2i] = {
         matches: harmonicResults.matches,
