@@ -1,0 +1,66 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://www.nidec-sankyo.co.jp/audition/e/tuneobjs.js"></script>
+<script>
+	console.log(tuneObjs);
+	let table = "<table><thead><tr>";
+	let keys = Object.getOwnPropertyNames(tuneObjs[0]);
+	keys.forEach(function(k) {
+		table += "<th>" + k + "</th>";
+	});
+	table += "</tr></thead><tbody>";
+	tuneObjs.forEach(function(o) {
+		table += "<tr>";
+		keys.forEach(function(k) {
+			if (k == "MP3") {
+				table += '<td><a href="http://www.nidec-sankyo.co.jp/audition/mp3/' + o[k] + '.mp3">' + o[k] + "</a></td>";
+			} else {
+				table += "<td>" + o[k] + "</td>";
+			}
+		});
+		table += "</tr>";		
+	});
+	table += "</tbody></table>";
+	document.write(table);	
+
+	
+/* // jQuery version
+
+$(document).ready(function() {
+	console.log(JSON.stringify(tuneObjs));
+	let template = {};
+  
+  $.each(tuneObjs, function(i,v) {
+  	$.each(v, function(j,w) {
+    	template[j] = "";
+    })
+  });
+  
+  let keys = Object.keys(template);
+  
+  $.each(keys, function(i,v) {
+  	$("#tuneshead").append(`<th>${v}</th>`);
+  });
+  
+  $.each(tuneObjs, function(i,v) {
+  	let trString = "";
+    $.each(keys, function(j,k) {
+    	trString += `<td>${v[k] || ""}</td>`;
+    })
+    $("#tunesbody").append(`<tr>${trString}</tr>`);
+  });
+});
+*/
+</script>
+</head>
+
+<body>
+  
+	<!-- <table id="tunes">
+    <thead>
+      <tr id="tuneshead"></tr>
+    </thead>
+    <tbody id="tunesbody">
+    </tbody>
+  </table>-->
+</body>

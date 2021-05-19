@@ -1,0 +1,83 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	var worker = h_createWorker((w) => {
+		switch (w.data[0]) {
+			case "roll_dice": {
+				w.data.shift();
+				let [simulations] = w.data;
+
+				for (let n = 2; n <= 10; n++) { // faces
+					for (let v = 2; v <= n + 10; v++) { // rolls
+						for (let x = 1; x <= n; x++) { // number of faces to NOT see
+							let t = 0;
+							console.log(n,v,x,simulations);
+							for (let i = 1; i <= simulations; i++) {
+								let rolls = [...Array(v)].map(() => Math.ceil(Math.random() * n));
+								let numbersRolled = rolls.filter((a,b,c) => c.indexOf(a) === b);
+								let result = n - numbersRolled.length >= x;
+								t = i === 1 ? result : t + (result - t) / i;
+							}
+							self.postMessage(["simulation_result",{
+								faces: n,
+								rolls: v,
+								unseen: x,
+								probability: t,
+								simulations: simulations
+							}]);
+						}
+					}  
+				}
+				self.postMessage(["complete"]);
+			} break;
+		}
+	});
+
+	let stats = {};
+	let simulations = 1e8;
+	
+	worker.postMessage(["roll_dice",simulations]);
+	
+	worker.onmessage = (h) => {
+		switch (h.data[0]) {
+			case "simulation_result": {
+				let w = h.data[1];
+
+				// faces = required vouchers
+				// rolls = fulfilled vouchers less required vouchers
+				// unseen = nonduplicated vouchers (vouchers fulfilled only once)
+				
+				stats[w.faces] || (stats[w.faces] = {});
+				stats[w.faces][w.rolls] || (stats[w.faces][w.rolls] = {});
+				stats[w.faces][w.rolls][w.unseen] = w.probability;
+				
+				$("#resultstable tr:last").after(`<tr><td>${w.faces}</td><td>${w.rolls}</td><td>${w.unseen}</td><td>${w.probability}</td><td>${simulations}</td></tr>`);
+				
+			} break;
+			
+			case "complete": {
+				$("#resultsjson").html(JSON.stringify(stats));
+			} break;
+		}		
+	}
+	
+	function h_createWorker(fn) {
+		var blob = new Blob(['self.onmessage = ', fn.toString()], { type: 'text/javascript' });
+		var url = URL.createObjectURL(blob); 
+		return new Worker(url);
+	}
+});
+</script>
+</head>
+<body>
+<table id="resultstable"><thead><tr><th>Faces</th><th>Rolls</th><th>Unseen</th><th>Probability</th><th>Simulations</th></tr></thead><tbody>
+<tr></tr></tbody></table>
+<div id="resultsjson"></div>
+
+</body>
+</html>
+
+
+

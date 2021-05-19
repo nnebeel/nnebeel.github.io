@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben&rsquo;s Bingo</title>
+    <style>
+      *{box-sizing:border-box; font-family: Helvetica, sans-serif}
+      .col-1{width:8.33%}
+      .col-2{width:16.66%}
+      .col-3{width:25%}
+      .col-4{width:33.33%}
+      .col-5{width:41.66%}
+      .col-6{width:50%}
+      .col-7{width:58.33%}
+      .col-8{width:66.66%}
+      .col-9{width:75%}
+      .col-10{width:83.33%}
+      .col-11{width:91.66%}
+      .col-12{width:100%}
+      .btn-group .button{background-color:white;border:none;color:white;/*padding:1vw 2vw;*/text-align:center;text-decoration:none;display:inline-block;cursor:pointer;float:left}
+      .btn-group .button:hover {background-color:grey}
+      [class*="col-"]{float:left;padding:7px}
+      .row::after{content:"";clear:both;display:table}
+      .card{width:100%;padding-bottom:166%;height:0;border-radius:8.3%/5%;box-shadow:2px 2px 5px 2px grey;text-align:center;user-select:none}
+      [id$="-name"]{padding:0.5vw;margin:auto;font-size:2vw;font-weight:800;text-transform:uppercase}
+      th{color:#000;mix-blend-mode:difference}
+      #card-contents{width:100%;height:100%;text-align:center;display:inline-block;vertical-align:middle}
+      [id^="number"]{font-weight:600}
+      .numberfound::before{content:" ";position:absolute;height:1em;width:1em;background-color:rgba(255,0,0,0.6);border-radius:50%;display:inline-block;box-shadow:1px 1px 3px 1px rgba(0,0,0,0.5)}
+      .bingo::before{background-color:rgba(0,255,0,0.6) !important;}
+      [id$="-grid"] table {width:90%;font-size:1.5vw;margin:auto}
+      [id$="-grid"] tbody td {padding-top:1vw;padding-bottom:1vw;text-align:center; vertical-align:middle}
+      [id$="-grid"] th span{color:#ddd;mix-blend-mode:luminosity}
+      [id$="-bingo"],#bingo-winner{text-align:center;background-color:green;color:#fff}
+      [id$="-bingo"]{font-size:3vw;font-weight:600}
+      [id$="-blackout"],#blackout-winner{text-align:center;background-color:#000;color:#fff}
+      [id$="-blackout"]{font-size:2vw;font-weight:600}
+    </style>
+    <script>
+      const letters = [{letter:"B", min:1, max:15, color:"#0F56A2", bgColor:"#82B9F3"},
+        {letter:"I", min:16, max:30, color:"#BA1F25", bgColor:"#EC8A8E"},
+        {letter:"N", min:31, max:45, color:"#242424", bgColor:"#C1C1C1"},
+        {letter:"G", min:46, max:60, color:"#115C39", bgColor:"#94EBC3"},
+        {letter:"O", min:61, max:75, color:"#D2A846", bgColor:"#E5CD95"}];
+      const phrases = [["Ben Shapiro"],["Kelly's Eye"],["One little duck.","Me and you"],["Cup of tea","You and me"],["Knock at the door"],["Man alive"],["Tom Mix","Half a dozen"],["Lucky","Lucky Seven"],["Garden gate"],["Doctor's Orders"],["Theresa's Den","Cameron's Den"],["Legs eleven"],["One dozen"],["Unlucky for some"],["The Lawnmower","Valentine's Day"],["Young and Keen"],["Never been kissed","Sweet 16"],["Dancing Queen"],["Coming of Age"],["Goodbye Teens"],["One Score","Getting Plenty"],["Key of the Door","Royal Salute"],["Two little ducks"],["The Lord is My Shepherd","Thee and Me"],["Double dozen","Two Dozen"],["Duck and dive"],["Two and six","half a crown","A to Z","Pick and Mix"],["Duck and a crutch","Gateway to Heaven"],["In a state.","Over Weight"],["Rise and Shine"],["Burlington Bertie","Dirty Gertie"],["Get Up and Run"],["Buckle My Shoe"],["Dirty Knee","All the threes","Fish, chips and peas"],["Ask for More"],["Jump and Jive"],["Triple dozen","Three dozen"],["More than 11"],["Christmas cake"],["Steps"],["Life Begins","Naughty 40"],["Time for Fun"],["Winnie the Pooh"],["Down on your knees"],["Droopy drawers"],["Halfway there"],["Up to tricks"],["Four and seven"],["Four Dozen"],["PC"],["It's a bullseye!","Snow White","Half a Century"],["Tweak of the thumb"],["Danny La Rue","Chicken vindaloo","Deck of Cards"],["Here comes Herbie","Stuck in the Tree"],["Man at the door","Clean the Floor"],["All the fives","Snakes Alive"],["Shotts Bus","Was She Worth It?"],["Heinz Varieties"],["Make Them Wait"],["The Brighton Line"],["Grandma's getting frisky","Five Dozen"],["Bakers Bun"],["Tickety-boo","Turn the Screw"],["Tickle Me 63"],["Almost retired","Red Raw"],["Retirement age","Stop work","Old Age Pension"],["Clickety click"],["Stairway to Heaven","Made in Heaven"],["Pick a Mate","Saving Grace"],["Either way up","Anyway up","Meal for Two","A Favourite of mine"],["Three Score and 10"],["Bang on the Drum"],["Danny La Rue","Six Dozen"],["Queen Bee","Under The Tree","Lucky 3"],["Hit the Floor","Candy Store"],["Strive and Strive"],["Trombones","Was she worth it?"],["Two little crutches","Sunset Strip"],["39 more steps","Heaven's Gate"],["One more time"],["Gandhi's Breakfast","Eight and Blank"],["Fat Lady with a walking stick","Stop and Run"],["Straight on Through"],["Time for Tea"],["Seven dozen"],["Staying alive"],["Between the sticks"],["Torquay in Devon"],["Two Fat Ladies"],["Almost there","Nearly there"],["Top of the shop"]];
+      var numLetters = letters.length;
+      var deck = JSON.parse(JSON.stringify(letters));
+      var boards, speak, speakTimeout = null, round;
+                       
+      function initialize() {
+      	round = 1;
+        speak = speak === undefined ? 'speechSynthesis' in window : speak;
+      	boards = document.querySelectorAll(`[id^="player"][id$="grid"]`);
+        let css = document.createElement("style");
+        css.type = "text/css";
+        let styles = "";
+        for (let i = 0; i < letters.length; i++) {
+          styles += `.card table td:nth-child(${i+1}) {background-color: ${letters[i].bgColor}} .card table th:nth-child(${i+1}) {background-color:${letters[i].color}}`;
+        }
+        css.appendChild(document.createTextNode(styles));
+        document.getElementsByTagName("head")[0].appendChild(css);
+    	}
+      
+      function shuffleDeck() {
+        deck = JSON.parse(JSON.stringify(letters));
+       	for (let i = 0; i < deck.length; i++) {
+          let suit = [];
+          for (let j = deck[i].min; j <= deck[i].max; j++) {
+            suit.push(("0" + j).slice(-2));
+          }
+          deck[i].suit = suit;
+        }
+        setLetter();
+      }
+
+      function resetBoard(player = 1) {
+        let board = JSON.parse(JSON.stringify(letters));
+        for (let i = 0; i < board.length; i++) {
+          let suit = [];
+          for (let j = board[i].min; j <= deck[i].max; j++) {
+            suit.push(("0" + j).slice(-2));
+          }
+          board[i].suit = suit;
+        }
+        let grid = `<table class="bingo-grid"><thead><tr>`;
+        for (let i = 0; i < board.length; i++) {
+        grid += `<th><span>${board[i].letter}</span></th>`;
+        }
+        grid += `</thead></tr><tbody>`;
+        if (!(board.length % 2)) {
+          console.error("Bingo boards must have an odd number of letters in order for a free space to be functional.");
+        }
+        let free = (board.length - 1) / 2;
+        for (let i = 0; i < board.length; i++) {
+          grid += `<tr>`
+          for (let j = 0; j < board.length; j++) {
+            if (i == free && j == free) {
+              grid += `<td class="dd du numberfound">&ensp;&ensp;</td>`;
+              continue;
+            }
+            let r = parseInt(Math.random() * board[j].suit.length);
+            let n = board[j].suit.splice(r, 1);
+            grid += `<td class="${board[j].letter + n} ${i==j?"dd":i==numLetters-j-1?"du":""}">${n}</td>`;
+          }
+          grid += `</tr>`;
+        }
+        document.getElementById(`player-${player}-grid`).innerHTML = `${grid}</tbody></table>`;
+        document.getElementById(`player-${player}-bingo`).innerHTML = "";
+        document.getElementById(`player-${player}-blackout`).innerHTML = "";
+        document.getElementById(`bingo-winner`).innerHTML = "";
+        document.getElementById(`blackout-winner`).innerHTML = "";
+      }
+
+      function setLetter(p = {}) {
+        let l = p.l || "&nbsp;";
+        let n = p.n || "&nbsp;";
+        let b = p.b || "white";
+        let c = p.c || "black";
+        document.getElementById("deck").style.cssText = `cursor:pointer;background-image:radial-gradient(${b}, white); color:${c};text-shadow:1px 1px 1px black`;
+        document.getElementById("letter").innerHTML = l;
+        document.getElementById("letter-inverted").innerHTML = l;
+        document.getElementById("number").innerHTML = n;
+        document.getElementById("number-inverted").innerHTML = n;
+        Array.from(document.getElementsByClassName(l + n)).forEach(function(e, i, a) {
+          e.classList.add("numberfound");
+        })
+        for (let i = 1; i <= boards.length; i++) {
+        	checkBingo(i);
+        }
+      }
+      
+      function updateScoreboard(t,p) {
+        let scoreboardDiv = document.querySelector(`#${t}-winner`);
+        if (scoreboardDiv.innerHTML) {
+          scoreboardDiv.dataset.round == round && (scoreboardDiv.innerHTML += `, ${p}`);
+        } else {
+          scoreboardDiv.dataset.round = round;
+          scoreboardDiv.innerHTML = `<b>${t.toUpperCase()}</b><div style="font-size:0.75em">Round ${round}</div>${p}<br>`;
+        }
+        say(`${p} has ${t}!`,!1);
+      }
+      
+      function bingo(p) {
+        let nodeList = p.n || [];
+        let playerName = p.p || "undefined";
+        let bingoDiv = p.d || {};
+        [].forEach.call(nodeList, function(td) {td.classList.add("bingo");});
+        bingoDiv.innerHTML = "BINGO";
+        updateScoreboard("bingo",playerName);
+        return !0;
+      }
+      
+      function blackout(p) {
+        let blackoutDiv = p.d || {};
+        let playerName = p.p || "undefined";
+        blackoutDiv.innerHTML = "BLACKOUT";
+        updateScoreboard("blackout",playerName);
+        return !0;
+      }
+
+      function checkBingo(player) {
+        var bingoDiv = document.querySelector(`#player-${player}-bingo`), blackoutDiv = document.querySelector(`#player-${player}-blackout`);
+        var bingoBool = bingoDiv.innerHTML?!0:!1, blackoutBool = blackoutDiv.innerHTML?!0:!1;
+        var playerName = document.querySelector(`#player-${player}-name`).innerHTML;
+        if (!bingoBool) {                  
+          for (let i = 0; i < numLetters; i++) {
+            let horizontal = document.querySelectorAll(`#player-${player}-grid tbody tr:nth-child(${i+1}) td.numberfound`);
+            if (horizontal.length == numLetters) bingoBool = bingo({n:horizontal,d:bingoDiv,p:playerName});
+          } // check horizontals
+          for (let i = 0; i < numLetters; i++) {
+            let vertical = document.querySelectorAll(`#player-${player}-grid tbody tr td:nth-child(${i+1}).numberfound`)
+            if (vertical.length == numLetters) bingoBool = bingo({n:vertical,d:bingoDiv,p:playerName});
+          } // check verticals
+          let diagonalDown = document.querySelectorAll(`#player-${player}-grid td.dd.numberfound`)
+          if (diagonalDown.length == numLetters) bingoBool = bingo({n:diagonalDown,d:bingoDiv,p:playerName}); // check diagonal down
+          let diagonalUp = document.querySelectorAll(`#player-${player}-grid td.du.numberfound`);
+          if (diagonalUp.length == numLetters) bingoBool = bingo({n:diagonalUp,d:bingoDiv,p:playerName}); // check diagonal up
+        }
+        if (!blackoutBool) {
+          if (document.querySelectorAll(`#player-${player}-grid td.numberfound`).length == numLetters * numLetters) blackoutBool = blackout({d:blackoutDiv,p:playerName}); // check for blackout
+        }
+      }
+
+      function flipCard() {
+        round++;
+        if (deck.length == 0) {
+          say(`The game is over! Please click the "Reset game" button to begin again.`,!1);
+          setLetter();
+          return;
+        }
+        let l = parseInt(Math.random() * deck.length);
+        let n = parseInt(Math.random() * deck[l].suit.length);
+        let card = deck[l];
+        let number = deck[l].suit.splice(n, 1);
+        if (deck[l].suit.length == 0) deck.splice(l, 1);
+        say(`<say-as interpret-as="verbatim">${card.letter}</say-as> ${+number}... ${phrases[+number][parseInt(Math.random()*phrases[+number].length)]}!`);  
+        setLetter({l:card.letter, n:number, b:card.bgColor, c:card.color});        
+      }
+      
+      function resetGame() {
+        say("New game!");
+        shuffleDeck();
+        for (let i = 1; i <= boards.length; i++) {
+        	resetBoard(i)
+        }
+      }
+      
+      function say(str,cancel=!0) {
+      	if (speak) {
+        	if (cancel && speechSynthesis.speaking) {
+          	speechSynthesis.cancel();
+            say(str,!1);
+            //if (speakTimeout !== null) clearTimeout(speakTimeout);
+            //speakTimeout = setTimeout(function () { say(str); }, 250);
+          } else {
+          	speechSynthesis.speak(new SpeechSynthesisUtterance(`<?xml version="1.0" encoding="ISO-8859-1"?>
+            <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis/synthesis.xsd" xml:lang="en-US">${str}</speak>`));
+          }
+        }
+      }
+      
+      function toggleSound() {
+        speak && say("");
+        speak = !speak;
+        document.getElementById("toggleSound").innerHTML = speak ? "🔈" : "🔇";
+        say("Sound on");
+      }
+      
+      function addBoard() {
+        let n = boards.length + 1;
+        document.getElementById("other-players").innerHTML += `<div class="col-3">
+        <div class="card" id="player-${n}">
+          <div id="player-${n}-name">Player ${n}</div>
+          <div id="player-${n}-grid"></div>
+          <div id="player-${n}-bingo"></div>
+          <div id="player-${n}-blackout"></div>
+        </div>
+      </div>`;
+      initialize();
+      resetGame();
+      }
+      
+      function removeBoard() {
+        let d = document.getElementById("other-players");
+        try {
+          d.removeChild(d.lastChild);
+        } catch (e) {
+        }
+        initialize();
+        resetGame();
+      }
+
+    </script>
+  </head>
+
+  <body onload="initialize();resetGame()">
+    <div class="row">
+      <div class="col-3">
+        <div class="card" id="player-1">
+          <div id="player-1-name">Player 1</div>
+          <div id="player-1-grid"></div>
+          <div id="player-1-bingo"></div>
+          <div id="player-1-blackout"></div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="row">
+          <div class="card" id="deck" onclick="flipCard()" style="cursor:pointer">
+            <div id="card-contents">
+              <div id="letter" style="font-size:3vw">&nbsp;</div>
+              <div id="number" style="font-size:4vw">&nbsp;</div>
+              <div id="card-separator" style="font-size:2vw">🙟👑🙝</div>
+              <div id="number-inverted" style="font-size:4vw;transform:rotate(-180deg)">&nbsp;</div>
+              <div id="letter-inverted" style="font-size:3vw;transform:rotate(-180deg)">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top:1vw">
+          <div class="btn-group">
+            <button class="button col-6" onclick="initialize();resetGame()" title="Reset game">🔄</button>
+            <button class="button col-6" id="toggleSound" onclick="toggleSound()" title="Toggle sound">🔈</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="btn-group">
+            <button class="button col-6" onclick="removeBoard()" title="Remove player">➖</button>
+            <button class="button col-6" onclick="addBoard()" title="Add player">➕</button>            
+          </div>
+        </div>
+        <div class="row">
+          <div id="bingo-winner"></div>
+          <div id="blackout-winner"></div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card" id="player-2">
+          <div id="player-2-name">Player 2</div>
+          <div id="player-2-grid"></div>
+          <div id="player-2-bingo"></div>
+          <div id="player-2-blackout"></div>
+        </div>
+      </div>
+      <div id="other-players"></div>
+    </div>
+  </body>
+
+</html>
