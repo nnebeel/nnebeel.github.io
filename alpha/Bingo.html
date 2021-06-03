@@ -195,7 +195,7 @@
         let card = deck[l];
         let number = deck[l].suit.splice(n, 1);
         if (deck[l].suit.length == 0) deck.splice(l, 1);
-        say(`${card.letter}. ${+number}... ${phrases[+number][parseInt(Math.random()*phrases[+number].length)]}!`);  
+        say(`${card.letter}${+number}... ${phrases[+number][parseInt(Math.random()*phrases[+number].length)]}!`);  
         setLetter({l:card.letter, n:number, b:card.bgColor, c:card.color});        
       }
       
