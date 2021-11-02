@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script>
+    $("document").ready(function() {
+    $("input,select").change(function() {
+      $("#output").empty();
+      let base = +$("#base").val();
+      let start = +$("#start").val();
+      let max = +$("#max").val();
+      let step = +$("#step").val();
+      let rows = +$("#rows").val();
+      let operator = $("#operator").val();
+      let previousRow = [];
+      for (let i = 1, v = ((start - 1) % max) % base + 1; i <= rows; i++, v = ((v - 1 + step) % max) % base + 1) {
+        let thisRow = [v,v];
+        $("#output").append(`<div id="row${i}"></div>`);
+        for (let j = 1; j < i; j++) {
+          let w = operate(previousRow[j-1],previousRow[j]);
+          thisRow.splice(j,0,w)
+        }
+        $.each(thisRow, (ri, rv) => {
+          let hue = ((rv-1)/base)*360;
+          $(`#row${i}`).append(`<div class="cell" style="background-color:hsl(${hue},100%,50%)">${rv}</div>`)
+        })
+        previousRow = [...thisRow];
+      }
+      function operate(i1,i2) {
+        let value = 0;
+        if (operator == "×") {
+          value = i1 * i2;
+        } else if (operator == "+") {
+          value = i1 + i2;
+        }
+        return (value - 1) % base + 1;      
+      }
+    });
+  });
+  </script>
+  <style>
+    .cell {
+      display: inline-block;
+      width: 1em;
+      overflow: hide;
+    }
+  </style>
+</head>
+<body>
+  Base <input id="base" type="number" value="7"/><br>
+  Start <input id="start" type="number" value="1"/><br>
+  Max <input id="max" type="number" value="7"/><br>
+  Step <input id="step" type="number" value="1"/><br>
+  Rows <input id="rows" type="number" value="13"/><br>
+  Operator <select id="operator">
+    <option selected>+</option>
+    <option>×</option>
+  </select>
+
+  <div id="output" style="text-align:center; font-family:consolas,courier,monospace">
+    <div>
+      <div style="display:inline-block; background-color:hsl(100, 100%, 50%)">1</div>
+      <div style="display:inline-block">1</div>
+    </div>
+    <div>
+      <div style="display:inline-block">1</div>
+      <div style="display:inline-block">1</div>
+    </div>
+  </div>
+</body>
+</html>

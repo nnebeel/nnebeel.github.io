@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script>
+    var deck = [{
+      name: "Gorilla",
+      sounds: [
+        ["sb", 1149, 0],
+        ["c", 126334, 5] 
+      ]
+    },
+    {
+      name: "Elephant",
+      sounds: [
+        ["sb", 1136, 0], 
+        ["sb", 352, 0],
+        ["c", 96337, 4] 
+      ]
+    },
+    {
+      name: "Owl",
+      sounds: [
+        ["sb", 1851, 0], 
+        ["sb", 1342, 0], 
+        ["sb", 1331, 0],
+        ["c", 138288, 13], 
+        ["c", 93570671, 0] 
+      ]
+    },
+    {
+      name: "Horse",
+      sounds: [
+        ["sb", 427, 0], 
+        ["sb", 428, 0], 
+        ["sb", 429, 0]
+      ]
+    },
+    {
+      name: "Cuckoo",
+      sounds: [
+        ["c", 167547581, 0] 
+      ]
+    },
+    {
+      name: "Cricket",
+      sounds: [
+        ["sb", 2083, 0], 
+        ["sb", 295, 0]
+      ]
+    },
+    {
+      name: "Duck",
+      sounds: [
+        ["sb", 1859, 0], 
+        ["sb", 1378, 0], 
+        ["sb", 1197, 0]
+      ]
+    },
+    {
+      name: "Cow",
+      sounds: [
+        ["sb", 1572, 0], 
+        ["sb", 1568, 0]
+      ]
+    },
+    {
+      name: "Hyena",
+      sounds: [
+        ["sb", 2191, 0]
+      ]
+    },
+    {
+      name: "Mouse",
+      sounds: [
+        ["url", "https://www.trutechinc.com/wp-content/uploads/2017/10/Mouse-Sound.mp3", 0],
+        ["url", "https://averagehunter.com/mp3/mice-rats/mice%202.mp3", 0]
+      ]
+    },
+    {
+      name: "Dog",
+      sounds: [
+        ["sb", 2215, 0], 
+        ["sb", 2194, 0], 
+        ["sb", 2136, 0]
+      ]
+    },
+    {
+      name: "Pig",
+      sounds: [
+        ["sb", 736, 0]
+      ]
+    },
+    {
+      name: "Cat",
+      sounds: [
+        ["sb", 1687, 0], 
+        ["sb", 1684, 0], 
+        ["sb", 979, 0]
+      ]
+    },
+    {
+      name: "Pheasant",
+      sounds: [
+        ["c", 185044911, 0],
+        ["c", 185770131, 0]
+      ]
+    },
+    {
+      name: "Goose",
+      sounds: [
+        ["sb", 1202, 0], 
+        ["sb", 1175, 0], 
+        ["sb", 952, 0]
+      ]
+    },
+    {
+      name: "Seagull",
+      sounds: [
+        ["sb", 2193, 0], 
+        ["sb", 1191, 0], 
+        ["sb", 192, 0]
+      ]
+    },
+    {
+      name: "Bee",
+      sounds: [
+        ["sb", 971, 0]
+      ]
+    },
+    {
+      name: "Lion",
+      sounds: [
+        ["sb", 1483, 0], 
+        ["sb", 156, 0]
+      ]
+    },
+    {
+      name: "Dove",
+      sounds: [
+        ["sb", 1231, 0],
+        ["c", 104609081, 0], 
+        ["c", 166095431, 0] 
+      ]
+    },
+    {
+      name: "Woodpecker",
+      sounds: [
+        ["sb", 20, 0], 
+        ["sb", 21, 0],
+        ["c", 55656091, 0] 
+      ]
+    },
+    {
+      name: "Rooster",
+      sounds: [
+        ["sb", 1134, 0], 
+        ["sb", 871, 0]
+      ]
+    },
+    {
+      name: "Sheep",
+      sounds: [
+        ["sb", 1012, 0],
+        ["c", 126289, 5] 
+      ]
+    },
+    {
+      name: "Seal",
+      sounds: [
+        ["sb", 549, 0],
+        ["c", 125018, 4] 
+      ]
+    },
+    {
+      name: "Frog",
+      sounds: [
+        ["sb", 2033, 0], 
+        ["sb", 1333, 0], 
+        ["sb", 1335, 0]
+      ]
+    },
+    {
+      name: "Donkey",
+      sounds: [
+        ["c", 201627, 0], 
+        ["c", 126394, 5] 
+      ]
+    },
+    {
+      name: "Monkey",
+      sounds: [
+        ["sb", 2145, 0], 
+        ["sb", 356, 0]
+      ]
+    },
+    {
+      name: "Rattlesnake",
+      sounds: [
+        ["sb", 237, 0]
+      ]
+    },
+    {
+      name: "Dolphin",
+      sounds: [
+        ["sb", 863, 0], 
+        ["sb", 395, 0], 
+        ["sb", 231, 0]
+      ]
+    },
+    {
+      name: "Turkey",
+      sounds: [
+        ["sb", 1889, 0], 
+        ["sb", 1330, 0], 
+        ["sb", 1315, 0]
+      ]
+    },
+    {
+      name: "Wolf",
+      sounds: [
+        ["sb", 278, 0], 
+        ["sb", 2132, 0]
+      ]
+    }
+  ];
+  const sources = {
+    sb: "http://soundbible.com/grab.php?type=mp3&id=",
+    c: "https://download.ams.birds.cornell.edu/api/v1/asset/",
+    url: ""
+  };
+  /*var sb = "http://soundbible.com/grab.php?type=mp3&id="
+  var c = "https://download.ams.birds.cornell.edu/api/v1/asset/"*/
+
+  $(document).ready(function() {
+    let gameDeck = JSON.parse(JSON.stringify(deck))
+    $("#next").click(function() {
+      let animalIndex = Math.floor(Math.random() * gameDeck.length);
+      let animal = gameDeck.splice(animalIndex, 1)[0];
+      let soundIndex = Math.floor(Math.random() * animal.sounds.length);
+      let sound = animal.sounds[soundIndex];
+      let soundURL = sources[sound[0]] + sound[1] + "#t=" + sound[2];
+      console.log(animal, soundURL);
+      $("#name").html(animal.name)
+      $("#play").attr("src", soundURL);
+      $("#play").load();
+    })
+  })
+  </script>
+  <style>
+    $theme-colors: (
+      "primary":    $primary,
+      "secondary":  $secondary,
+      "success":    $success,
+      "info":       $info,
+      "warning":    $warning,
+      "danger":     $danger,
+      "light":      $light,
+      "dark":       $dark
+    );
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-auto">
+        <h1 class="display-1">Animal soundtracks</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-auto">
+        <div class="card bg-dark bg-gradient">
+          <div class="card-header">
+            <div class="btn-group" style="width:100%" role="group">
+              <button id="next" type="button" class="btn btn-primary">Next</button>
+              <button id="reset" type="button" class="btn btn-warning">Reset</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <audio class="mx-auto" controls id="play" autoplay>
+              <!-- <source src="http://soundbible.com/grab.php?id=429&type=mp3" type="audio/mpeg">-->
+            </audio>
+          </div>
+          <div class="card-footer text-white" id="name"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
