@@ -8,7 +8,6 @@ twitter_username: johndoe
 github_username:  johndoe
 
 # Build settings
-theme: minima
 markdown: kramdown
 plugins:
   - jekyll-feed
