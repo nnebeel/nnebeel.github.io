@@ -1,0 +1,1027 @@
+[
+  {
+    "name": "Arts",
+    "children": [
+      {
+        "name": "Multimedia",
+        "children": [
+          {
+            "name": "Adobe After Effects",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Audacity",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Audio production",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Media encoding",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Photography",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Premiere Pro",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Social media",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Video production",
+            "value": 2,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Hobbies",
+        "children": [
+          {
+            "name": "Cultural mythology",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Holidays and holiday music",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Horror movies and literature",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Rock tumbling",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Woodworking",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Graphic design",
+        "children": [
+          {
+            "name": "Color theory",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Fontography (incl. ligatures, Unicode, ASCII)",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Graphic design",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Illustrator",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Photoshop",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Music composition",
+        "children": [
+          {
+            "name": "Finale",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "MuseScore",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Music theory",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Music transcription",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Orchestral composition",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Small ensemble composition",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Songwriting",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Music",
+        "children": [
+          {
+            "name": "Choral",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Keyboard performance",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Live music performance",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Musical collaboration",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Musical expression",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Musical sight-reading",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Orchestra performance",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Organ performance",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Singing",
+            "value": 2,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Language arts",
+        "children": [
+          {
+            "name": "Business writing",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Document design",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Linguistics",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Microsoft Office",
+            "value": 5,
+            "body": ""
+          },
+          {
+            "name": "Poetry",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Presenting",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Professional email communication",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Proofreading and editing",
+            "value": 5,
+            "body": ""
+          },
+          {
+            "name": "Standard American English grammar",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Style guide adherence",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Technical writing",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Text transcription",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Translation",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Vocabulary",
+            "value": 4,
+            "body": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Business & academics",
+    "children": [
+      {
+        "name": "Research",
+        "children": [
+          {
+            "name": "Interdisciplinary study",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Legal research",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Reading comprehension",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Scholarly research",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Project management",
+        "children": [
+          {
+            "name": "Business process modeling",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Documentation/SOP creation",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Forecasting and budgeting",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Mentoring",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Onboarding and out-processing",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Professional development",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Team management",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Timeline management",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Education",
+        "children": [
+          {
+            "name": "Educational psychology",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "English instruction",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Music instruction",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Programming pedagogy",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Formal communication",
+        "children": [
+          {
+            "name": "Publishing",
+            "children": [
+              {
+                "name": "Adobe Acrobat",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Adobe InDesign",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Marketing",
+                "value": 2,
+                "body": ""
+              },
+              {
+                "name": "Microsoft Publisher",
+                "value": 4,
+                "body": ""
+              },
+              {
+                "name": "Microsoft Word",
+                "value": 4,
+                "body": ""
+              }
+            ]
+          },
+          {
+            "name": "Style guides",
+            "children": [
+              {
+                "name": "APA",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Apple Style Guide",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Microsoft Style Guide",
+                "value": 4,
+                "body": ""
+              },
+              {
+                "name": "MLA",
+                "value": 4,
+                "body": ""
+              }
+            ]
+          },
+          {
+            "name": "Negotiation",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Policy drafting",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Presentation",
+        "children": [
+          {
+            "name": "Active listening",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Cross-cultural communication",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "PowerPoint",
+            "value": 5,
+            "body": ""
+          },
+          {
+            "name": "Public speaking",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Languages",
+    "children": [
+      {
+        "name": "English",
+        "value": 5,
+        "body": ""
+      },
+      {
+        "name": "Mandarin Chinese",
+        "value": 2,
+        "body": ""
+      },
+      {
+        "name": "Russian",
+        "value": 1,
+        "body": ""
+      }
+    ]
+  },
+  {
+    "name": "Science & technology",
+    "children": [
+      {
+        "name": "Cybersecurity",
+        "children": [
+          {
+            "name": "Antimalware",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Audits & assessments",
+            "children": [
+              {
+                "name": "AuditScripts CAT security assessment",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Cyber risk assessments",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Data privacy",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Physical security assessment",
+                "value": 2,
+                "body": ""
+              }
+            ]
+          },
+          {
+            "name": "Information security standards",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Risk management",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "SOC practices",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Threat hunting",
+            "value": 2,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Programming",
+        "children": [
+          {
+            "name": "API integration",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Batch operations",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Bootstrap",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Languages and frameworks",
+            "children": [
+              {
+                "name": "C#",
+                "value": 2,
+                "body": ""
+              },
+              {
+                "name": "C++",
+                "value": 2,
+                "body": ""
+              },
+              {
+                "name": "CSS",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Google Apps Script",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "HTML",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Inno",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "JavaScript",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "jQuery",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Microsoft Power Automate",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "PHP",
+                "value": 2,
+                "body": ""
+              },
+              {
+                "name": "PowerShell",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Python",
+                "value": 2,
+                "body": ""
+              },
+              {
+                "name": "SQL",
+                "value": 2,
+                "body": ""
+              },
+              {
+                "name": "TI-BASIC",
+                "value": 4,
+                "body": ""
+              },
+              {
+                "name": "VBS",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Windows Server",
+                "value": 2,
+                "body": ""
+              }
+            ]
+          },
+          {
+            "name": "Code documentation",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Database design",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "File formats",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Functional programing",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Mathematics",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Object-oriented programming",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Procedural programming",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "RegEx",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Reverse engineering",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "UX/UI design",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Version management",
+            "value": 2,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "System administration",
+        "children": [
+          {
+            "name": "Adobe Creative Cloud administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "AWS administration",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Azure Active Directory",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "DNS management",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Exchange administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Firewall administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Google Cloud Platform administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Google Workspace",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "ISP administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "LMS administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Microsoft Azure",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Microsoft InTune administration",
+            "value": 1,
+            "body": ""
+          },
+          {
+            "name": "Ninite administration",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Office 365 Administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "OptimumHQ",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Registrar administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "SharePoint administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "SIEM management",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "SIS administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Teams administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "VoIP administration",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "VPN administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "WordPress administration",
+            "value": 2,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Software",
+        "children": [
+          {
+            "name": "CAD/CAM",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "CyberCNS",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "G Suite",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Linux",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "macOS",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Microsoft Office",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Rapid7",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "SIEM usage",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "SketchUp",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Todyl",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Visual Studio Code",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Windows",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "yEd",
+            "value": 4,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Data analysis",
+        "children": [
+          {
+            "name": "AI/ML use",
+            "value": 1,
+            "body": ""
+          },
+          {
+            "name": "Algebra",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Data visualization",
+            "children": [
+              {
+                "name": "BPMN diagramming",
+                "value": 4,
+                "body": ""
+              },
+              {
+                "name": "Dashboard design",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "ERD diagramming",
+                "value": 4,
+                "body": ""
+              },
+              {
+                "name": "Gantt charts",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Graphing and charting",
+                "value": 3,
+                "body": ""
+              },
+              {
+                "name": "Kanban boards",
+                "value": 3,
+                "body": ""
+              }
+            ]
+          },
+          {
+            "name": "Complex problem solving",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Critical thinking",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Data algorithms",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Excel",
+            "value": 5,
+            "body": ""
+          },
+          {
+            "name": "Google Analytics",
+            "value": 2,
+            "body": ""
+          },
+          {
+            "name": "Information ordering",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Logic",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Mathematical reasoning",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Mental mathematics",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Statistics",
+            "value": 2,
+            "body": ""
+          }
+        ]
+      },
+      {
+        "name": "Infrastructure",
+        "children": [
+          {
+            "name": "File system management",
+            "value": 4,
+            "body": ""
+          },
+          {
+            "name": "Hardware repair",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "NAS administration",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Networking",
+            "value": 3,
+            "body": ""
+          }
+        ]
+      }
+    ]
+  }
+]
