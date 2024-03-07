@@ -48,36 +48,6 @@
         ]
       },
       {
-        "name": "Hobbies",
-        "children": [
-          {
-            "name": "Cultural mythology",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Holidays and holiday music",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Horror movies and literature",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Rock tumbling",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Woodworking",
-            "value": 3,
-            "body": ""
-          }
-        ]
-      },
-      {
         "name": "Graphic design",
         "children": [
           {
@@ -236,7 +206,7 @@
             "body": ""
           },
           {
-            "name": "Proofreading and editing",
+            "name": "Proofreading & editing",
             "value": 5,
             "body": ""
           },
@@ -316,7 +286,7 @@
             "body": ""
           },
           {
-            "name": "Forecasting and budgeting",
+            "name": "Forecasting & budgeting",
             "value": 3,
             "body": ""
           },
@@ -326,7 +296,7 @@
             "body": ""
           },
           {
-            "name": "Onboarding and out-processing",
+            "name": "Onboarding & out-processing",
             "value": 3,
             "body": ""
           },
@@ -470,6 +440,61 @@
     ]
   },
   {
+    "name": "Hobbies & Interests",
+    "children": [
+      {
+        "name": "Mythology",
+        "value": 3,
+        "body": ""
+      },
+      {
+        "name": "Holidays & holiday music",
+        "value": 3,
+        "body": ""
+      },
+      {
+        "name": "Horror movies & literature",
+        "value": 3,
+        "body": ""
+      },
+      {
+        "name": "Rock tumbling",
+        "value": 3,
+        "body": ""
+      },
+      {
+        "name": "Woodworking",
+        "value": 3,
+        "body": ""
+      },
+      {
+        "name": "Folk songs & lullabies",
+        "value": 4,
+        "body": ""
+      },
+      {
+        "name": "Ethnomusicology",
+        "value": 3,
+        "body": ""
+      },
+      {
+        "name": "Engineering",
+        "value": 2,
+        "body": ""
+      },
+      {
+        "name": "Engraving",
+        "value": 2,
+        "body": ""
+      },
+      {
+        "name": "Comparative religion",
+        "value": 3,
+        "body": ""
+      }
+    ]
+  },
+  {
     "name": "Languages",
     "children": [
       {
@@ -566,7 +591,7 @@
             "body": ""
           },
           {
-            "name": "Languages and frameworks",
+            "name": "Languages & frameworks",
             "children": [
               {
                 "name": "C#",
@@ -934,7 +959,7 @@
                 "body": ""
               },
               {
-                "name": "Graphing and charting",
+                "name": "Graphing & charting",
                 "value": 3,
                 "body": ""
               },
