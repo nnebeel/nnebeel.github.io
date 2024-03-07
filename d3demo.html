@@ -6,15 +6,22 @@ title: D3 Demo
 <!DOCTYPE html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/d3plus-text@1"></script>-->
+
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/2.1.3/d3plus.min.js" integrity="sha512-D2hvTQ1fUDxeF25eHfx1ditGr/VR7Oz5OIHTJKd21qHrZypWlaK0E0KmgMzlHX6YXmuopftDqe8cv8wvWS2pSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-    <script src="https://cdn.jsdelivr.net/npm/d3plus-text@1"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/d3plus@2" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <!--<script src="https://d3plus.org/js/d3plus.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+
+    <script>
+        console.log(d3)
+    </script>
 </head>
 <div id="container"></div>
 
-<!-- <script
+<script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script> -->
+  crossorigin="anonymous"></script>
 
 <script type="module">
 // Wait for document to be ready before executing the script
@@ -37,6 +44,7 @@ $(document).ready(function() {
     // Main function to render the chart using D3
     function renderChart(data) {
         const { width, height } = getDimensions(); // Get current dimensions
+        const lineHeight = 1.05;
         const scalar = 2;
 
         // The circle pack fits within a square; get the minimum of width or height to maintain a square
@@ -81,19 +89,15 @@ $(document).ready(function() {
                 .on("mouseover", function() { d3.select(this).attr("stroke", "#000"); })
                 .on("mouseout", function() { d3.select(this).attr("stroke", null); })
                 .on("click", (event, d) => {
-                    if (!d.children) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    } else {
-                        focus !== d && (zoom(event, d), event.stopPropagation())
-                    }
+                    event.stopPropagation();
+                    const target = d.children ? d : d.parent; // If no children, target the parent
+                    focus !== target && zoom(event, target);
                 });
 
         // Append title to each circle for hover effect
         node.append("title")
             .text(d => d.data.name);
 
-        // Append labels for each node
         const label = svg.append("g")
             .style("font", "12px default")
             .style("fill", "black")
@@ -106,11 +110,28 @@ $(document).ready(function() {
             .join("text")
             .style("fill-opacity", d => d.parent === root ? 1 : 0)
             .style("display", d => d.parent === root ? "inline" : "none")
-            .text(d => d.data.name);
+            .text(d => d.data.name)
 
-        d3plus.textwrap()
-            .container(d3.select(".wrap"))
-            .draw();
+        svg.selectAll("text")
+            .each(function(d) {
+                // Clear existing text and split it into words
+                var words = d.data.name.split(/\s+/);
+                var tspans = d3.select(this)
+                    .text(null)
+                    .selectAll("tspan")
+                        .data(words)
+                        .enter()
+                        .append("tspan")
+                            .text(d => d);
+
+                // Calculate adjustment for vertical centering
+                var tspanCount = words.length;
+                var firstTspanDy = -((tspanCount - 1) / 2) * lineHeight + 0.41; // Adjusted 0.41em down for observed vertical offset that seems to be native to D3
+
+                tspans
+                    .attr("x", 0)
+                    .attr("dy", (d, i) => `${i === 0 ? firstTspanDy : lineHeight}em`);
+            });
 
         // Initialize zoom behavior
         svg.on("click", (event) => zoom(event, root));
