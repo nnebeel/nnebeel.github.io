@@ -36,6 +36,7 @@ $(document).ready(function() {
     // Main function to render the chart using D3
     function renderChart(data) {
         const { width, height } = getDimensions(); // Get current dimensions
+        const scalar = 2;
 
         // The circle pack fits within a square; get the minimum of width or height to maintain a square
         const size = Math.min(width, height);
@@ -45,7 +46,7 @@ $(document).ready(function() {
             .size([size, size]) // Use the computed square size
             .padding(3)
         (d3.hierarchy(data)
-            .sum(d => d.value)
+            .sum(d => d.value * 2)
             .sort((a, b) => b.value - a.value));
         const root = pack(data);
 
