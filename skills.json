@@ -51,12 +51,7 @@
         "name": "Graphic design",
         "children": [
           {
-            "name": "Color theory",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Fontography (incl. ligatures, Unicode, ASCII)",
+            "name": "Fontography (including spacing, ligatures, Unicode, ASCII)",
             "value": 3,
             "body": ""
           },
@@ -121,7 +116,12 @@
         "name": "Music",
         "children": [
           {
-            "name": "Choral",
+            "name": "Conducting",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Accompaniment",
             "value": 4,
             "body": ""
           },
@@ -131,33 +131,28 @@
             "body": ""
           },
           {
-            "name": "Live music performance",
+            "name": "Live performance",
             "value": 3,
             "body": ""
           },
           {
-            "name": "Musical collaboration",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Musical expression",
+            "name": "Banding",
             "value": 3,
             "body": ""
           },
           {
-            "name": "Musical sight-reading",
+            "name": "Expression",
+            "value": 3,
+            "body": ""
+          },
+          {
+            "name": "Sight-reading",
             "value": 3,
             "body": ""
           },
           {
             "name": "Orchestra performance",
             "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Organ performance",
-            "value": 3,
             "body": ""
           },
           {
@@ -183,11 +178,6 @@
           {
             "name": "Linguistics",
             "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Microsoft Office",
-            "value": 5,
             "body": ""
           },
           {
@@ -440,7 +430,7 @@
     ]
   },
   {
-    "name": "Hobbies & Interests",
+    "name": "Hobbies & interests",
     "children": [
       {
         "name": "Mythology",
@@ -491,6 +481,11 @@
         "name": "Comparative religion",
         "value": 3,
         "body": ""
+      },
+      {
+        "name": "Color theory",
+        "value": 3,
+        "body": ""
       }
     ]
   },
@@ -515,7 +510,7 @@
     ]
   },
   {
-    "name": "Science & technology",
+    "name": "Technology & engineering",
     "children": [
       {
         "name": "Cybersecurity",
@@ -660,7 +655,7 @@
               },
               {
                 "name": "TI-BASIC",
-                "value": 4,
+                "value": 3,
                 "body": ""
               },
               {
@@ -882,7 +877,7 @@
           },
           {
             "name": "Microsoft Office",
-            "value": 4,
+            "value": 5,
             "body": ""
           },
           {
@@ -951,7 +946,7 @@
               {
                 "name": "ERD diagramming",
                 "value": 4,
-                "body": ""
+                "body": "<b>This</b> is just a test for now."
               },
               {
                 "name": "Gantt charts",
@@ -986,7 +981,7 @@
             "body": ""
           },
           {
-            "name": "Excel",
+            "name": "Spreadsheets",
             "value": 5,
             "body": ""
           },
