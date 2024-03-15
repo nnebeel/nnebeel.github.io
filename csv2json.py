@@ -16,7 +16,7 @@ def insert_node(path, value, body, current_level):
 
 def build_hierarchy(csv_filepath):
     """Builds a hierarchical structure from a CSV file."""
-    with open(csv_filepath, newline='', encoding='utf-8') as csvfile:
+    with open(csv_filepath, newline='', encoding='utf-8-sig') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             # Assuming headers are named Grandparent, Parent, Child, Leaf, Value, Body
@@ -46,9 +46,8 @@ build_hierarchy(csv_file_path)
 # Convert the hierarchy to JSON format
 hierarchy_json = hierarchy_to_json(hierarchy)
 
-# Print or save the JSON output
-print(json.dumps(hierarchy_json, indent=2))
+# print(json.dumps(hierarchy_json, indent=2))
 
-# Optionally, save to a file
+# Save to a file
 with open('skills.json', 'w') as f:
     json.dump(hierarchy_json, f, indent=2)
