@@ -1,184 +1,110 @@
-Grandparent,Parent,Child,Leaf,Value,Body
-Arts,Multimedia,,Adobe After Effects,2,
-Arts,Multimedia,,Audacity,3,
-Arts,Multimedia,,Audio production,2,
-Arts,Multimedia,,Media encoding,3,
-Arts,Multimedia,,Photography,2,
-Arts,Multimedia,,Premiere Pro,2,
-Arts,Multimedia,,Social media,2,
-Arts,Multimedia,,Video production,2,
-Arts,Graphic design,,"Fontography (including spacing, ligatures, Unicode, ASCII)",3,
-Arts,Graphic design,,Graphic design,3,
-Arts,Graphic design,,Illustrator,3,
-Arts,Graphic design,,Photoshop,3,
-Arts,Music composition,,Finale,4,
-Arts,Music composition,,MuseScore,3,
-Arts,Music composition,,Music theory,2,
-Arts,Music composition,,Music transcription,3,
-Arts,Music composition,,Orchestral composition,3,
-Arts,Music composition,,Small ensemble composition,4,
-Arts,Music composition,,Songwriting,3,
-Arts,Music,,Conducting,3,
-Arts,Music,,Accompaniment,4,
-Arts,Music,,Keyboard performance,4,
-Arts,Music,,Live performance,3,
-Arts,Music,,Banding,3,
-Arts,Music,,Expression,3,
-Arts,Music,,Sight-reading,3,
-Arts,Music,,Orchestra performance,4,
-Arts,Music,,Singing,2,
-Arts,Language arts,,Business writing,4,
-Arts,Language arts,,Document design,4,
-Arts,Language arts,,Linguistics,2,
-Arts,Language arts,,Poetry,3,
-Arts,Language arts,,Presenting,3,
-Arts,Language arts,,Professional email communication,4,
-Arts,Language arts,,Proofreading & editing,5,
-Arts,Language arts,,Standard American English grammar,4,
-Arts,Language arts,,Style guide adherence,4,
-Arts,Language arts,,Technical writing,4,
-Arts,Language arts,,Text transcription,3,
-Arts,Language arts,,Translation,2,
-Arts,Language arts,,Vocabulary,4,
-Business & academics,Research,,Interdisciplinary study,3,
-Business & academics,Research,,Legal research,2,
-Business & academics,Research,,Reading comprehension,4,
-Business & academics,Research,,Scholarly research,3,
-Business & academics,Project management,,Business process modeling,4,
-Business & academics,Project management,,Documentation/SOP creation,4,
-Business & academics,Project management,,Forecasting & budgeting,3,
-Business & academics,Project management,,Mentoring,3,
-Business & academics,Project management,,Onboarding & out-processing,3,
-Business & academics,Project management,,Professional development,3,
-Business & academics,Project management,,Team management,2,
-Business & academics,Project management,,Timeline management,3,
-Business & academics,Education,,Educational psychology,3,
-Business & academics,Education,,English instruction,3,
-Business & academics,Education,,Music instruction,4,
-Business & academics,Education,,Programming pedagogy,3,
-Business & academics,Formal communication,Publishing,Adobe Acrobat,3,
-Business & academics,Formal communication,Publishing,Adobe InDesign,3,
-Business & academics,Formal communication,Style guides,APA,3,
-Business & academics,Formal communication,Style guides,Apple Style Guide,3,
-Business & academics,Formal communication,Publishing,Marketing,2,
-Business & academics,Formal communication,Publishing,Microsoft Publisher,4,
-Business & academics,Formal communication,Style guides,Microsoft Style Guide,4,
-Business & academics,Formal communication,Publishing,Microsoft Word,4,
-Business & academics,Formal communication,Style guides,MLA,4,
-Business & academics,Formal communication,,Negotiation,3,
-Business & academics,Formal communication,,Policy drafting,3,
-Business & academics,Presentation,,Active listening,3,
-Business & academics,Presentation,,Cross-cultural communication,4,
-Business & academics,Presentation,,PowerPoint,5,
-Business & academics,Presentation,,Public speaking,3,
-Hobbies & interests,,,Mythology,3,
-Hobbies & interests,,,Holidays & holiday music,3,
-Hobbies & interests,,,Horror movies & literature,3,
-Hobbies & interests,,,Rock tumbling,3,
-Hobbies & interests,,,Woodworking,3,
-Hobbies & interests,,,Folk songs & lullabies,4,
-Hobbies & interests,,,Ethnomusicology,3,
-Hobbies & interests,,,Engineering,2,
-Hobbies & interests,,,Engraving,2,
-Hobbies & interests,,,Comparative religion,3,
-Hobbies & interests,,,Color theory,3,
-Languages,,,English,5,
-Languages,,,Mandarin Chinese,2,
-Languages,,,Russian,1,
-Technology & engineering,Cybersecurity,,Antimalware,3,
-Technology & engineering,Cybersecurity,Audits & assessments,AuditScripts CAT security assessment,3,
-Technology & engineering,Cybersecurity,Audits & assessments,Cyber risk assessments,3,
-Technology & engineering,Cybersecurity,Audits & assessments,Data privacy,3,
-Technology & engineering,Cybersecurity,,Information security standards,3,
-Technology & engineering,Cybersecurity,Audits & assessments,Physical security assessment,2,
-Technology & engineering,Cybersecurity,,Risk management,3,
-Technology & engineering,Cybersecurity,,SOC practices,3,
-Technology & engineering,Cybersecurity,,Threat hunting,2,
-Technology & engineering,Programming,,API integration,2,
-Technology & engineering,Programming,,Batch operations,4,
-Technology & engineering,Programming,,Bootstrap,3,
-Technology & engineering,Programming,Languages & frameworks,C#,2,
-Technology & engineering,Programming,Languages & frameworks,C++,2,
-Technology & engineering,Programming,,Code documentation,3,
-Technology & engineering,Programming,Languages & frameworks,CSS,3,
-Technology & engineering,Programming,,Database design,3,
-Technology & engineering,Programming,,File formats,3,
-Technology & engineering,Programming,,Functional programing,3,
-Technology & engineering,Programming,Languages & frameworks,Google Apps Script,3,
-Technology & engineering,Programming,Languages & frameworks,HTML,3,
-Technology & engineering,Programming,Languages & frameworks,Inno,3,
-Technology & engineering,Programming,Languages & frameworks,JavaScript,3,
-Technology & engineering,Programming,Languages & frameworks,jQuery,3,
-Technology & engineering,Programming,,Mathematics,3,
-Technology & engineering,Programming,Languages & frameworks,Microsoft Power Automate,3,
-Technology & engineering,Programming,,Object-oriented programming,3,
-Technology & engineering,Programming,Languages & frameworks,PHP,2,
-Technology & engineering,Programming,Languages & frameworks,PowerShell,3,
-Technology & engineering,Programming,,Procedural programming,3,
-Technology & engineering,Programming,Languages & frameworks,Python,2,
-Technology & engineering,Programming,,RegEx,4,
-Technology & engineering,Programming,,Reverse engineering,3,
-Technology & engineering,Programming,Languages & frameworks,SQL,2,
-Technology & engineering,Programming,Languages & frameworks,TI-BASIC,3,
-Technology & engineering,Programming,,UX/UI design,2,
-Technology & engineering,Programming,Languages & frameworks,VBS,3,
-Technology & engineering,Programming,,Version management,2,
-Technology & engineering,Programming,Languages & frameworks,Windows Server,2,
-Technology & engineering,System administration,,Adobe Creative Cloud administration,3,
-Technology & engineering,System administration,,AWS administration,2,
-Technology & engineering,System administration,,Azure Active Directory,3,
-Technology & engineering,System administration,,DNS management,3,
-Technology & engineering,System administration,,Exchange administration,3,
-Technology & engineering,System administration,,Firewall administration,3,
-Technology & engineering,System administration,,Google Cloud Platform administration,3,
-Technology & engineering,System administration,,Google Workspace,3,
-Technology & engineering,System administration,,ISP administration,3,
-Technology & engineering,System administration,,LMS administration,3,
-Technology & engineering,System administration,,Microsoft Azure,3,
-Technology & engineering,System administration,,Microsoft InTune administration,1,
-Technology & engineering,System administration,,Ninite administration,4,
-Technology & engineering,System administration,,Office 365 Administration,3,
-Technology & engineering,System administration,,OptimumHQ,4,
-Technology & engineering,System administration,,Registrar administration,3,
-Technology & engineering,System administration,,SharePoint administration,3,
-Technology & engineering,System administration,,SIEM management,3,
-Technology & engineering,System administration,,SIS administration,3,
-Technology & engineering,System administration,,Teams administration,3,
-Technology & engineering,System administration,,VoIP administration,2,
-Technology & engineering,System administration,,VPN administration,3,
-Technology & engineering,System administration,,WordPress administration,2,
-Technology & engineering,Software,,CAD/CAM,2,
-Technology & engineering,Software,,CyberCNS,2,
-Technology & engineering,Software,,G Suite,4,
-Technology & engineering,Software,,Linux,2,
-Technology & engineering,Software,,macOS,3,
-Technology & engineering,Software,,Microsoft Office,5,
-Technology & engineering,Software,,Rapid7,3,
-Technology & engineering,Software,,SIEM usage,3,
-Technology & engineering,Software,,SketchUp,3,
-Technology & engineering,Software,,Todyl,3,
-Technology & engineering,Software,,Visual Studio Code,2,
-Technology & engineering,Software,,Windows,4,
-Technology & engineering,Software,,yEd,4,
-Technology & engineering,Data analysis,,AI/ML use,1,
-Technology & engineering,Data analysis,,Algebra,3,
-Technology & engineering,Data analysis,Data visualization,BPMN diagramming,4,
-Technology & engineering,Data analysis,,Complex problem solving,3,
-Technology & engineering,Data analysis,,Critical thinking,3,
-Technology & engineering,Data analysis,Data visualization,Dashboard design,3,
-Technology & engineering,Data analysis,,Data algorithms,3,
-Technology & engineering,Data analysis,Data visualization,ERD diagramming,4,<b>This</b> is just a test for now.
-Technology & engineering,Data analysis,,Spreadsheets,5,
-Technology & engineering,Data analysis,Data visualization,Gantt charts,3,
-Technology & engineering,Data analysis,,Google Analytics,2,
-Technology & engineering,Data analysis,Data visualization,Graphing & charting,3,
-Technology & engineering,Data analysis,,Information ordering,4,
-Technology & engineering,Data analysis,Data visualization,Kanban boards,3,
-Technology & engineering,Data analysis,,Logic,3,
-Technology & engineering,Data analysis,,Mathematical reasoning,3,
-Technology & engineering,Data analysis,,Mental mathematics,3,
-Technology & engineering,Data analysis,,Statistics,2,
-Technology & engineering,Infrastructure,,File system management,4,
-Technology & engineering,Infrastructure,,Hardware repair,3,
-Technology & engineering,Infrastructure,,NAS administration,3,
-Technology & engineering,Infrastructure,,Networking,3,
+﻿Parent 3,Parent 2,Parent 1,Leaf,Value,Body
+,,,Multidisciplinary expertise and leadership,5,"Employ multidisciplinary expertise and leadership, blending innovation, strategic insight, and a passion for lifelong learning to excel across arts, business, academics, technology, and more. My diverse skill set enables me to navigate complex challenges, create compelling outcomes, and drive projects forward with creativity and precision. This comprehensive approach fosters cross-disciplinary connections and delivers impactful solutions. I invite you to explore the specific nodes and leaves within this matrix to discover more about my unique contributions and the depth of my experiences across various fields."
+Arts,Graphic design,,Document design,4,"Expertly design a wide range of documents including tutorials, training materials, newsletters, and invitations, focusing on layout, typography, and visual impact to enhance reader engagement and comprehension."
+Arts,Graphic design,,Fontography,3,"Demonstrate extensive experience with various fonts, focusing on manipulation, spacing, ligatures, and understanding of Unicode and ASCII, to enhance text presentation, readability, and aesthetic appeal."
+Arts,Graphic design,,Graphic design,3,"Possess a strong grasp of graphic design principles, applying them to create visually compelling designs that effectively communicate messages and meet project objectives."
+Arts,Graphic design,,Raster graphics,3,"Skillfully perform advanced manipulation, resizing, and design of raster graphics using Photoshop and GIMP, creating high-quality visuals for diverse applications."
+Arts,Graphic design,,Vector graphics,3,"Expertly create a range of vector graphics using Inkscape, Illustrator, and Sketchup, focusing on advanced techniques such as transparency and layers. Received recognition for design excellence with a company award."
+Arts,Language arts,,Linguistics,2,"Possess a working knowledge of linguistic principles including IPA, grammatical structure, and morphology, including knowledge of Sino-Tibetan (Mandarin Chinese, Min, Atayal), Balto-Slavic (Russian), and Germanic (English, German) languages."
+Arts,Language arts,,Poetry,3,"Compose poetry and prose-poems using a variety of poetic forms. Authored and published a <a title=""Half Light"" href=""https://www.blurb.com/b/1270432-half-light"">book of original poetry</a>, collaborating with a watercolor artist to blend visual and textual artistry. One poem published in national poetry periodical."
+Arts,Language arts,,Proofreading & editing,5,"Expertly edit and proofread a diverse array of materials including policies, contracts, marketing content, and educational resources, ensuring accuracy and clarity. Notably provided editing support for a doctoral dissertation, demonstrating a high level of precision and attention to detail, as well as a deep understanding of academic standards and requirements. Reviewed, proofread, and fact-checked more than 50 e-learning courses."
+Arts,Language arts,,Standard American English grammar,4,Possess thorough understanding of Standard American English grammar and syntax.
+Arts,Language arts,,Text transcription,3,Fluently use audio transcription tools to compose faithful and syntactically accurate transcriptions. Transcribed audio history projects and e-learning courses for publication and closed captioning.
+Arts,Language arts,,Translation,2,"Carefully translate materials from Chinese to English. Successfully translated and published a section of <cite>楊蘭春 (Chaoyang Canal)</cite>, a traditional opera, for a concert brochure, enhancing cultural exchange and understanding. (<a title=""Soaring on Song"" href=""https://osucedarcity.blogspot.com/2014/10/soaring-on-song.html"">Review</a>)"
+Arts,Language arts,,Vocabulary & spelling,4,Expertly exercise phonological and phonemic awareness and quickly and consistently spell words correctly. Won 5 regional and state spelling contests. Thorough understanding of etymology.
+Arts,Multimedia,,Audio production,2,"Use DAWs and audio equipment to generate high-quality audio. Converted and optimized analog media in various formats to digital audio, images, and video using a large variety of tools."
+Arts,Multimedia,,Media encoding,3,Fluently determine format requirements for specific usage scenarios. Analyzed optimal codec settings for storage and quality.
+Arts,Multimedia,,Motion graphics,2,"Use After Effects, Premiere, and other video tools to create animations and video effects. Created wedding music video with 3D parallax scenes based on bride and groom photos."
+Arts,Multimedia,,Social media,2,Use social media effectively to promote projects and ideas. Worked with marketing team to determine best management practices for social media accounts.
+Arts,Multimedia,,Video production,2,Create video projects using industry standard tools. Created various video projects using Adobe Premiere Pro and After Effects.
+Arts,Music,,Accompaniment,4,"Professionally provide keyboard accompaniment for vocalists, solo instrumentalists, various ensembles, secondary and post-secondary choirs, drama productions."
+Arts,Music,,Composition & songwriting,4,"Compose and arrange musical works for a variety of skill levels and instrumental combinations.<ul><li>Composed and arranged dozens of short works for choirs, soloists, jazz ensembles, and other small ensembles, including 11 award-winning works.</li><li>Composed dozens of original songs, many with original lyrics.</li><li>Composed, arranged, and reorchestrated several short works for full band, choir, and orchestra, including 2 award-winning works and several arrangements featured in international broadcasts.</li></ul>"
+Arts,Music,,Conducting,3,"Expressively conduct musical groups, reading effectively and efficiently from scores. Conducted choirs, bands, and other musical groups."
+Arts,Music,,Digital notation,4,"Use industry-standard software to engrave musical scores. Designed score standards and notated more than 100 original works, transcriptions, and arrangements with Finale, MuseScore, and Sibelius. Commissioned to arrange and compose several works, including theme and incidental music for a podcast."
+Arts,Music,,Keyboard performance,4,"Expertly perform a variety of genres of keyboard music. <ul><li>Winner of Salute to Youth concerto competition 2002 and music Sterling Scholar 2002.</li><li>World premiere of several <a title=""17th Annual Fall Recital Series Starts Sept. 3"" href=""https://osucedarcity.blogspot.com/2013/08/17th-annual-fall-recital-series-starts.html"">Hal Campbell compositions</a>.</li><li>Performed on pianos, keyboards, and organs in numerous public and private venues, for profit and for free.</li></ul>"
+Arts,Music,,Live performance,3,"Comfortably perform in a variety of settings. Provided venue music for weddings, lobbies, and restaurants."
+Arts,Music,,Music theory,2,"Possess a solid working knowledge of music theory, including advanced concepts. While proficient in many areas, I am always seeking to deepen my understanding."
+Arts,Music,,Music transcription,3,Easily use ear training to transcribe complex musical themes and harmonies. Transcribed a variety of folk songs and generated a MIDI minus track for Miss Utah competition.
+Arts,Music,,Orchestra performance,4,Perform as orchestra keyboardist. Professional keyboardist for Orchestra of Southern Utah for many years.
+Arts,Music,,Sight-reading,3,Quickly and easily perform and condense advanced scores upon sight. Accompanied choral studio classes where I had not seen the music beforehand.
+Arts,Music,,Singing,2,Sing using proper technique and good projection. Won superior ratings at vocal performance state competitions. Member of various show and performance choirs.
+Arts,,,Creative expression & innovation,4,"Demonstrate exceptional ability in harnessing creativity and innovation across multiple artistic disciplines, including music, graphic design, language arts, and multimedia. Skilled in translating complex concepts into compelling artistic expressions that resonate with diverse audiences. This holistic approach to artistry emphasizes the interconnectivity of creative domains and my capacity to lead and inspire through innovation."
+Business & academics,Education,,English instruction,4,Passionately teach students about literary and composition topics. Utah secondary English education teaching certificate. Successfully completed student-teaching in 9th-grade English classroom. Led individual and group college-level English tutoring sessions.
+Business & academics,Education,,Music instruction,4,Patiently instruct music students of all levels. More than 15 years of private piano instruction to more than 50 beginning to advanced keyboard students ages 6–60.
+Business & academics,Education,,Programming pedagogy,3,Effectively help learners of a variety of programming languages reach new heights. Instructed 20 self-paced college-level certificate courses and weekly tutoring sessions in beginning programming. Subject matter expert for e-learning programming courses.
+Business & academics,Formal communication,Publishing,Interactive forms & documents,3,"Effectively use forms for data gathering and learning objectives. Designed and created interactive forms using Microsoft Forms, Google Forms, Power Automate, and React. Designed advanced preflight process for student and teacher workbooks using Acrobat fields."
+Business & academics,Formal communication,Publishing,Marketing,2,"Use rhetoric and marketing devices to create and analyze effective and appealing marketing campaigns. Worked alongside marketing team to determine brand messaging techniques, social media strategies, and secure practices."
+Business & academics,Formal communication,Publishing,Microsoft Word,5,"Expertly use most, if not all, advanced features of Microsoft Word, including style generation, advanced typography, tables, fields, and macros. "
+Business & academics,Formal communication,Publishing,Publishing software,4,"Efficiently and effectively design documents using industry-standard software. Worked using Adobe InDesign, Microsoft Publisher, and Adobe Acrobat using document styling to generate books, newsletters, and other documents."
+Business & academics,Formal communication,,Negotiation,3,"Understand and use effective negotiation tactics to procure the most efficacious deals and relationships for stakeholders. Navigated many contract renewals and service changes. In the process, negotiated substantial service contract savings through research and comparison."
+Business & academics,Formal communication,,Presentation,3,"Present important information in a thoughtful, kind, and pleasant manner. Presented in a variety of settings—conferences, training meetings, educational events, and classrooms."
+Business & academics,Formal communication,,Professional communication,4,"Consistently write thoughtful, thorough, diplomatic, and professional emails. Well-known among colleagues for business communication skills."
+Business & academics,Formal communication,,Style guide adherence,4,"Possess thorough knowledge of and consistently follow many industry-standard and situation-appropriate style guides for use of tone, syntax, and citations:<ul><li>Ensured adherence to APA during editing process of a doctoral candidate's dissertation.</li><li>Learned and implemented Microsoft and Apple style guides in e-learning and UI environments.</li><li>Thoroughly learned and taught adherence to MLA style guide.</li></ul>"
+Business & academics,Formal communication,,Technical writing,4,"Write adeptly about a variety of technical subjects, using confident, direct, informative, and formal tones. Drafted sections of policies, presentation scripts, workbooks, tutorials, helpdesk articles, SOPs, reports, and many other technical documents, adhering to consistent practices and style guides."
+Business & academics,Leadership & project management,,Business process modeling,4,"Expertly analyze processes for efficiency and time complexity. Highly skilled in breaking down processes into their constituent tasks and modeling using BPMN and other flowchart models. My models have helped decrease production times, increase productivity, and provide clarity."
+Business & academics,Leadership & project management,,Documentation/SOP creation,4,Keep thorough documentation for future ease of use and sharing of information and processes. Regularly updated and created SOPs and documentation for use by a variety of teams.
+Business & academics,Leadership & project management,,Forecasting & budgeting,3,"Analyze and optimize cost efficiency and usage metrics of a variety of services. Regularly provided detailed analyses of service usage and cost-benefit relationships, resulting in streamlined relationships, better service, and cost savings. Examples: <ul><li>My 2020 CDN comparison led to a cost savings of 50% and better streaming quality and processes.</li><li>My team's 2023 SIEM/licensing comparison resulted in 25% cost savings and 1,000 annual person-hours.</li></ul>"
+Business & academics,Leadership & project management,,Mentoring,3,"Guide team members and help them reach their potentials. Provided mentoring and cross-training for a variety of job-related functions, allowing for interdisciplinary exchange of ideas and better line-of-sight."
+Business & academics,Leadership & project management,,Onboarding & out-processing,3,"Expertly handle sensitive onboarding and out-processing scenarios according to NIST best practices. Crystallized IT onboarding and out-processing procedures into a repeatable, formulaic, scalable process. Oversaw and managed a complex RIF scenario involving 15% of employees in a company."
+Business & academics,Leadership & project management,,Team management,3,"Manage projects and team cohesivity, encouraging open and using the adversarial model to determine the best path forward. Led a team of up to five IT professionals, reporting directly to the CEO and Vice President, demonstrating strong leadership and team management abilities."
+Business & academics,Leadership & project management,,Timeline management,3,Effectively manage multiple team projects with a variety of timeline requirements.
+Business & academics,Presentation,,Active listening,3,"Skilled in active listening, ensuring clear and effective communication by fully concentrating, understanding, responding to, and remembering what is being said."
+Business & academics,Presentation,,"Multicultural, interdisciplinary communication",4,"Exercise awareness of cultural differences and communication proprieties among diverse audiences. Have mentored team members and students from diverse cultural, educational, linguistic, and socioeconomic backgrounds."
+Business & academics,Presentation,,PowerPoint,5,"Expertly use composition, animation, and advanced features of Microsoft PowerPoint to create engaging, immersive presentations. Created <a href=""Whaling in the 19th Century—The Fluke and the Furious"" href=""https://www.youtube.com/watch?v=OuwyofYq4hg"">a 5-minute educational documentary</a> entirely within PowerPoint."
+Business & academics,Presentation,,Public speaking,3,Speak clearly and eloquently in group settings. Have presented for educational conferences and groups of all sizes. Studied and practiced oratory techniques.
+Business & academics,,,Reading comprehension,4,"Excel at quickly understanding, interpreting, and applying written information, ensuring effective learning, communication, and decision-making, "
+Business & academics,,,Research,4,"Conduct thorough research across diverse subjects, analyzing data and information in depth, and evaluating literature and methodologies."
+Business & academics,,,Strategic analysis & leadership,4,"Possess a strong foundation in strategic analysis and leadership within business and academic environments. Demonstrate the ability to critically assess situations, develop effective strategies, and lead initiatives that drive organizational and educational excellence. This skill is evident through contributions to education, formal communication, and leadership development projects."
+Hobbies & interests,Culture & arts,Arts & crafts,Color theory,3,"Proficiently apply color theory principles to various projects, enhancing visual aesthetics and communication."
+Hobbies & interests,Culture & arts,Arts & crafts,Laser cutting & etching,2,Create artistic and architectural models for model-building and other artistic laser-cut projects. Designed several batches of laser wood art projects for gifts and party favors.
+Hobbies & interests,Culture & arts,Arts & crafts,Photography,2,"Use composition, lighting, and photojournalistic techniques to take interesting photographs. Studied photographic techniques."
+Hobbies & interests,Culture & arts,Arts & crafts,Woodworking,3,Comfortably and safely use a wide variety of woodworking tools. Worked as a picture framer. Remodeled my bathroom and built a vanity from scratch.
+Hobbies & interests,Culture & arts,Music appreciation & performance,Ethnomusicology,4,"Enjoy studying music and its relationship with culture. Deeply interested in the study of music from various cultural and historical contexts, including folk songs, lullabies, and holiday music, exploring their historical backgrounds and societal impacts."
+Hobbies & interests,Culture & arts,Music appreciation & performance,Musical genres,4,"Possess a broad appreciation for diverse music styles including global pop (Mandopop, J-Pop, K-Pop, Russian pop), classical (spanning from Renaissance to Romantic to Neoclassical to Futurism), folk, jazz, electronic, pop, and metal music, as well as unique vocal styles (a cappella, barbershop)."
+Hobbies & interests,Culture & arts,Music appreciation & performance,Musical instruments,4,"Perform on a variety of instruments, ranging from traditional (piano, guitar, drums) to classical (organ, trombone) and modern (synthesizer), embracing a wide spectrum of music creation and performance. Primary instrument: keyboards (piano, organ)."
+Hobbies & interests,Culture & arts,,Writing,5,"Write about a variety of interests, from rock tumbling and computer science to horror and poetry. Several longer works in progress."
+Hobbies & interests,Culture & arts,,Cultural anthropology,3,"Study the nature of humanity—what makes us human and what we have in common. Very interested in cultural practices and beliefs, with special interests in sinology, numismatics, and holiday traditions."
+Hobbies & interests,Culture & arts,,Movies & literature,4,"Enjoy a diverse range of genres including action, children's and young adult fiction, documentaries, and mystery. Horror, particularly psychological horror and thrillers, ranks as my top interest in both literature and movies."
+Hobbies & interests,Culture & arts,,Philosophy,4,"Engage in exploring fundamental questions through epistemology and ethics, alongside interests in comparative religion and mythology, seeking to understand diverse perspectives on the quest for knowledge and the things that constitute humanity."
+Hobbies & interests,Culture & arts,,Stage magic & illusions,3,"Perform and study the art of illusion. Although I have only mastered a few illusions, I have vast respect for magicians and illusionists and the amount of preparation they put into their craft."
+Hobbies & interests,Science & nature,,Engineering & technology,3,Enjoy keeping up-to-date and learning in depth about engineering methods and technological improvements.
+Hobbies & interests,Science & nature,,Geology,3,"Possess a deep love for rock hounding and geology, with a special interest in fluorescent specimens. I am an avid rock tumbler."
+Hobbies & interests,Science & nature,,Geometry & fractals,2,"Engage with the beauty and complexity of geometry and fractals, exploring their patterns and applications in nature and art."
+Hobbies & interests,Science & nature,,Nature trekking,3,"Enjoy wandering and pioneering in the wilderness with my family and friends, identifying flora, rocks, and fauna along the way."
+Hobbies & interests,Science & nature,,Paleontology,3,Eagerly learn about prehistoric life. An early interest in prehistoric animals and the fossil record has led to a lifetime of enjoyment and an informed view of evolution and biology.
+Hobbies & interests,,,Multidisciplinary exploration & creativity,4,"Exhibit a deep passion for and commitment to exploring a wide range of disciplines, blending creativity with a keen interest in both the arts and sciences. This is reflected in an eclectic array of hobbies that span cultural arts to natural sciences, showcasing versatility and a lifelong commitment to learning and personal growth."
+Languages,,,English,5,"Demonstrate highly fluent proficiency in English, with extensive experience in both written and verbal communication. Capable of sophisticated linguistic constructs and nuances."
+Languages,,,German,1,"Draw upon three years of experience in Germany, attending kindergarten and first grade, enriched by German classes focusing on folk songs and traditions. Comfortably navigate the sounds of German and maintain a basic grasp of its grammar, providing a foundational familiarity with the language."
+Languages,,,Linguistic adaptability & proficiency,4,"Harness an intermediate understanding of Latin, Greek, and Germanic roots and alphabets, underpinning a solid insight into the structure and etymology of words derived from these roots. This expertise lays the groundwork for recognizing and understanding vocabulary across several languages, demonstrating linguistic adaptability and proficiency that transcends mere language mechanics to embrace cultural nuances for effective cross-cultural communication."
+Languages,,,Mandarin Chinese,3,"Apply knowledge gained from two years of intensive Chinese immersion in Taiwan, ROC, combined with three additional years of collegiate study, including business Chinese and essay writing, amounting to the equivalent of a minor in Chinese. Despite this extensive background, my communication remains at a foundational level, akin to a 1st-grade proficiency, reflecting a commitment to continuous learning and improvement."
+Languages,,,Russian,2,"Use a basic familiarity with the Russian alphabet, pronunciation, and conjugation rules to recognize and pronounce letters and simple words, with a rudimentary understanding of grammar."
+Technology & engineering,Data analysis,,AI/ML use,2,Skillfully use AI tools and understanding of AI to solve real-world problems and improve my educational and work pursuits. Working understanding of AI and machine learning concepts and applications.
+Technology & engineering,Data analysis,,Data visualization techniques & protocols,4,"Expertly and ethically translate data into visual representations to synthesize ideas, increase visual impact of findings, and discover opportunities for growth.<ul><li>Expertise in BPMN diagramming, showcasing notable achievements in business process modeling and the ability to convey complex workflows clearly.</li><li>Proficient in designing dashboards, ERD diagramming, creating Gantt charts, and graphing & charting, capable of addressing complex challenges and presenting data in insightful and accessible ways.</li><li>Additionally, adept at utilizing Kanban boards for agile project management, enhancing team productivity and workflow visualization.</li></ul>"
+Technology & engineering,Data analysis,,Data visualization tools,4,"Expertly utilize yEd and other graphing solutions like D3, Google Charts, and Excel charts, to create detailed, high-quality diagrams, demonstrating advanced problem-solving capabilities in diagramming and visualization."
+Technology & engineering,Data analysis,,Information ordering,5,"Skillfully order and synthesize data using lists, spreadsheets, queries, and databases, showcasing notable achievements in organizing data logically and efficiently."
+Technology & engineering,Data analysis,,Marketing analysis,2,Exhibit basic proficiency with Google Analytics and WordPress statistics for basic marketing insights and data analysis.
+Technology & engineering,Data analysis,,Mathematical reasoning & critical thinking,3,"Adeptly apply mathematical concepts such as algebra, statistics, and data algorithms to complex problem-solving and critical thinking. My experience includes tutoring in geometry and algebra, illustrating my practical application of these skills."
+Technology & engineering,Development,,Database design & maintenance,3,"Design effective datasets and fields for data storage and retrieval. Co-designed and maintained a comprehensive student information system database with more than 70 tables, ensuring secure and efficient database management practices."
+Technology & engineering,Development,,Documentation & version management,3,Use knowledge of effective version management techniques and documentation best practices to ensure clarity and maintainability of code and files.
+Technology & engineering,Development,,Programming & scripting languages,4,"Employ a diverse programming skill set to drive technological innovation and solve complex challenges:<ul><li>High proficiency in AHK, CMD, CSS, Google Apps Script, HTML, Inno script, JavaScript, PowerShell, and VBS, capable of tackling complex challenges and innovating in project contributions.</li><li>Competent in C#, C++, Java, PHP, Python, SQL and other languages, effectively applying them in development projects.</li><li>First programming language: TI-BASIC</li></ul>"
+Technology & engineering,Development,,Programming tools & environments,4,"Use a comprehensive array of development tools and environments to enhance project efficiency and creativity:<ul><li>Skilled in navigating development tools and environments such as Bootstrap, GitHub, Inno, jQuery, Microsoft Power Automate, and OptimumHQ, demonstrating the ability to address complex challenges and contribute original work.</li><li>Familiar with Visual Studio Code, showing competent application of this environment in development tasks.</li></ul>"
+Technology & engineering,Development,,Software development,3,"Showcase extensive expertise in programming, scripting, and software development practices, highlighting a nuanced approach to technology solutions:<ul><li>Comprehensive skillset in programming & scripting languages and proficient in programming tools & environments, demonstrating high-level capabilities in code creation, manipulation, and environment utilization. Skills include API integration, batch operations, file formats, encoding, and reverse engineering.</li><li>Incorporate expert knowledge of RegEx and adeptness in string manipulation (template strings, concatenation, formatting, and substring operations) into software development practices.</li></ul>"
+Technology & engineering,Development,,UX/UI design,2,"Possess and exercise a solid grasp of UX/UI design principles, applying them to create user-friendly and visually appealing interfaces."
+Technology & engineering,Operating systems,,Linux,2,Comfortably use Linux for a variety of tasks. Have set up and maintained several machines with various flavors of Linux.
+Technology & engineering,Operating systems,,macOS,3,"Perform advanced operations and management tasks on macOS. Provided primary technical support for a hybrid Mac/Windows workplace, including advanced macOS operations and scripting."
+Technology & engineering,Operating systems,,Windows,4,"Constantly use advanced working knowledge of Windows systems, usage, commands, services, and registry."
+Technology & engineering,Operating systems,,Windows Server,2,"Safely configure and maintain Windows Server environment. Maintained several Windows Server machines. Familiar with IIS, AD, MSSQL, and other services."
+Technology & engineering,Security & monitoring,,Physical & data security,3,"Performed yearly physical and data security audits to ensure the safety of employees, clients, and sensitive data. Implemented alarm systems, policies, and other safeguards. Ensured comprehensive security through annual physical and cyber risk assessments, including CIS and AuditScripts CAT, to uphold data privacy and integrate policies effectively."
+Technology & engineering,Security & monitoring,,SIEM,3,"Monitor and manage risks for a mixed-OS SMB environment with daily usage of Rapid7, Todyl, and CyberCNS to monitor, investigate, and mitigate threats."
+Technology & engineering,Security & monitoring,,SOC practices,3,"Proficiently audit, assess, and mitigate risks using antimalware, information security standards, risk management, and threat hunting."
+Technology & engineering,Software & applications,,CAD/CAM,2,Comfortably use CAD/CAM concepts on SketchUp and other 3D modeling applications for personal and semi-professional projects.
+Technology & engineering,Software & applications,,PaaS,4,"Expertly use Google Workspace, Office 365, SharePoint, Power Platform, Teams, Exchange, and OptimumHQ, showcasing a significant ability to maximize productivity and collaboration with office suites and cloud-based platforms. "
+Technology & engineering,Software & applications,,SaaS,4,"Proficient in administering cloud-based software solutions for various purposes: Ninite, Adobe Creative Cloud, Zoom, Microsoft Office, Microsoft InTune, and various VoIP providers."
+Technology & engineering,System administration,,Cloud platform administration,2,"Proficiently administer cloud services & infrastructure (AWS, Azure Active Directory, Exchange, Google Cloud Platform, Microsoft Azure, Ninite, VoIP)."
+Technology & engineering,System administration,,Device & application administration,3,Capably manage in Windows and macOS management with varying levels of expertise in application-specific administration.
+Technology & engineering,System administration,,Network administration,3,"Administer network and security solutions (DNS, firewalls, ISP, NAS, registrars, SIEM, VPN), demonstrating strong capabilities in managing and securing digital infrastructures."
+Technology & engineering,,,File systems & file types,4,Use advanced knowledge about diverse file systems and file types to ensure optimal organization and accessibility.
+Technology & engineering,,,Hardware & network repair,3,"Expertly diagnose, repair, and install a wide range of hardware, with extensive experience in everything from soldering to executing physical upgrades and modifications."
+Technology & engineering,,,Networking,3,"Manage and repair SOHO and SMB networks, including cabling, cable management, subnetting, and switching."
+Technology & engineering,,,Problem-solving in technology & engineering,4,"Exhibit advanced problem-solving skills and innovation in the fields of technology and engineering. This includes a comprehensive understanding of data analysis, software development, system administration, and the application of these skills in designing, implementing, and optimizing technological solutions."
+Technology & engineering,,,Troubleshooting,4,"Demonstrate exceptional troubleshooting acumen with a methodical and analytical approach to diagnosing and rectifying complex technical issues across various systems and applications, efficiently identifying root causes and implementing innovative solutions to enhance system reliability and performance."

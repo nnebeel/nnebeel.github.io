@@ -1,164 +1,39 @@
 [
   {
+    "name": "Multidisciplinary expertise and leadership",
+    "value": 5,
+    "body": "Employ multidisciplinary expertise and leadership, blending innovation, strategic insight, and a passion for lifelong learning to excel across arts, business, academics, technology, and more. My diverse skill set enables me to navigate complex challenges, create compelling outcomes, and drive projects forward with creativity and precision. This comprehensive approach fosters cross-disciplinary connections and delivers impactful solutions. I invite you to explore the specific nodes and leaves within this matrix to discover more about my unique contributions and the depth of my experiences across various fields."
+  },
+  {
     "name": "Arts",
     "children": [
-      {
-        "name": "Multimedia",
-        "children": [
-          {
-            "name": "Adobe After Effects",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Audacity",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Audio production",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Media encoding",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Photography",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Premiere Pro",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Social media",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Video production",
-            "value": 2,
-            "body": ""
-          }
-        ]
-      },
       {
         "name": "Graphic design",
         "children": [
           {
-            "name": "Fontography (including spacing, ligatures, Unicode, ASCII)",
+            "name": "Document design",
+            "value": 4,
+            "body": "Expertly design a wide range of documents including tutorials, training materials, newsletters, and invitations, focusing on layout, typography, and visual impact to enhance reader engagement and comprehension."
+          },
+          {
+            "name": "Fontography",
             "value": 3,
-            "body": ""
+            "body": "Demonstrate extensive experience with various fonts, focusing on manipulation, spacing, ligatures, and understanding of Unicode and ASCII, to enhance text presentation, readability, and aesthetic appeal."
           },
           {
             "name": "Graphic design",
             "value": 3,
-            "body": ""
+            "body": "Possess a strong grasp of graphic design principles, applying them to create visually compelling designs that effectively communicate messages and meet project objectives."
           },
           {
-            "name": "Illustrator",
+            "name": "Raster graphics",
             "value": 3,
-            "body": ""
+            "body": "Skillfully perform advanced manipulation, resizing, and design of raster graphics using Photoshop and GIMP, creating high-quality visuals for diverse applications."
           },
           {
-            "name": "Photoshop",
+            "name": "Vector graphics",
             "value": 3,
-            "body": ""
-          }
-        ]
-      },
-      {
-        "name": "Music composition",
-        "children": [
-          {
-            "name": "Finale",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "MuseScore",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Music theory",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Music transcription",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Orchestral composition",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Small ensemble composition",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Songwriting",
-            "value": 3,
-            "body": ""
-          }
-        ]
-      },
-      {
-        "name": "Music",
-        "children": [
-          {
-            "name": "Conducting",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Accompaniment",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Keyboard performance",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Live performance",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Banding",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Expression",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Sight-reading",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Orchestra performance",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Singing",
-            "value": 2,
-            "body": ""
+            "body": "Expertly create a range of vector graphics using Inkscape, Illustrator, and Sketchup, focusing on advanced techniques such as transparency and layers. Received recognition for design excellence with a company award."
           }
         ]
       },
@@ -166,71 +41,136 @@
         "name": "Language arts",
         "children": [
           {
-            "name": "Business writing",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Document design",
-            "value": 4,
-            "body": ""
-          },
-          {
             "name": "Linguistics",
             "value": 2,
-            "body": ""
+            "body": "Possess a working knowledge of linguistic principles including IPA, grammatical structure, and morphology, including knowledge of Sino-Tibetan (Mandarin Chinese, Min, Atayal), Balto-Slavic (Russian), and Germanic (English, German) languages."
           },
           {
             "name": "Poetry",
             "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Presenting",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Professional email communication",
-            "value": 4,
-            "body": ""
+            "body": "Compose poetry and prose-poems using a variety of poetic forms. Authored and published a <a title=\"Half Light\" href=\"https://www.blurb.com/b/1270432-half-light\">book of original poetry</a>, collaborating with a watercolor artist to blend visual and textual artistry. One poem published in national poetry periodical."
           },
           {
             "name": "Proofreading & editing",
             "value": 5,
-            "body": ""
+            "body": "Expertly edit and proofread a diverse array of materials including policies, contracts, marketing content, and educational resources, ensuring accuracy and clarity. Notably provided editing support for a doctoral dissertation, demonstrating a high level of precision and attention to detail, as well as a deep understanding of academic standards and requirements. Reviewed, proofread, and fact-checked more than 50 e-learning courses."
           },
           {
             "name": "Standard American English grammar",
             "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Style guide adherence",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Technical writing",
-            "value": 4,
-            "body": ""
+            "body": "Possess thorough understanding of Standard American English grammar and syntax."
           },
           {
             "name": "Text transcription",
             "value": 3,
-            "body": ""
+            "body": "Fluently use audio transcription tools to compose faithful and syntactically accurate transcriptions. Transcribed audio history projects and e-learning courses for publication and closed captioning."
           },
           {
             "name": "Translation",
             "value": 2,
-            "body": ""
+            "body": "Carefully translate materials from Chinese to English. Successfully translated and published a section of <cite>\u694a\u862d\u6625 (Chaoyang Canal)</cite>, a traditional opera, for a concert brochure, enhancing cultural exchange and understanding. (<a title=\"Soaring on Song\" href=\"https://osucedarcity.blogspot.com/2014/10/soaring-on-song.html\">Review</a>)"
           },
           {
-            "name": "Vocabulary",
+            "name": "Vocabulary & spelling",
             "value": 4,
-            "body": ""
+            "body": "Expertly exercise phonological and phonemic awareness and quickly and consistently spell words correctly. Won 5 regional and state spelling contests. Thorough understanding of etymology."
           }
         ]
+      },
+      {
+        "name": "Multimedia",
+        "children": [
+          {
+            "name": "Audio production",
+            "value": 2,
+            "body": "Use DAWs and audio equipment to generate high-quality audio. Converted and optimized analog media in various formats to digital audio, images, and video using a large variety of tools."
+          },
+          {
+            "name": "Media encoding",
+            "value": 3,
+            "body": "Fluently determine format requirements for specific usage scenarios. Analyzed optimal codec settings for storage and quality."
+          },
+          {
+            "name": "Motion graphics",
+            "value": 2,
+            "body": "Use After Effects, Premiere, and other video tools to create animations and video effects. Created wedding music video with 3D parallax scenes based on bride and groom photos."
+          },
+          {
+            "name": "Social media",
+            "value": 2,
+            "body": "Use social media effectively to promote projects and ideas. Worked with marketing team to determine best management practices for social media accounts."
+          },
+          {
+            "name": "Video production",
+            "value": 2,
+            "body": "Create video projects using industry standard tools. Created various video projects using Adobe Premiere Pro and After Effects."
+          }
+        ]
+      },
+      {
+        "name": "Music",
+        "children": [
+          {
+            "name": "Accompaniment",
+            "value": 4,
+            "body": "Professionally provide keyboard accompaniment for vocalists, solo instrumentalists, various ensembles, secondary and post-secondary choirs, drama productions."
+          },
+          {
+            "name": "Composition & songwriting",
+            "value": 4,
+            "body": "Compose and arrange musical works for a variety of skill levels and instrumental combinations.<ul><li>Composed and arranged dozens of short works for choirs, soloists, jazz ensembles, and other small ensembles, including 11 award-winning works.</li><li>Composed dozens of original songs, many with original lyrics.</li><li>Composed, arranged, and reorchestrated several short works for full band, choir, and orchestra, including 2 award-winning works and several arrangements featured in international broadcasts.</li></ul>"
+          },
+          {
+            "name": "Conducting",
+            "value": 3,
+            "body": "Expressively conduct musical groups, reading effectively and efficiently from scores. Conducted choirs, bands, and other musical groups."
+          },
+          {
+            "name": "Digital notation",
+            "value": 4,
+            "body": "Use industry-standard software to engrave musical scores. Designed score standards and notated more than 100 original works, transcriptions, and arrangements with Finale, MuseScore, and Sibelius. Commissioned to arrange and compose several works, including theme and incidental music for a podcast."
+          },
+          {
+            "name": "Keyboard performance",
+            "value": 4,
+            "body": "Expertly perform a variety of genres of keyboard music. <ul><li>Winner of Salute to Youth concerto competition 2002 and music Sterling Scholar 2002.</li><li>World premiere of several <a title=\"17th Annual Fall Recital Series Starts Sept. 3\" href=\"https://osucedarcity.blogspot.com/2013/08/17th-annual-fall-recital-series-starts.html\">Hal Campbell compositions</a>.</li><li>Performed on pianos, keyboards, and organs in numerous public and private venues, for profit and for free.</li></ul>"
+          },
+          {
+            "name": "Live performance",
+            "value": 3,
+            "body": "Comfortably perform in a variety of settings. Provided venue music for weddings, lobbies, and restaurants."
+          },
+          {
+            "name": "Music theory",
+            "value": 2,
+            "body": "Possess a solid working knowledge of music theory, including advanced concepts. While proficient in many areas, I am always seeking to deepen my understanding."
+          },
+          {
+            "name": "Music transcription",
+            "value": 3,
+            "body": "Easily use ear training to transcribe complex musical themes and harmonies. Transcribed a variety of folk songs and generated a MIDI minus track for Miss Utah competition."
+          },
+          {
+            "name": "Orchestra performance",
+            "value": 4,
+            "body": "Perform as orchestra keyboardist. Professional keyboardist for Orchestra of Southern Utah for many years."
+          },
+          {
+            "name": "Sight-reading",
+            "value": 3,
+            "body": "Quickly and easily perform and condense advanced scores upon sight. Accompanied choral studio classes where I had not seen the music beforehand."
+          },
+          {
+            "name": "Singing",
+            "value": 2,
+            "body": "Sing using proper technique and good projection. Won superior ratings at vocal performance state competitions. Member of various show and performance choirs."
+          }
+        ]
+      },
+      {
+        "name": "Creative expression & innovation",
+        "value": 4,
+        "body": "Demonstrate exceptional ability in harnessing creativity and innovation across multiple artistic disciplines, including music, graphic design, language arts, and multimedia. Skilled in translating complex concepts into compelling artistic expressions that resonate with diverse audiences. This holistic approach to artistry emphasizes the interconnectivity of creative domains and my capacity to lead and inspire through innovation."
       }
     ]
   },
@@ -238,97 +178,22 @@
     "name": "Business & academics",
     "children": [
       {
-        "name": "Research",
-        "children": [
-          {
-            "name": "Interdisciplinary study",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Legal research",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Reading comprehension",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Scholarly research",
-            "value": 3,
-            "body": ""
-          }
-        ]
-      },
-      {
-        "name": "Project management",
-        "children": [
-          {
-            "name": "Business process modeling",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Documentation/SOP creation",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Forecasting & budgeting",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Mentoring",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Onboarding & out-processing",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Professional development",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Team management",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Timeline management",
-            "value": 3,
-            "body": ""
-          }
-        ]
-      },
-      {
         "name": "Education",
         "children": [
           {
-            "name": "Educational psychology",
-            "value": 3,
-            "body": ""
-          },
-          {
             "name": "English instruction",
-            "value": 3,
-            "body": ""
+            "value": 4,
+            "body": "Passionately teach students about literary and composition topics. Utah secondary English education teaching certificate. Successfully completed student-teaching in 9th-grade English classroom. Led individual and group college-level English tutoring sessions."
           },
           {
             "name": "Music instruction",
             "value": 4,
-            "body": ""
+            "body": "Patiently instruct music students of all levels. More than 15 years of private piano instruction to more than 50 beginning to advanced keyboard students ages 6\u201360."
           },
           {
             "name": "Programming pedagogy",
             "value": 3,
-            "body": ""
+            "body": "Effectively help learners of a variety of programming languages reach new heights. Instructed 20 self-paced college-level certificate courses and weekly tutoring sessions in beginning programming. Subject matter expert for e-learning programming courses."
           }
         ]
       },
@@ -339,66 +204,91 @@
             "name": "Publishing",
             "children": [
               {
-                "name": "Adobe Acrobat",
+                "name": "Interactive forms & documents",
                 "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Adobe InDesign",
-                "value": 3,
-                "body": ""
+                "body": "Effectively use forms for data gathering and learning objectives. Designed and created interactive forms using Microsoft Forms, Google Forms, Power Automate, and React. Designed advanced preflight process for student and teacher workbooks using Acrobat fields."
               },
               {
                 "name": "Marketing",
                 "value": 2,
-                "body": ""
-              },
-              {
-                "name": "Microsoft Publisher",
-                "value": 4,
-                "body": ""
+                "body": "Use rhetoric and marketing devices to create and analyze effective and appealing marketing campaigns. Worked alongside marketing team to determine brand messaging techniques, social media strategies, and secure practices."
               },
               {
                 "name": "Microsoft Word",
-                "value": 4,
-                "body": ""
-              }
-            ]
-          },
-          {
-            "name": "Style guides",
-            "children": [
-              {
-                "name": "APA",
-                "value": 3,
-                "body": ""
+                "value": 5,
+                "body": "Expertly use most, if not all, advanced features of Microsoft Word, including style generation, advanced typography, tables, fields, and macros. "
               },
               {
-                "name": "Apple Style Guide",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Microsoft Style Guide",
+                "name": "Publishing software",
                 "value": 4,
-                "body": ""
-              },
-              {
-                "name": "MLA",
-                "value": 4,
-                "body": ""
+                "body": "Efficiently and effectively design documents using industry-standard software. Worked using Adobe InDesign, Microsoft Publisher, and Adobe Acrobat using document styling to generate books, newsletters, and other documents."
               }
             ]
           },
           {
             "name": "Negotiation",
             "value": 3,
-            "body": ""
+            "body": "Understand and use effective negotiation tactics to procure the most efficacious deals and relationships for stakeholders. Navigated many contract renewals and service changes. In the process, negotiated substantial service contract savings through research and comparison."
           },
           {
-            "name": "Policy drafting",
+            "name": "Presentation",
             "value": 3,
-            "body": ""
+            "body": "Present important information in a thoughtful, kind, and pleasant manner. Presented in a variety of settings\u2014conferences, training meetings, educational events, and classrooms."
+          },
+          {
+            "name": "Professional communication",
+            "value": 4,
+            "body": "Consistently write thoughtful, thorough, diplomatic, and professional emails. Well-known among colleagues for business communication skills."
+          },
+          {
+            "name": "Style guide adherence",
+            "value": 4,
+            "body": "Possess thorough knowledge of and consistently follow many industry-standard and situation-appropriate style guides for use of tone, syntax, and citations:<ul><li>Ensured adherence to APA during editing process of a doctoral candidate's dissertation.</li><li>Learned and implemented Microsoft and Apple style guides in e-learning and UI environments.</li><li>Thoroughly learned and taught adherence to MLA style guide.</li></ul>"
+          },
+          {
+            "name": "Technical writing",
+            "value": 4,
+            "body": "Write adeptly about a variety of technical subjects, using confident, direct, informative, and formal tones. Drafted sections of policies, presentation scripts, workbooks, tutorials, helpdesk articles, SOPs, reports, and many other technical documents, adhering to consistent practices and style guides."
+          }
+        ]
+      },
+      {
+        "name": "Leadership & project management",
+        "children": [
+          {
+            "name": "Business process modeling",
+            "value": 4,
+            "body": "Expertly analyze processes for efficiency and time complexity. Highly skilled in breaking down processes into their constituent tasks and modeling using BPMN and other flowchart models. My models have helped decrease production times, increase productivity, and provide clarity."
+          },
+          {
+            "name": "Documentation/SOP creation",
+            "value": 4,
+            "body": "Keep thorough documentation for future ease of use and sharing of information and processes. Regularly updated and created SOPs and documentation for use by a variety of teams."
+          },
+          {
+            "name": "Forecasting & budgeting",
+            "value": 3,
+            "body": "Analyze and optimize cost efficiency and usage metrics of a variety of services. Regularly provided detailed analyses of service usage and cost-benefit relationships, resulting in streamlined relationships, better service, and cost savings. Examples: <ul><li>My 2020 CDN comparison led to a cost savings of 50% and better streaming quality and processes.</li><li>My team's 2023 SIEM/licensing comparison resulted in 25% cost savings and 1,000 annual person-hours.</li></ul>"
+          },
+          {
+            "name": "Mentoring",
+            "value": 3,
+            "body": "Guide team members and help them reach their potentials. Provided mentoring and cross-training for a variety of job-related functions, allowing for interdisciplinary exchange of ideas and better line-of-sight."
+          },
+          {
+            "name": "Onboarding & out-processing",
+            "value": 3,
+            "body": "Expertly handle sensitive onboarding and out-processing scenarios according to NIST best practices. Crystallized IT onboarding and out-processing procedures into a repeatable, formulaic, scalable process. Oversaw and managed a complex RIF scenario involving 15% of employees in a company."
+          },
+          {
+            "name": "Team management",
+            "value": 3,
+            "body": "Manage projects and team cohesivity, encouraging open and using the adversarial model to determine the best path forward. Led a team of up to five IT professionals, reporting directly to the CEO and Vice President, demonstrating strong leadership and team management abilities."
+          },
+          {
+            "name": "Timeline management",
+            "value": 3,
+            "body": "Effectively manage multiple team projects with a variety of timeline requirements."
           }
         ]
       },
@@ -408,24 +298,39 @@
           {
             "name": "Active listening",
             "value": 3,
-            "body": ""
+            "body": "Skilled in active listening, ensuring clear and effective communication by fully concentrating, understanding, responding to, and remembering what is being said."
           },
           {
-            "name": "Cross-cultural communication",
+            "name": "Multicultural, interdisciplinary communication",
             "value": 4,
-            "body": ""
+            "body": "Exercise awareness of cultural differences and communication proprieties among diverse audiences. Have mentored team members and students from diverse cultural, educational, linguistic, and socioeconomic backgrounds."
           },
           {
             "name": "PowerPoint",
             "value": 5,
-            "body": ""
+            "body": "Expertly use composition, animation, and advanced features of Microsoft PowerPoint to create engaging, immersive presentations. Created <a href=\"Whaling in the 19th Century\u2014The Fluke and the Furious\" href=\"https://www.youtube.com/watch?v=OuwyofYq4hg\">a 5-minute educational documentary</a> entirely within PowerPoint."
           },
           {
             "name": "Public speaking",
             "value": 3,
-            "body": ""
+            "body": "Speak clearly and eloquently in group settings. Have presented for educational conferences and groups of all sizes. Studied and practiced oratory techniques."
           }
         ]
+      },
+      {
+        "name": "Reading comprehension",
+        "value": 4,
+        "body": "Excel at quickly understanding, interpreting, and applying written information, ensuring effective learning, communication, and decision-making, "
+      },
+      {
+        "name": "Research",
+        "value": 4,
+        "body": "Conduct thorough research across diverse subjects, analyzing data and information in depth, and evaluating literature and methodologies."
+      },
+      {
+        "name": "Strategic analysis & leadership",
+        "value": 4,
+        "body": "Possess a strong foundation in strategic analysis and leadership within business and academic environments. Demonstrate the ability to critically assess situations, develop effective strategies, and lead initiatives that drive organizational and educational excellence. This skill is evident through contributions to education, formal communication, and leadership development projects."
       }
     ]
   },
@@ -433,59 +338,114 @@
     "name": "Hobbies & interests",
     "children": [
       {
-        "name": "Mythology",
-        "value": 3,
-        "body": ""
+        "name": "Culture & arts",
+        "children": [
+          {
+            "name": "Arts & crafts",
+            "children": [
+              {
+                "name": "Color theory",
+                "value": 3,
+                "body": "Proficiently apply color theory principles to various projects, enhancing visual aesthetics and communication."
+              },
+              {
+                "name": "Laser cutting & etching",
+                "value": 2,
+                "body": "Create artistic and architectural models for model-building and other artistic laser-cut projects. Designed several batches of laser wood art projects for gifts and party favors."
+              },
+              {
+                "name": "Photography",
+                "value": 2,
+                "body": "Use composition, lighting, and photojournalistic techniques to take interesting photographs. Studied photographic techniques."
+              },
+              {
+                "name": "Woodworking",
+                "value": 3,
+                "body": "Comfortably and safely use a wide variety of woodworking tools. Worked as a picture framer. Remodeled my bathroom and built a vanity from scratch."
+              }
+            ]
+          },
+          {
+            "name": "Music appreciation & performance",
+            "children": [
+              {
+                "name": "Ethnomusicology",
+                "value": 4,
+                "body": "Enjoy studying music and its relationship with culture. Deeply interested in the study of music from various cultural and historical contexts, including folk songs, lullabies, and holiday music, exploring their historical backgrounds and societal impacts."
+              },
+              {
+                "name": "Musical genres",
+                "value": 4,
+                "body": "Possess a broad appreciation for diverse music styles including global pop (Mandopop, J-Pop, K-Pop, Russian pop), classical (spanning from Renaissance to Romantic to Neoclassical to Futurism), folk, jazz, electronic, pop, and metal music, as well as unique vocal styles (a cappella, barbershop)."
+              },
+              {
+                "name": "Musical instruments",
+                "value": 4,
+                "body": "Perform on a variety of instruments, ranging from traditional (piano, guitar, drums) to classical (organ, trombone) and modern (synthesizer), embracing a wide spectrum of music creation and performance. Primary instrument: keyboards (piano, organ)."
+              }
+            ]
+          },
+          {
+            "name": "Writing",
+            "value": 5,
+            "body": "Write about a variety of interests, from rock tumbling and computer science to horror and poetry. Several longer works in progress."
+          },
+          {
+            "name": "Cultural anthropology",
+            "value": 3,
+            "body": "Study the nature of humanity\u2014what makes us human and what we have in common. Very interested in cultural practices and beliefs, with special interests in sinology, numismatics, and holiday traditions."
+          },
+          {
+            "name": "Movies & literature",
+            "value": 4,
+            "body": "Enjoy a diverse range of genres including action, children's and young adult fiction, documentaries, and mystery. Horror, particularly psychological horror and thrillers, ranks as my top interest in both literature and movies."
+          },
+          {
+            "name": "Philosophy",
+            "value": 4,
+            "body": "Engage in exploring fundamental questions through epistemology and ethics, alongside interests in comparative religion and mythology, seeking to understand diverse perspectives on the quest for knowledge and the things that constitute humanity."
+          },
+          {
+            "name": "Stage magic & illusions",
+            "value": 3,
+            "body": "Perform and study the art of illusion. Although I have only mastered a few illusions, I have vast respect for magicians and illusionists and the amount of preparation they put into their craft."
+          }
+        ]
       },
       {
-        "name": "Holidays & holiday music",
-        "value": 3,
-        "body": ""
+        "name": "Science & nature",
+        "children": [
+          {
+            "name": "Engineering & technology",
+            "value": 3,
+            "body": "Enjoy keeping up-to-date and learning in depth about engineering methods and technological improvements."
+          },
+          {
+            "name": "Geology",
+            "value": 3,
+            "body": "Possess a deep love for rock hounding and geology, with a special interest in fluorescent specimens. I am an avid rock tumbler."
+          },
+          {
+            "name": "Geometry & fractals",
+            "value": 2,
+            "body": "Engage with the beauty and complexity of geometry and fractals, exploring their patterns and applications in nature and art."
+          },
+          {
+            "name": "Nature trekking",
+            "value": 3,
+            "body": "Enjoy wandering and pioneering in the wilderness with my family and friends, identifying flora, rocks, and fauna along the way."
+          },
+          {
+            "name": "Paleontology",
+            "value": 3,
+            "body": "Eagerly learn about prehistoric life. An early interest in prehistoric animals and the fossil record has led to a lifetime of enjoyment and an informed view of evolution and biology."
+          }
+        ]
       },
       {
-        "name": "Horror movies & literature",
-        "value": 3,
-        "body": ""
-      },
-      {
-        "name": "Rock tumbling",
-        "value": 3,
-        "body": ""
-      },
-      {
-        "name": "Woodworking",
-        "value": 3,
-        "body": ""
-      },
-      {
-        "name": "Folk songs & lullabies",
+        "name": "Multidisciplinary exploration & creativity",
         "value": 4,
-        "body": ""
-      },
-      {
-        "name": "Ethnomusicology",
-        "value": 3,
-        "body": ""
-      },
-      {
-        "name": "Engineering",
-        "value": 2,
-        "body": ""
-      },
-      {
-        "name": "Engraving",
-        "value": 2,
-        "body": ""
-      },
-      {
-        "name": "Comparative religion",
-        "value": 3,
-        "body": ""
-      },
-      {
-        "name": "Color theory",
-        "value": 3,
-        "body": ""
+        "body": "Exhibit a deep passion for and commitment to exploring a wide range of disciplines, blending creativity with a keen interest in both the arts and sciences. This is reflected in an eclectic array of hobbies that span cultural arts to natural sciences, showcasing versatility and a lifelong commitment to learning and personal growth."
       }
     ]
   },
@@ -495,17 +455,27 @@
       {
         "name": "English",
         "value": 5,
-        "body": ""
+        "body": "Demonstrate highly fluent proficiency in English, with extensive experience in both written and verbal communication. Capable of sophisticated linguistic constructs and nuances."
+      },
+      {
+        "name": "German",
+        "value": 1,
+        "body": "Draw upon three years of experience in Germany, attending kindergarten and first grade, enriched by German classes focusing on folk songs and traditions. Comfortably navigate the sounds of German and maintain a basic grasp of its grammar, providing a foundational familiarity with the language."
+      },
+      {
+        "name": "Linguistic adaptability & proficiency",
+        "value": 4,
+        "body": "Harness an intermediate understanding of Latin, Greek, and Germanic roots and alphabets, underpinning a solid insight into the structure and etymology of words derived from these roots. This expertise lays the groundwork for recognizing and understanding vocabulary across several languages, demonstrating linguistic adaptability and proficiency that transcends mere language mechanics to embrace cultural nuances for effective cross-cultural communication."
       },
       {
         "name": "Mandarin Chinese",
-        "value": 2,
-        "body": ""
+        "value": 3,
+        "body": "Apply knowledge gained from two years of intensive Chinese immersion in Taiwan, ROC, combined with three additional years of collegiate study, including business Chinese and essay writing, amounting to the equivalent of a minor in Chinese. Despite this extensive background, my communication remains at a foundational level, akin to a 1st-grade proficiency, reflecting a commitment to continuous learning and improvement."
       },
       {
         "name": "Russian",
-        "value": 1,
-        "body": ""
+        "value": 2,
+        "body": "Use a basic familiarity with the Russian alphabet, pronunciation, and conjugation rules to recognize and pronounce letters and simple words, with a rudimentary understanding of grammar."
       }
     ]
   },
@@ -513,217 +483,137 @@
     "name": "Technology & engineering",
     "children": [
       {
-        "name": "Cybersecurity",
+        "name": "Data analysis",
         "children": [
           {
-            "name": "Antimalware",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Audits & assessments",
-            "children": [
-              {
-                "name": "AuditScripts CAT security assessment",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Cyber risk assessments",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Data privacy",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Physical security assessment",
-                "value": 2,
-                "body": ""
-              }
-            ]
-          },
-          {
-            "name": "Information security standards",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Risk management",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "SOC practices",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Threat hunting",
+            "name": "AI/ML use",
             "value": 2,
-            "body": ""
+            "body": "Skillfully use AI tools and understanding of AI to solve real-world problems and improve my educational and work pursuits. Working understanding of AI and machine learning concepts and applications."
+          },
+          {
+            "name": "Data visualization techniques & protocols",
+            "value": 4,
+            "body": "Expertly and ethically translate data into visual representations to synthesize ideas, increase visual impact of findings, and discover opportunities for growth.<ul><li>Expertise in BPMN diagramming, showcasing notable achievements in business process modeling and the ability to convey complex workflows clearly.</li><li>Proficient in designing dashboards, ERD diagramming, creating Gantt charts, and graphing & charting, capable of addressing complex challenges and presenting data in insightful and accessible ways.</li><li>Additionally, adept at utilizing Kanban boards for agile project management, enhancing team productivity and workflow visualization.</li></ul>"
+          },
+          {
+            "name": "Data visualization tools",
+            "value": 4,
+            "body": "Expertly utilize yEd and other graphing solutions like D3, Google Charts, and Excel charts, to create detailed, high-quality diagrams, demonstrating advanced problem-solving capabilities in diagramming and visualization."
+          },
+          {
+            "name": "Information ordering",
+            "value": 5,
+            "body": "Skillfully order and synthesize data using lists, spreadsheets, queries, and databases, showcasing notable achievements in organizing data logically and efficiently."
+          },
+          {
+            "name": "Marketing analysis",
+            "value": 2,
+            "body": "Exhibit basic proficiency with Google Analytics and WordPress statistics for basic marketing insights and data analysis."
+          },
+          {
+            "name": "Mathematical reasoning & critical thinking",
+            "value": 3,
+            "body": "Adeptly apply mathematical concepts such as algebra, statistics, and data algorithms to complex problem-solving and critical thinking. My experience includes tutoring in geometry and algebra, illustrating my practical application of these skills."
           }
         ]
       },
       {
-        "name": "Programming",
+        "name": "Development",
         "children": [
           {
-            "name": "API integration",
-            "value": 2,
-            "body": ""
+            "name": "Database design & maintenance",
+            "value": 3,
+            "body": "Design effective datasets and fields for data storage and retrieval. Co-designed and maintained a comprehensive student information system database with more than 70 tables, ensuring secure and efficient database management practices."
           },
           {
-            "name": "Batch operations",
+            "name": "Documentation & version management",
+            "value": 3,
+            "body": "Use knowledge of effective version management techniques and documentation best practices to ensure clarity and maintainability of code and files."
+          },
+          {
+            "name": "Programming & scripting languages",
             "value": 4,
-            "body": ""
+            "body": "Employ a diverse programming skill set to drive technological innovation and solve complex challenges:<ul><li>High proficiency in AHK, CMD, CSS, Google Apps Script, HTML, Inno script, JavaScript, PowerShell, and VBS, capable of tackling complex challenges and innovating in project contributions.</li><li>Competent in C#, C++, Java, PHP, Python, SQL and other languages, effectively applying them in development projects.</li><li>First programming language: TI-BASIC</li></ul>"
           },
           {
-            "name": "Bootstrap",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Languages & frameworks",
-            "children": [
-              {
-                "name": "C#",
-                "value": 2,
-                "body": ""
-              },
-              {
-                "name": "C++",
-                "value": 2,
-                "body": ""
-              },
-              {
-                "name": "CSS",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Google Apps Script",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "HTML",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Inno",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "JavaScript",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "jQuery",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Microsoft Power Automate",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "PHP",
-                "value": 2,
-                "body": ""
-              },
-              {
-                "name": "PowerShell",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Python",
-                "value": 2,
-                "body": ""
-              },
-              {
-                "name": "SQL",
-                "value": 2,
-                "body": ""
-              },
-              {
-                "name": "TI-BASIC",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "VBS",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Windows Server",
-                "value": 2,
-                "body": ""
-              }
-            ]
-          },
-          {
-            "name": "Code documentation",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Database design",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "File formats",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Functional programing",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Mathematics",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Object-oriented programming",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Procedural programming",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "RegEx",
+            "name": "Programming tools & environments",
             "value": 4,
-            "body": ""
+            "body": "Use a comprehensive array of development tools and environments to enhance project efficiency and creativity:<ul><li>Skilled in navigating development tools and environments such as Bootstrap, GitHub, Inno, jQuery, Microsoft Power Automate, and OptimumHQ, demonstrating the ability to address complex challenges and contribute original work.</li><li>Familiar with Visual Studio Code, showing competent application of this environment in development tasks.</li></ul>"
           },
           {
-            "name": "Reverse engineering",
+            "name": "Software development",
             "value": 3,
-            "body": ""
+            "body": "Showcase extensive expertise in programming, scripting, and software development practices, highlighting a nuanced approach to technology solutions:<ul><li>Comprehensive skillset in programming & scripting languages and proficient in programming tools & environments, demonstrating high-level capabilities in code creation, manipulation, and environment utilization. Skills include API integration, batch operations, file formats, encoding, and reverse engineering.</li><li>Incorporate expert knowledge of RegEx and adeptness in string manipulation (template strings, concatenation, formatting, and substring operations) into software development practices.</li></ul>"
           },
           {
             "name": "UX/UI design",
             "value": 2,
-            "body": ""
+            "body": "Possess and exercise a solid grasp of UX/UI design principles, applying them to create user-friendly and visually appealing interfaces."
+          }
+        ]
+      },
+      {
+        "name": "Operating systems",
+        "children": [
+          {
+            "name": "Linux",
+            "value": 2,
+            "body": "Comfortably use Linux for a variety of tasks. Have set up and maintained several machines with various flavors of Linux."
           },
           {
-            "name": "Version management",
+            "name": "macOS",
+            "value": 3,
+            "body": "Perform advanced operations and management tasks on macOS. Provided primary technical support for a hybrid Mac/Windows workplace, including advanced macOS operations and scripting."
+          },
+          {
+            "name": "Windows",
+            "value": 4,
+            "body": "Constantly use advanced working knowledge of Windows systems, usage, commands, services, and registry."
+          },
+          {
+            "name": "Windows Server",
             "value": 2,
-            "body": ""
+            "body": "Safely configure and maintain Windows Server environment. Maintained several Windows Server machines. Familiar with IIS, AD, MSSQL, and other services."
+          }
+        ]
+      },
+      {
+        "name": "Security & monitoring",
+        "children": [
+          {
+            "name": "Physical & data security",
+            "value": 3,
+            "body": "Performed yearly physical and data security audits to ensure the safety of employees, clients, and sensitive data. Implemented alarm systems, policies, and other safeguards. Ensured comprehensive security through annual physical and cyber risk assessments, including CIS and AuditScripts CAT, to uphold data privacy and integrate policies effectively."
+          },
+          {
+            "name": "SIEM",
+            "value": 3,
+            "body": "Monitor and manage risks for a mixed-OS SMB environment with daily usage of Rapid7, Todyl, and CyberCNS to monitor, investigate, and mitigate threats."
+          },
+          {
+            "name": "SOC practices",
+            "value": 3,
+            "body": "Proficiently audit, assess, and mitigate risks using antimalware, information security standards, risk management, and threat hunting."
+          }
+        ]
+      },
+      {
+        "name": "Software & applications",
+        "children": [
+          {
+            "name": "CAD/CAM",
+            "value": 2,
+            "body": "Comfortably use CAD/CAM concepts on SketchUp and other 3D modeling applications for personal and semi-professional projects."
+          },
+          {
+            "name": "PaaS",
+            "value": 4,
+            "body": "Expertly use Google Workspace, Office 365, SharePoint, Power Platform, Teams, Exchange, and OptimumHQ, showcasing a significant ability to maximize productivity and collaboration with office suites and cloud-based platforms. "
+          },
+          {
+            "name": "SaaS",
+            "value": 4,
+            "body": "Proficient in administering cloud-based software solutions for various purposes: Ninite, Adobe Creative Cloud, Zoom, Microsoft Office, Microsoft InTune, and various VoIP providers."
           }
         ]
       },
@@ -731,316 +621,46 @@
         "name": "System administration",
         "children": [
           {
-            "name": "Adobe Creative Cloud administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "AWS administration",
+            "name": "Cloud platform administration",
             "value": 2,
-            "body": ""
+            "body": "Proficiently administer cloud services & infrastructure (AWS, Azure Active Directory, Exchange, Google Cloud Platform, Microsoft Azure, Ninite, VoIP)."
           },
           {
-            "name": "Azure Active Directory",
+            "name": "Device & application administration",
             "value": 3,
-            "body": ""
+            "body": "Capably manage in Windows and macOS management with varying levels of expertise in application-specific administration."
           },
           {
-            "name": "DNS management",
+            "name": "Network administration",
             "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Exchange administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Firewall administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Google Cloud Platform administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Google Workspace",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "ISP administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "LMS administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Microsoft Azure",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Microsoft InTune administration",
-            "value": 1,
-            "body": ""
-          },
-          {
-            "name": "Ninite administration",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Office 365 Administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "OptimumHQ",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Registrar administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "SharePoint administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "SIEM management",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "SIS administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Teams administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "VoIP administration",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "VPN administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "WordPress administration",
-            "value": 2,
-            "body": ""
+            "body": "Administer network and security solutions (DNS, firewalls, ISP, NAS, registrars, SIEM, VPN), demonstrating strong capabilities in managing and securing digital infrastructures."
           }
         ]
       },
       {
-        "name": "Software",
-        "children": [
-          {
-            "name": "CAD/CAM",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "CyberCNS",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "G Suite",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Linux",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "macOS",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Microsoft Office",
-            "value": 5,
-            "body": ""
-          },
-          {
-            "name": "Rapid7",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "SIEM usage",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "SketchUp",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Todyl",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Visual Studio Code",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Windows",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "yEd",
-            "value": 4,
-            "body": ""
-          }
-        ]
+        "name": "File systems & file types",
+        "value": 4,
+        "body": "Use advanced knowledge about diverse file systems and file types to ensure optimal organization and accessibility."
       },
       {
-        "name": "Data analysis",
-        "children": [
-          {
-            "name": "AI/ML use",
-            "value": 1,
-            "body": ""
-          },
-          {
-            "name": "Algebra",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Data visualization",
-            "children": [
-              {
-                "name": "BPMN diagramming",
-                "value": 4,
-                "body": ""
-              },
-              {
-                "name": "Dashboard design",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "ERD diagramming",
-                "value": 4,
-                "body": "<b>This</b> is just a test for now."
-              },
-              {
-                "name": "Gantt charts",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Graphing & charting",
-                "value": 3,
-                "body": ""
-              },
-              {
-                "name": "Kanban boards",
-                "value": 3,
-                "body": ""
-              }
-            ]
-          },
-          {
-            "name": "Complex problem solving",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Critical thinking",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Data algorithms",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Spreadsheets",
-            "value": 5,
-            "body": ""
-          },
-          {
-            "name": "Google Analytics",
-            "value": 2,
-            "body": ""
-          },
-          {
-            "name": "Information ordering",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Logic",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Mathematical reasoning",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Mental mathematics",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Statistics",
-            "value": 2,
-            "body": ""
-          }
-        ]
+        "name": "Hardware & network repair",
+        "value": 3,
+        "body": "Expertly diagnose, repair, and install a wide range of hardware, with extensive experience in everything from soldering to executing physical upgrades and modifications."
       },
       {
-        "name": "Infrastructure",
-        "children": [
-          {
-            "name": "File system management",
-            "value": 4,
-            "body": ""
-          },
-          {
-            "name": "Hardware repair",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "NAS administration",
-            "value": 3,
-            "body": ""
-          },
-          {
-            "name": "Networking",
-            "value": 3,
-            "body": ""
-          }
-        ]
+        "name": "Networking",
+        "value": 3,
+        "body": "Manage and repair SOHO and SMB networks, including cabling, cable management, subnetting, and switching."
+      },
+      {
+        "name": "Problem-solving in technology & engineering",
+        "value": 4,
+        "body": "Exhibit advanced problem-solving skills and innovation in the fields of technology and engineering. This includes a comprehensive understanding of data analysis, software development, system administration, and the application of these skills in designing, implementing, and optimizing technological solutions."
+      },
+      {
+        "name": "Troubleshooting",
+        "value": 4,
+        "body": "Demonstrate exceptional troubleshooting acumen with a methodical and analytical approach to diagnosing and rectifying complex technical issues across various systems and applications, efficiently identifying root causes and implementing innovative solutions to enhance system reliability and performance."
       }
     ]
   }
