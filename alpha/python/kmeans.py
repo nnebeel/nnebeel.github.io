@@ -8,7 +8,7 @@ from tkinter import Tk, simpledialog
 import seaborn as sns  # For better color handling
 
 # Load the CSV file
-file_path = "C:\\Users\\BenjaminLee\\LearnKey, Inc\\Development - Documents\\LMS\\Course categories for k-means.csv"
+file_path = "C:\\Users\\BenjaminLee\\LearnKey, Inc\\Development - Documents\\LMS\\Course Categorization\\Course categories for k-means.csv"
 data = pd.read_csv(file_path)
 
 # Convert 1s and blanks to binary (1 and 0)
