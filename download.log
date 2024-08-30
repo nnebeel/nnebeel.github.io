@@ -1,0 +1,13 @@
+[2024-07-23 13:22:25]: Downloading: https://www.familysearch.org/auth/familysearch/login
+[2024-07-23 13:22:27]: Downloading: https://ident.familysearch.org/login
+[2024-07-23 13:22:27]: Downloading: https://ident.familysearch.org/oauth2/authorize?redirect_uri=https://ident.familysearch.org/service/ident/cis/cis-web/oauth2/v3/authorization?response_type%3Dopenid_connect_link_code&client_id=cis-web&realm=/&scope=openid&response_type=code&state=client_id%3D3Z3L-Z4GK-J7ZS-YT3Z-Q4KY-YN66-ZX5K-176R%26ip_address%3D96.60.199.140%26lng%26openid_provider_name%3DAuthn%26realm%26redirect_uri%3Dhttps%253A%252F%252Fwww.familysearch.org%252Fauth%252Ffamilysearch%252Fcallback%26response_type%3Dcode%26scope%26state%3D%252F%26hash%3DL5EJRlSLAQypHk9csyP9UP4u3kM%253D&continue
+[2024-07-23 13:22:29]: Downloading: /platform/users/current
+[2024-07-23 13:22:30]: Status code: 401
+[2024-07-23 13:22:30]: Downloading: https://www.familysearch.org/auth/familysearch/login
+[2024-07-23 13:22:31]: Downloading: https://ident.familysearch.org/login
+[2024-07-23 13:22:31]: Downloading: https://ident.familysearch.org/oauth2/authorize?redirect_uri=https://ident.familysearch.org/service/ident/cis/cis-web/oauth2/v3/authorization?response_type%3Dopenid_connect_link_code&client_id=cis-web&realm=/&scope=openid&response_type=code&state=client_id%3D3Z3L-Z4GK-J7ZS-YT3Z-Q4KY-YN66-ZX5K-176R%26ip_address%3D96.60.199.140%26lng%26openid_provider_name%3DAuthn%26realm%26redirect_uri%3Dhttps%253A%252F%252Fwww.familysearch.org%252Fauth%252Ffamilysearch%252Fcallback%26response_type%3Dcode%26scope%26state%3D%252F%26hash%3DL5EJRlSLAQypHk9csyP9UP4u3kM%253D&continue
+[2024-07-23 13:22:32]: Downloading: /platform/users/current
+[2024-07-23 13:22:33]: Status code: 401
+[2024-07-23 13:22:33]: Downloading: https://www.familysearch.org/auth/familysearch/login
+[2024-07-23 13:22:34]: Downloading: https://ident.familysearch.org/login
+[2024-07-23 13:22:34]: Downloading: https://ident.familysearch.org/oauth2/authorize?redirect_uri=https://ident.familysearch.org/service/ident/cis/cis-web/oauth2/v3/authorization?response_type%3Dopenid_connect_link_code&client_id=cis-web&realm=/&scope=openid&response_type=code&state=client_id%3D3Z3L-Z4GK-J7ZS-YT3Z-Q4KY-YN66-ZX5K-176R%26ip_address%3D96.60.199.140%26lng%26openid_provider_name%3DAuthn%26realm%26redirect_uri%3Dhttps%253A%252F%252Fwww.familysearch.org%252Fauth%252Ffamilysearch%252Fcallback%26response_type%3Dcode%26scope%26state%3D%252F%26hash%3DL5EJRlSLAQypHk9csyP9UP4u3kM%253D&continue
