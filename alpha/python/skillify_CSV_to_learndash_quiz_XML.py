@@ -1,14 +1,22 @@
+import os
 import re
-from html import unescape
-
 import csv
+import json
+
+from html import unescape
+from bs4 import BeautifulSoup
+from collections import defaultdict
 from lxml import etree as ET
 from lxml.etree import CDATA
 
-import json
-from collections import defaultdict
+import tkinter as tk
+from tkinter import filedialog
 
-from bs4 import BeautifulSoup
+###################################################################################################
+def load_csv_as_list_of_dicts(filepath):
+    with open(filepath, newline='', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+
 
 ################################################################################################################################
 
@@ -118,12 +126,33 @@ def writeAnswer(element, options):
 ################################################################################################################################
 
 def main():
-    # 1) Read your CSV data
-    tests_csv = load_csv_as_list_of_dicts('LK_Tests.csv')
-    questions_csv = load_csv_as_list_of_dicts('LK_Questions.csv')
-    answers_csv = load_csv_as_list_of_dicts('LK_Answers.csv')
+    # --- Use tkinter to pick input and output directories ---
+    root = tk.Tk()
+    root.withdraw()  # Hide the small root window
 
-    # 2) Group questions and answers for easy lookup
+    input_dir = filedialog.askdirectory(title="Select CSV input directory")
+    if not input_dir:
+        print("No input directory selected. Exiting.")
+        return
+
+    output_dir = filedialog.askdirectory(title="Select output directory")
+    if not output_dir:
+        print("No output directory selected. Exiting.")
+        return
+
+    # Now compose the paths to the CSV files in the chosen input_dir
+    tests_csv_path = os.path.join(input_dir, 'LK_Tests.csv')
+    questions_csv_path = os.path.join(input_dir, 'LK_Questions.csv')
+    answers_csv_path = os.path.join(input_dir, 'LK_Answers.csv')
+    scenarios_csv_path = os.path.join(input_dir, 'LK_Scenarios.csv')
+
+    # 1) Read CSV data
+    tests_csv = load_csv_as_list_of_dicts(tests_csv_path)
+    questions_csv = load_csv_as_list_of_dicts(questions_csv_path)
+    answers_csv = load_csv_as_list_of_dicts(answers_csv_path)
+    scenarios_csv = load_csv_as_list_of_dicts(scenarios_csv_path)
+
+    # 2) Group questions, answers, and scenarios for easy lookup
     questions_by_test = defaultdict(list)
     for q in questions_csv:
         questions_by_test[q['TestId']].append(q)
@@ -131,6 +160,10 @@ def main():
     answers_by_test_question = defaultdict(list)
     for a in answers_csv:
         answers_by_test_question[(a['TestId'], a['QuestionId'])].append(a)
+
+    scenarios_by_test_question = defaultdict(list)
+    for s in scenarios_csv:
+        scenarios_by_test_question[(s['TestId'], s['QuestionId'])].append(s)
 
     # 3) Build the final XML (which includes a JSON string in <meta_value>) for each Test
     for test_row in tests_csv:
@@ -149,8 +182,9 @@ def main():
         # Title of the quiz
         # Quiz > Quiz page > Title
         # Text
+        quiz_title = f"{test_row['CourseId']}: {test_row['TestName']}"
         xml_title = ET.SubElement(quiz_elt, 'title')
-        xml_title.text = CDATA(f"{test_row['CourseId']}: {test_row['TestName']}")
+        xml_title.text = CDATA(quiz_title)
 
         # XML: /wpProQuiz/data/quiz/title/@titleHidden
         # JSON: sfwd-quiz_titleHidden
@@ -417,7 +451,7 @@ def main():
         # blank = default
         # "end" = Display results at the end only
         # "each" = Display results after each submitted answer
-        if test_row["ShowFeedback"]:
+        if test_row["ShowFeedback"].strip().upper() == "TRUE":
             quiz_json["sfwd-quiz_quizModus_single_feedback"] = "each"
         else:
             quiz_json["sfwd-quiz_quizModus_single_feedback"] = ""
@@ -659,7 +693,7 @@ def main():
         # true = hidden
         # false = shown
         ET.SubElement(quiz_elt, 'disabledAnswerMark').text = 'true'
-        quiz_json["wd-quiz_disabledAnswerMark"] = True
+        quiz_json["sfwd-quiz_disabledAnswerMark"] = True
 
         # XML: /wpProQuiz/data/quiz/btnViewQuestionHidden
         # JSON: sfwd-quiz_btnViewQuestionHidden
@@ -1025,7 +1059,7 @@ def main():
             # "True / False"
             # "Drag Match"
             # "Sort Answers"
-            # "Drag to Pharagraph"
+            # "Drag to Pharagraph" [sic]
             # "Multiple Choice With Image"
             # "Short Answer"
 
@@ -1049,6 +1083,10 @@ def main():
                     answer_params.update({
                         "correct": None,
                     })
+
+                    if len(answer_list) < 2:
+                        raise ValueError(f"Expected two or more answers; {len(answer_list)} found.")
+                    
                     for answer in answer_list:
                         answer_params.update({
                             "answerText": answer["AnswerDescription"],
@@ -1063,6 +1101,10 @@ def main():
                     answer_params.update({
                         "correct": None,
                     })
+
+                    if len(answer_list) < 2:
+                        raise ValueError(f"Expected two or more answers; {len(answer_list)} found.")
+                    
                     for answer in answer_list:                        
                         answer_params.update({
                             "answerText": answer["AnswerDescription"],
@@ -1079,19 +1121,22 @@ def main():
                         "correct": None,
                     })
 
-                    quantum_answer = answer_list[0] if answer_list else None
+                    if not answer_list:
+                        raise ValueError(f"Expected one answer; none found.")
+
+                    quantum_answer = answer_list[0]
 
                     # Write "true" answer
                     answer_params.update({
                         "answerText": "True",
-                        "correct": "true" if quantum_answer["AnswerDescription"] == 1 else "false"
+                        "correct": "true" if str(quantum_answer["AnswerDescription"]) == "1" else "false"
                     })
                     writeAnswer(answers_elt, answer_params)
 
                     # Write "false" answer
                     answer_params.update({
                         "answerText": "False",
-                        "correct": "true" if quantum_answer["AnswerDescription"] == 0 else "false"
+                        "correct": "true" if str(quantum_answer["AnswerDescription"]) == "0" else "false"
                     })
                     writeAnswer(answers_elt, answer_params)
 
@@ -1101,6 +1146,9 @@ def main():
                     # Skillify answers contain 2 answers per matrix row, both with the same AnswerOrder value. The first row is the left column ("Criterion"), and the second row is the right (stort) column.
                     # Uses all default answer_params
 
+                    if len(answer_list) < 4:
+                        raise ValueError(f"Expected four or more answers (two pairs); {len(answer_list)} found.")
+                    
                     if len(answer_list) % 2 != 0:
                         raise ValueError("Expected pairs in matrix_sort_answer but found an odd number of items in answer_list")
 
@@ -1117,6 +1165,9 @@ def main():
                     # Skillify answers use the AnswerOrder field to denote the correct order. They need to be added to XML in that order.
                     # Uses all default answer_params
 
+                    if len(answer_list) < 2:
+                        raise ValueError(f"Expected two or more answers; {len(answer_list)} found.")
+
                     answer_list.sort(key=lambda row: int(row["AnswerOrder"]))
 
                     for answer in answer_list:
@@ -1126,7 +1177,7 @@ def main():
                         writeAnswer(answers_elt, answer_params)
 
                 # Drag to paragraph 
-                case "Drag to Pharagraph":
+                case "Drag to Pharagraph": # [sic]
                     # Only 32 questions in the sample, all related to HTML and Python, so case sensitivity shouldn't be an issue. Making them into fill-in-the-blanks
                     question_elt.set("answerType", "cloze_answer")
                     # Uses all default answer_params
@@ -1134,7 +1185,7 @@ def main():
                     questiontext = "<p><strong>Drag and drop disabled. Select the empty box(es) and type your answer instead.</strong></p><p>Available entries: "
                     
                     for i, answer in enumerate(answer_list):                        
-                        questiontext += f"<code>{answer['answerDescription']}</code>"
+                        questiontext += f"<code style=\"background-color: #f0f0f0;\">{answer['answerDescription']}</code>"
                         if i != len(answer_list) - 1:
                             questiontext += ", "
 
@@ -1166,75 +1217,135 @@ def main():
                     answer_params.update({
                         "correct": None,
                     })
+                    
+                    if len(answer_list) < 2:
+                        raise ValueError(f"Expected two or more answers; {len(answer_list)} found.")
+                    
+                    scenario_list = scenarios_by_test_question.get((test_row['TestId'], q_row['QuestionId']), [])
+
+                    if len(scenario_list) > 1:
+                        raise ValueError("More than one scenario linked with a single question/test combo.")
+                    
+                    # https://media-aws.onlineexpert.com/Courses/Course_722/test_4921/question_38499/Scenario.png.png
+                    questiontext = f"<p><img src=\"https://media.learningacademy.com/Courses/Course_{test_row['CourseId']}{scenario_list[0]['ScenarioPath']}\"></p>{q_row['QuestionText']}"
+                    questiontext_elt.text = CDATA(questiontext)
+
+                    for answer in answer_list:
+                        answer_params.update({
+                            "answerText": answer["AnswerDescription"],
+                            "correct": "true" if answer["AnswerType"] == "Correct" else "false"
+                        })
+                        writeAnswer(answers_elt, answer_params)
 
                 # Short answer (fill-in-the-blank)
                 case "Short Answer":
                     question_elt.set("answerType", "cloze_answer")
                     # Uses all default answer_params
 
+                    # Look for group of 2+ underscores in QuestionText. If found, replace them with AnswerDescription; else, append a new <p> containing that answer
+                    if len(answer_list) != 1:
+                        raise ValueError(f"Expected one answer; {len(answer_list)} found.") 
+
+                    questiontext = q_row['QuestionText']
+                    correct_text = answer_list[0]["AnswerDescription"]
+                    placeholder = f"{{{correct_text}}}"
+
+                    blank_regex = r"_{2,}"
+
+                    if re.search(blank_regex, questiontext):
+                        questiontext = re.sub(blank_regex, placeholder, questiontext, count=1)
+                    else:
+                        questiontext = questiontext.strip() + f"<p>{placeholder}</p>"
+
+                    questiontext_elt.text = CDATA(questiontext)
+                
+                case _:
+                    raise ValueError(f"Invalid question type: {q_row["QuestionType"]}")
 
                 # No free_answer, assessment_answer, or essay type questions in existing sample.
 
-                    
-            # process answer_params
-            question_elt.set("answerType", "multiple")
-            
-            
-            
-            
-            
-            q_type = (q_row.get('QuestionType') or '').lower()
+        #############################################################################################################################################
+        #############################################################################################################################################
+        #############################################################################################################################################
 
-            # Example: map "Multiple Choice" -> 'single'
-            if 'multiple choice' in q_type:
-                question_elt.set('answerType', 'single')
-            else:
-                question_elt.set('answerType', 'single')  # or "free_answer", etc.
+        # Add the <post> and <post_meta> blocks
 
-            ET.SubElement(question_elt, 'title').text = CDATA(q_row.get('QuestionName', ''))
-            create_cdata_element(question_elt, 'title', q_row.get('QuestionName', ''))
-            create_cdata_element(question_elt, 'questionText', q_row.get('QuestionText', ''))
-            create_cdata_element(question_elt, 'correctMsg', q_row.get('QuestionExplanation', ''))
-            create_cdata_element(question_elt, 'incorrectMsg', q_row.get('IncorrectExplanation', ''))
-
-            # Answers in XML
-            answers_elt = ET.SubElement(question_elt, 'answers')
-            ans_list = answers_by_test_question.get((test_row['TestId'], q_row['QuestionId']), [])
-
-            for ans in ans_list:
-                ans_elt = ET.SubElement(answers_elt, 'answer')
-                is_correct = ans['AnswerType'].lower() == 'correct'
-                ans_elt.set('correct', 'true' if is_correct else 'false')
-
-                ans_text_elt = ET.SubElement(ans_elt, 'answerText')
-                ans_text_elt.text = CDATA(ans['AnswerDescription']) if ans['AnswerDescription'] else ''
-
-        #
-        # NOW: Add the <post_meta> block with <meta_key>, <meta_value>
-        # in the same pass, embedding “quiz_json” as CDATA.
-        #
+        # <post>
         post_elt = ET.SubElement(quiz_elt, 'post')  # e.g., <post> if your reversed-engineered format uses it
-        create_cdata_element(post_elt, 'post_title', test_row['TestName'])
-        create_cdata_element(post_elt, 'post_content', '')  # example
 
-        post_meta_elt = ET.SubElement(quiz_elt, 'post_meta')
-        meta_key_elt = ET.SubElement(post_meta_elt, 'meta_key')
-        meta_key_elt.text = CDATA('_sfwd-quiz')  # the standard key for LD quiz settings?
+        # XML: /wpProQuiz/data/quiz/post/post_title
+        # Title of the quiz
+        # Quiz > Quiz page > Title
+        # Text
+        ET.SubElement(post_elt, 'post_title').text = CDATA(quiz_title)
 
-        meta_value_elt = ET.SubElement(post_meta_elt, 'meta_value')
-        # Convert your Python dict to JSON
+        # XML: /wpProQuiz/data/quiz/post/post_content
+        # Description of the quiz
+        # Quiz > Quiz page > Content
+        # Text
+        ET.SubElement(post_elt, 'post_content').text = CDATA("")
+
+        # <post_meta 2>
+        post_meta_viewProfileStatistics_elt = ET.SubElement(quiz_elt, 'post_meta')
+
+        # XML: /wpProQuiz/data/quiz/post_meta/meta_key
+        # View Profile Statistics key
+        # Quiz > Settings > Administrative and Data Handling Settings > Quiz Statistics > Front-end Profile Display
+        # _viewProfileStatistics
+        ET.SubElement(post_meta_viewProfileStatistics_elt, 'meta_key').text = CDATA('_viewProfileStatistics')
+
+        # XML: /wpProQuiz/data/quiz/post_meta[1]/meta_value
+        # JSON: sfwd-quiz_viewProfileStatistics
+        # Front-end profile display
+        # Quiz > Settings > Administrative and Data Handling Settings > Quiz Statistics > Front-end Profile Display
+        # "" or false = disabled
+        # "1" or true = enabled
+        ET.SubElement(post_meta_viewProfileStatistics_elt, 'meta_value').text = CDATA('1')
+        quiz_json["sfwd-quiz_viewProfileStatistics"] = True
+
+        # <post_meta 3>
+        post_meta_timeLimitCookie_elt = ET.SubElement(quiz_elt, 'post_meta')
+
+        # XML: /wpProQuiz/data/quiz/post_meta/meta_key
+        # Browser answer cookie time limit key.
+        # N/A
+        # _timeLimitCookie
+        ET.SubElement(post_meta_timeLimitCookie_elt, 'meta_key').text = CDATA('_timeLimitCookie')
+
+        # XML: /wpProQuiz/data/quiz/post_meta/meta_value
+        # JSON: sfwd-quiz_timeLimitCookie
+        # Browser answer cookie time limit. 
+        # Quiz > Settings > Administrative and Data Handling Settings > Advanced Settings > Browser Cookie Answer Protection > Cookie time limit
+        # "0" = disabled
+        # "1"+
+        ET.SubElement(post_meta_timeLimitCookie_elt, 'meta_value').text = CDATA("0")
+        quiz_json["sfwd-quiz_timeLimitCookie"] = ""
+
+        # <post_meta 1>
+        post_meta_sfwd_quiz_elt = ET.SubElement(quiz_elt, 'post_meta')
+
+        # XML: /wpProQuiz/data/quiz/post_meta/meta_key
+        # Default post_meta key
+        # N/A
+        # _sfwd-quiz
+        ET.SubElement(post_meta_sfwd_quiz_elt, 'meta_key').text = CDATA('_sfwd-quiz')
+
+        # XML: /wpProQuiz/data/quiz/post_meta/meta_value
+        # Default JSON post_meta value
+        # N/A
+        # {""0"":""""} and all the rest of the JSON
+        meta_value_elt = ET.SubElement(post_meta_sfwd_quiz_elt, 'meta_value')
+        # Convert the Python dict to JSON
         json_str = json.dumps(quiz_json)
         # Then place it as CDATA
         meta_value_elt.text = CDATA(json_str)
 
-        # Potentially add more <post_meta> as needed, each with meta_key / meta_value.
-        # ...
-
         # Write out to disk
         tree = ET.ElementTree(root)
-        xml_filename = f"test_{test_row['TestId']}.xml"
-        tree.write(xml_filename, encoding='utf-8', xml_declaration=True, pretty_print=True)
-        print(f"Wrote XML (with JSON in <meta_value>) to {xml_filename}")
+        
+        out_filepath = os.path.join(output_dir, f"test_{test_row['TestId']}.xml")
+        tree.write(out_filepath, encoding='utf-8', xml_declaration=True, pretty_print=True)
+        print(f"Wrote XML (with JSON in <meta_value>) to {out_filepath}")
 
 if __name__ == '__main__':
     main()
