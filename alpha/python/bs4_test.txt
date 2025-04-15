@@ -1,0 +1,19 @@
+from bs4 import BeautifulSoup, NavigableString
+
+def main():
+    test = """<div style=\"{}\">Test
+    <p>Hi</p>
+    <span>{ hello }</span>
+    </div>"""
+    soup = BeautifulSoup(test,"lxml")
+    for x in soup.find_all(recursive=False):
+        text = x.get_text()
+        if "{" in text or "}" in text:
+            x.string = text.replace("{","«").replace("}","»")
+            print("--")
+            print(text)
+    clean_text = str(soup).replace("«","&#123;").replace("»","&#125;")
+    print(clean_text)
+
+if __name__ == '__main__':
+    main()

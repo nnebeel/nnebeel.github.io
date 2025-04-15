@@ -1,10 +1,26 @@
+################################################################################################################################
+# Benjamin Lee, April 2025
+
+# ETL pipeline (Extract → Transform → Load) to turn the SQL‑to‑CSV dump into LearnDash‑ready XML files.
+# 1. Prompt user for input/output folders via Tkinter dialog.
+# 2. Load four CSVs (Tests, Questions, Answers, Scenarios) and index them into fast lookup dicts.
+# 3. For each test row → spin up XML skeleton + JSON meta stub (header, <quiz>, settings).
+# 4. Map every Skillify QuestionType → LearnDash answerType; branch logic handles MCQ, T/F, sorting, matrix, cloze, images.
+# 5. Clean & normalize HTML (strip Word/Outlook cruft, replace MSO tags, escape curlies, add CDATA).
+# 6. Write answers with correct/points flags; embed scenario images & accessibility classes where needed.
+# 7. Append WordPress <post> & _sfwd‑quiz meta blocks, serialising the settings dict as JSON in CDATA.
+# 8. Save file as C{course}-T{test}.xml; loop until all quizzes are written.
+################################################################################################################################
+
+
 import os
 import re
+import sys
 import csv
 import json
 
 from html import unescape
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 from collections import defaultdict
 from lxml import etree as ET
 from lxml.etree import CDATA
@@ -12,64 +28,156 @@ from lxml.etree import CDATA
 import tkinter as tk
 from tkinter import filedialog
 
-###################################################################################################
-def load_csv_as_list_of_dicts(filepath):
-    with open(filepath, newline='', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
-
+csv.field_size_limit(sys.maxsize)
 
 ################################################################################################################################
 
 def load_csv_as_list_of_dicts(filename):
-    with open(filename, newline='', encoding='utf-8') as f:
+    with open(filename, newline='', encoding='utf-8-sig') as f:
         return list(csv.DictReader(f))
 
 ################################################################################################################################
 
-# REVISIT 4/4: truncate reference to only the first breadcrumb, which will end up being equivalent to ^(<.+?>)?((not line break, not &nbsp, not <blah>)*)
-def standardize_question_reference(reference_str):
-    # Converts a raw QuestionReference (potentially containing HTML tags, 
-    # multiple lines, extra spaces) into a single standardized breadcrumb-like 
-    # string: 'Heading 1 > Heading 2 > Heading 3...'
+def standardize_question_reference(reference_str: str) -> str:
 
-    # :param reference_str: The raw string from QuestionReference column.
-    # :return: A cleaned string with headings joined by ' > '.
+    # Convert a raw QuestionReference string (may contain HTML, newlines, &nbsp;, etc.)
+    # into a single, cleaned heading suitable for a LearnDash “category”.
+
+    # Only the *first* breadcrumb / heading is returned because the deeper
+    # Skillify references are too granular to be useful.
+
+    # Returns an empty string if the reference is blank or literally "0".
 
     if not reference_str or reference_str.strip() == "0":
-        # If the value is empty or literally '0', just return it as-is or handle as needed
-        return reference_str.strip()
+        return ""                       # treat “0” or empty as no category
 
-    # 1) Unescape any HTML entities (like &nbsp;, &amp;, etc.)
-    ref_unescaped = unescape(reference_str)
+    # 1) Unescape HTML entities such as &nbsp;
+    ref = unescape(reference_str)
 
-    # 2) Replace <br> tags (if any) with a special delimiter to ensure we separate those too
-    ref_unescaped = re.sub(r'<br\s*/?>', '\n', ref_unescaped, flags=re.IGNORECASE)
+    # 2) Turn <br> into line‑breaks so they behave like paragraph tags
+    ref = re.sub(r'<br\s*/?>', '\n', ref, flags=re.IGNORECASE)
 
-    # 3) Replace block-level tags <p>, <div>, etc. with a uniform delimiter (e.g. '\n')
-    #    We'll consider each block-level tag a new "heading" line.
-    #    The pattern below also captures the closing tags: </p>, </div>, etc.
-    ref_unescaped = re.sub(r'</?(p|div|h[1-6]|section|article|blockquote)[^>]*>', '\n', ref_unescaped, flags=re.IGNORECASE)
+    # 3) Replace block‑level tags with line‑breaks
+    ref = re.sub(r'</?(p|div|h[1-6]|section|article|blockquote)[^>]*>', '\n',
+                 ref, flags=re.IGNORECASE)
 
-    # 4) Remove any remaining HTML tags entirely.
-    #    This should clear out <span>, <o:p>, <strong>, style attributes, etc.
-    ref_unescaped = re.sub(r'<[^>]+>', '', ref_unescaped)
+    # 4) Strip every remaining HTML tag
+    ref = re.sub(r'<[^>]+>', '', ref)
 
-    # 5) Split on line breaks to isolate potential headings.
-    lines = re.split(r'[\r\n]+', ref_unescaped)
+    # 5) Split on line‑breaks and return the first non‑empty, trimmed line
+    for line in re.split(r'[\r\n]+', ref):
+        clean = re.sub(r'\s+', ' ', line).strip()
+        if clean:                       # first non‑blank entry
+            return clean
 
-    # 6) Clean each line: remove extra spaces, leftover HTML codes, etc.
-    cleaned_lines = []
-    for line in lines:
-        # Replace multiple spaces (including &nbsp;) with a single space
-        # (Though we already unescaped &nbsp;, so now they are actual spaces)
-        line = re.sub(r'\s+', ' ', line).strip()
-        if line:
-            cleaned_lines.append(line)
+    return ""                           # fallback if nothing left
 
-    # 7) Join them with ' > ' to create the breadcrumb-like format
-    breadcrumb = " > ".join(cleaned_lines)
+################################################################################################################################
 
-    return breadcrumb
+def replace_cloze_curlies(raw_html: str) -> str:
+    # Parses 'raw_html' with BeautifulSoup and replaces all '{' and '}' in text nodes
+    # with HTML entities &#123; and &#125;, EXCEPT inside <style> or <script> tags.
+    # Attributes like style="..." remain untouched. Returns the modified HTML as a string.
+
+    # If there's no sign of an HTML tag, wrap the text in <p>...</p>.
+    if not re.search(r"<[a-zA-Z]+[^>]*>", raw_html):
+        raw_html = f"<p>{raw_html.strip()}</p>"
+
+    soup = BeautifulSoup(raw_html, "html.parser")
+    stack = [soup]  # We'll do a simple depth-first traversal with a stack.
+
+    while stack:
+        node = stack.pop()
+
+        if node.name in ("style", "script"):
+            # Skip entire subtrees for <style> or <script>
+            continue
+
+        # If it's plain text, do the replacement
+        if isinstance(node, NavigableString):
+            new_text = node.replace("{", "«").replace("}", "»")
+            node.replace_with(new_text)
+            # Done for this node
+            continue
+
+        # Otherwise, if it's an element/tag, push all children on the stack
+        # for further processing. .children is a generator, so convert to a list or stack them directly.
+        if hasattr(node, "children"):
+            for child in node.children:
+                stack.append(child)
+
+    # print("DEBUG: DURING PREPARE_CLOZE (PRE-STR):", soup)
+    # final_html = soup.decode(formatter=None)
+
+    return str(soup)
+
+################################################################################################################################
+
+# def revert_and_enclode_cloze_curlies(raw_html: str) -> str:
+#     final_html = raw_html.replace("«", "&#123;").replace("»", "&#125;")
+#     return final_html
+
+################################################################################################################################
+
+MSO_IF_BLOCK   = re.compile(r'\[if[^\]]*](?:.|\n)*?\[endif]', re.IGNORECASE)
+MSO_IF_TOKEN   = re.compile(r'\[if[^\]]*]', re.IGNORECASE)
+MSO_ENDIF      = re.compile(r'\[endif]', re.IGNORECASE)
+CSS_CLASS_NAME = re.compile(r'\.([A-Za-z0-9_-]+)\s*[,{]')     #  .className { … }
+
+def clean_text(html: str) -> str:
+    # Strip the most common Word/Outlook artifacts that leak into pasted HTML.
+
+    # 1.  Remove “conditional” [if]/[endif] sections and loose tokens
+    # 2.  Delete class="" values that are not defined inside a <style> tag
+    # 3.  Drop inline‑style declarations whose property starts with  mso-
+
+    # The function is idempotent and safe to call on plain‑text (it will simply
+    # be returned unchanged).
+
+    if not html or '<' not in html:
+        return html                    # nothing to do, plain text
+
+    # ------------------------------------------------------------------ 1 — IF / ENDIF
+    html = MSO_IF_BLOCK.sub('', html)  # whole blocks first
+    html = MSO_IF_TOKEN.sub('', html)  # orphan opening tokens
+    html = MSO_ENDIF.sub('', html)     # orphan closing tokens
+
+    # ------------------------------------------------------------------ 2‑4 — BeautifulSoup pass
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # 2.  classes actually referenced in an inline <style> element -------
+    declared = set()
+    for style in soup.find_all('style'):
+        declared.update(CSS_CLASS_NAME.findall(style.get_text() or ''))
+
+    for tag in soup.find_all(True):            # every element node
+        # --- classes ----------------------------------------------------
+        if tag.has_attr('class'):
+            kept = [cls for cls in tag['class'] if cls in declared]
+            if kept:
+                tag['class'] = kept
+            else:
+                del tag['class']
+
+        # --- inline styles ----------------------------------------------
+        if tag.has_attr('style'):
+            cleaned_props = []
+            for prop in tag['style'].split(';'):
+                prop = prop.strip()
+                if not prop or prop.lower().startswith('mso-'):
+                    continue
+                cleaned_props.append(prop)
+            if cleaned_props:
+                tag['style'] = '; '.join(cleaned_props)
+            else:
+                del tag['style']
+
+    # Revert the curly brackets {} that were replaced by curly quotes «» using replace_cloze_curlies() back to curly brackets.
+    # However, they need to become HTML entities. 
+    # Note: The curly quotes («») do not exist anywhere in the CSV data.
+    raw_html = str(soup)
+    final_html = raw_html.replace("«", "&#123;").replace("»", "&#125;")
+    return final_html
 
 ################################################################################################################################
 
@@ -87,9 +195,9 @@ def writeAnswer(element, options):
     answer_elt.set("correct", options["correct"])
 
     # XML: /wpProQuiz/data/quiz/questions/question/answers/answer/@gradingProgression
-    # not-graded-none = Not graded, no points awarded (""This response will be reviewed and graded after submission."")
-    # not-graded-full = Not graded, full points awarded (""This response will be awarded full points automatically, but it will be reviewed and possibly adjusted after submission."")
-    # graded-full = Graded, full points awarded (""This response will be awarded full points automatically, but it can be reviewed and adjusted after submission."")
+    # not-graded-none = Not graded, no points awarded ("This response will be reviewed and graded after submission.")
+    # not-graded-full = Not graded, full points awarded ("This response will be awarded full points automatically, but it will be reviewed and possibly adjusted after submission.")
+    # graded-full = Graded, full points awarded ("This response will be awarded full points automatically, but it can be reviewed and adjusted after submission.")
     if options["gradingProgression"] is not None:
         answer_elt.set("gradingProgression", options["gradingProgression"])
 
@@ -103,7 +211,7 @@ def writeAnswer(element, options):
     # Text 
     # HTML (set @html to true)
     answerText_elt = ET.SubElement(answer_elt, 'answerText')
-    answerText_elt.text = CDATA(options["answerText"])
+    answerText_elt.text = CDATA(clean_text(options["answerText"]))
 
     # XML: /wpProQuiz/data/quiz/questions/question/answers/answer/answerText/@html
     # false = plain text
@@ -115,7 +223,7 @@ def writeAnswer(element, options):
     # sort text
     # Always blank
     stortText_elt = ET.SubElement(answer_elt, 'stortText')
-    stortText_elt.text = CDATA(options["stortText"])
+    stortText_elt.text = CDATA(clean_text(options["stortText"]))
 
     # XML: /wpProQuiz/data/quiz/questions/question/answers/answer/stortText/@html
     # Always true
@@ -130,12 +238,12 @@ def main():
     root = tk.Tk()
     root.withdraw()  # Hide the small root window
 
-    input_dir = filedialog.askdirectory(title="Select CSV input directory")
+    input_dir = filedialog.askdirectory(title="Select CSV input directory", initialdir = "C:/Users/BenjaminLee/LearnKey, Inc/Development - Documents/LMS/Quiz exports")
     if not input_dir:
         print("No input directory selected. Exiting.")
         return
 
-    output_dir = filedialog.askdirectory(title="Select output directory")
+    output_dir = filedialog.askdirectory(title="Select output directory", initialdir = "C:/temp/Quiz")
     if not output_dir:
         print("No output directory selected. Exiting.")
         return
@@ -148,9 +256,13 @@ def main():
 
     # 1) Read CSV data
     tests_csv = load_csv_as_list_of_dicts(tests_csv_path)
+    print("Columns found:", tests_csv[0].keys())
     questions_csv = load_csv_as_list_of_dicts(questions_csv_path)
+    print("Columns found:", questions_csv[0].keys())
     answers_csv = load_csv_as_list_of_dicts(answers_csv_path)
+    print("Columns found:", answers_csv[0].keys())
     scenarios_csv = load_csv_as_list_of_dicts(scenarios_csv_path)
+    print("Columns found:", scenarios_csv[0].keys())
 
     # 2) Group questions, answers, and scenarios for easy lookup
     questions_by_test = defaultdict(list)
@@ -169,6 +281,13 @@ def main():
     for test_row in tests_csv:
         # --- Create the root / top-level structure ---
         root = ET.Element('wpProQuiz')
+
+        header_elt = ET.SubElement(root, 'header')
+        header_elt.set('version', '0.29')
+        header_elt.set('exportVersion', '1')
+        header_elt.set('ld_version', '4.20.2.1')
+        header_elt.set('LEARNDASH_SETTINGS_DB_VERSION', '2.5')
+
         data_elt = ET.SubElement(root, 'data')
         quiz_elt = ET.SubElement(data_elt, 'quiz')
         # We'll also build a partial “quiz_json” to store in meta_value
@@ -182,7 +301,9 @@ def main():
         # Title of the quiz
         # Quiz > Quiz page > Title
         # Text
-        quiz_title = f"{test_row['CourseId']}: {test_row['TestName']}"
+        course_id = test_row['CourseId']
+        quiz_id = test_row['TestId']
+        quiz_title = f"{test_row['TestName']} (C{course_id}-T{quiz_id})"
         xml_title = ET.SubElement(quiz_elt, 'title')
         xml_title.text = CDATA(quiz_title)
 
@@ -355,7 +476,8 @@ def main():
         # Quiz > Settings > Progression and Restriction Settings > Restrict Quiz Retakes
         # false = not restricted
         # true = restricted
-        xml_quizRunOnce = ET.SubElement(quiz_elt, 'quizRunOnce').text = 'false'
+        xml_quizRunOnce = ET.SubElement(quiz_elt, 'quizRunOnce')
+        xml_quizRunOnce.text = 'false'
         quiz_json["sfwd-quiz_quizRunOnce"] = False
 
         # XML: /wpProQuiz/data/quiz/quizRunOnce/@time
@@ -937,6 +1059,8 @@ def main():
             # Add the question to the XML
             question_elt = ET.SubElement(questions_elt, 'question')
 
+            ET.SubElement(question_elt, 'skillifyQuestionType').text = q_row["QuestionType"]
+
             # REVISIT
             # XML: /wpProQuiz/data/quiz/questions/question/title
             # Question title
@@ -944,7 +1068,7 @@ def main():
             # Text
             # Current format: [Question title] ([Course ID]-[Question ID])
             # Example: Motherboard Identification (1011-16613)
-            ET.SubElement(question_elt, 'title').text = CDATA(f"{q_row['QuestionName']} ({q_row['TestId']}-{q_row['QuestionId']})")
+            ET.SubElement(question_elt, 'title').text = CDATA(f"{q_row['QuestionName']} (C{course_id}-T{quiz_id}-Q{q_row['QuestionId']})")
 
             # XML: /wpProQuiz/data/quiz/questions/question/questionText
             # Question content
@@ -1009,7 +1133,7 @@ def main():
             if q_row['QuestionExplanation'] in ("","NULL"):
                 ET.SubElement(question_elt, 'correctMsg').text = CDATA("")
             else:
-                ET.SubElement(question_elt, 'correctMsg').text = CDATA(q_row['QuestionExplanation']) # Even if the Skillify data is HTML, LearnDash always encases it in CDATA in this case.
+                ET.SubElement(question_elt, 'correctMsg').text = CDATA(clean_text(q_row['QuestionExplanation'])) # Even if the Skillify data is HTML, LearnDash always encases it in CDATA in this case.
             
             # XML: /wpProQuiz/data/quiz/questions/question/incorrectMsg
             # This text will be visible if answered incorrectly. It can be used as explanation for complex questions. The message ""Right"" or ""Wrong"" is always displayed automatically.
@@ -1018,7 +1142,7 @@ def main():
             if q_row['IncorrectExplanation'] in ("","NULL"):
                 ET.SubElement(question_elt, 'incorrectMsg').text = CDATA("")
             else:
-                ET.SubElement(question_elt, 'incorrectMsg').text = CDATA(q_row['IncorrectExplanation']) # Even if the Skillify data is HTML, LearnDash always encases it in CDATA in this case.
+                ET.SubElement(question_elt, 'incorrectMsg').text = CDATA(clean_text(q_row['IncorrectExplanation'])) # Even if the Skillify data is HTML, LearnDash always encases it in CDATA in this case.
 
             # XML: /wpProQuiz/data/quiz/questions/question/tipMsg
             # Here you can enter solution hint.
@@ -1165,12 +1289,16 @@ def main():
                     # Skillify answers use the AnswerOrder field to denote the correct order. They need to be added to XML in that order.
                     # Uses all default answer_params
 
-                    if len(answer_list) < 2:
-                        raise ValueError(f"Expected two or more answers; {len(answer_list)} found.")
+                    if len(answer_list) < 3:
+                        raise ValueError(f"Expected three or more answers; {len(answer_list)} found.")
 
                     answer_list.sort(key=lambda row: int(row["AnswerOrder"]))
 
                     for answer in answer_list:
+                        # The "Correct" answer has an AnswerOrder value of 0. The AnswerDescription for this line contains all the other AnswerDescription values in the correct order in this format: 1 -- Option 1|2 -- Option 2|3 -- Option 3....
+                        # This is redundant because AnswerOrder already gives us the correct order, and I'm not sure if parsing r"\d -- (.+?)|" will always work properly, so let's just parse the other AnswerDescriptions instead
+                        if answer["AnswerType"] == "Correct":
+                            continue 
                         answer_params.update({
                             "answerText": answer["AnswerDescription"]
                         })
@@ -1180,12 +1308,20 @@ def main():
                 case "Drag to Pharagraph": # [sic]
                     # Only 32 questions in the sample, all related to HTML and Python, so case sensitivity shouldn't be an issue. Making them into fill-in-the-blanks
                     question_elt.set("answerType", "cloze_answer")
-                    # Uses all default answer_params
+
+                    # Uses all default answer_params, but because of the way curly brackets are handled, we need the text to be converted to HTML (replace_cloze_curlies()).
+                    answer_params.update({
+                        "answerText_html": "true"
+                    })
                     
-                    questiontext = "<p><strong>Drag and drop disabled. Select the empty box(es) and type your answer instead.</strong></p><p>Available entries: "
+                    questiontext = ("<p><strong>Drag and drop is disabled.</strong></p>"
+                                    "<p>Type exactly one of the lines below into each blank in the code sample.</p>"
+                                    "<p>Be sure to match spacing, punctuation, and case.</p>"
+                                    "<p>Possible entries: "
+                    )
                     
                     for i, answer in enumerate(answer_list):                        
-                        questiontext += f"<code style=\"background-color: #f0f0f0;\">{answer['answerDescription']}</code>"
+                        questiontext += f"<code style=\"background-color: #f0f0f0;\">{answer['AnswerDescription']}</code>"
                         if i != len(answer_list) - 1:
                             questiontext += ", "
 
@@ -1193,7 +1329,11 @@ def main():
 
                     questiontext_elt.text = CDATA(questiontext)
 
-                    soup = BeautifulSoup(q_row['QuestionText'], "html.parser")
+                    # print("DEBUG: BEFORE PREPARE_CLOZE:", q_row['QuestionText'])
+                    questiontext = replace_cloze_curlies(q_row['QuestionText'])
+                    # print("DEBUG: AFTER PREPARE_CLOZE:", questiontext)
+
+                    soup = BeautifulSoup(questiontext, "html.parser")
                     spans = soup.find_all("span", class_="ext-questions", attrs={"data-text": True})
 
                     for i, span in enumerate(spans):
@@ -1201,10 +1341,11 @@ def main():
                         placeholder = f"{{{correct_text}}}" # Blank answers are noted as {correct answer}.
                         span.replace_with(placeholder) # Replace entire element with LearnDash placeholder
                     
-                    answertext = str(soup)
+                    questiontext = str(soup)
 
                     answer_params.update({
-                        "answerText" : answertext
+                        # "answerText" : revert_and_enclode_cloze_curlies(answertext)
+                        "answerText" : questiontext
                     })
 
                     writeAnswer(answers_elt, answer_params)
@@ -1226,8 +1367,14 @@ def main():
                     if len(scenario_list) > 1:
                         raise ValueError("More than one scenario linked with a single question/test combo.")
                     
-                    # https://media-aws.onlineexpert.com/Courses/Course_722/test_4921/question_38499/Scenario.png.png
-                    questiontext = f"<p><img src=\"https://media.learningacademy.com/Courses/Course_{test_row['CourseId']}{scenario_list[0]['ScenarioPath']}\"></p>{q_row['QuestionText']}"
+                    # ScenarioPath: /test_4921/Question_38499/scenario.png
+                    # CloudFront/S3 path: https://media-aws.onlineexpert.com/Courses/Course_722/test_4921/question_38499/Scenario.png.png
+                    # 1) Lowercase the "Q" after slash and swap scenario.png with Scenario.png.png
+                    cloudfront_path = (scenario_list[0]['ScenarioPath']
+                                      .replace("/Question_", "/question_")
+                                      .replace("/scenario.png", "/Scenario.png.png"))
+                    
+                    questiontext = f"<p><img src=\"https://media.learningacademy.com/Courses/Course_{test_row['CourseId']}{cloudfront_path}\"></p>{q_row['QuestionText']}"
                     questiontext_elt.text = CDATA(questiontext)
 
                     for answer in answer_list:
@@ -1240,13 +1387,19 @@ def main():
                 # Short answer (fill-in-the-blank)
                 case "Short Answer":
                     question_elt.set("answerType", "cloze_answer")
-                    # Uses all default answer_params
-
+                    # Uses all default answer_params, but because of the way curly brackets are handled, we need the text to be converted to HTML (replace_cloze_curlies()).
+                    answer_params.update({
+                        "answerText_html": "true"
+                    })
+                    
+                    # The CSV won't include instructions for this question, but questionText is required, so here are some default instructions.
+                    questiontext_elt.text = CDATA("<p><strong>Instructions</strong>: Complete the following statement by filling in the blanks with the correct words or phrases. Please pay close attention to capitalization&mdash;responses may be case-sensitive.</p>")
+                    
                     # Look for group of 2+ underscores in QuestionText. If found, replace them with AnswerDescription; else, append a new <p> containing that answer
                     if len(answer_list) != 1:
                         raise ValueError(f"Expected one answer; {len(answer_list)} found.") 
 
-                    questiontext = q_row['QuestionText']
+                    questiontext = replace_cloze_curlies(q_row['QuestionText'])                    
                     correct_text = answer_list[0]["AnswerDescription"]
                     placeholder = f"{{{correct_text}}}"
 
@@ -1257,8 +1410,13 @@ def main():
                     else:
                         questiontext = questiontext.strip() + f"<p>{placeholder}</p>"
 
-                    questiontext_elt.text = CDATA(questiontext)
-                
+                    answer_params.update({
+                        # "answerText" : revert_and_enclode_cloze_curlies(questiontext)
+                        "answerText" : questiontext
+                    })
+
+                    writeAnswer(answers_elt, answer_params)
+
                 case _:
                     raise ValueError(f"Invalid question type: {q_row["QuestionType"]}")
 
@@ -1343,8 +1501,12 @@ def main():
         # Write out to disk
         tree = ET.ElementTree(root)
         
-        out_filepath = os.path.join(output_dir, f"test_{test_row['TestId']}.xml")
-        tree.write(out_filepath, encoding='utf-8', xml_declaration=True, pretty_print=True)
+        out_filepath = os.path.join(output_dir, f"C{course_id}-T{quiz_id}.xml")
+        tree.write(out_filepath, 
+                   encoding='utf-8', 
+                   xml_declaration=True, 
+                   pretty_print=True,
+                   method="xml")
         print(f"Wrote XML (with JSON in <meta_value>) to {out_filepath}")
 
 if __name__ == '__main__':
