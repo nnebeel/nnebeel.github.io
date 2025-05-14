@@ -238,12 +238,12 @@ def main():
     root = tk.Tk()
     root.withdraw()  # Hide the small root window
 
-    input_dir = filedialog.askdirectory(title="Select CSV input directory", initialdir = "C:/Users/BenjaminLee/LearnKey, Inc/Development - Documents/LMS/Quiz exports")
+    input_dir = filedialog.askdirectory(title="Select CSV input directory", initialdir = "C:/Users/BenjaminLee/LearnKey, Inc/Development - Documents/LMS/Quizzes/Raw SQL data")
     if not input_dir:
         print("No input directory selected. Exiting.")
         return
 
-    output_dir = filedialog.askdirectory(title="Select output directory", initialdir = "C:/temp/Quiz")
+    output_dir = filedialog.askdirectory(title="Select output directory", initialdir = "C:/Users/BenjaminLee/LearnKey, Inc/Development - Documents/LMS/Quizzes/Ben generated XML")
     if not output_dir:
         print("No output directory selected. Exiting.")
         return
@@ -301,9 +301,9 @@ def main():
         # Title of the quiz
         # Quiz > Quiz page > Title
         # Text
-        course_id = test_row['CourseId']
-        quiz_id = test_row['TestId']
-        quiz_title = f"{test_row['TestName']} (C{course_id}-T{quiz_id})"
+        course_id = test_row['CourseId'].zfill(4) # using string padding instead of number padding
+        quiz_id = test_row['TestId'].zfill(4)
+        quiz_title = f"{test_row['TestName']} {course_id}-Q{quiz_id}"
         xml_title = ET.SubElement(quiz_elt, 'title')
         xml_title.text = CDATA(quiz_title)
 
@@ -1068,7 +1068,7 @@ def main():
             # Text
             # Current format: [Question title] ([Course ID]-[Question ID])
             # Example: Motherboard Identification (1011-16613)
-            ET.SubElement(question_elt, 'title').text = CDATA(f"{q_row['QuestionName']} (C{course_id}-T{quiz_id}-Q{q_row['QuestionId']})")
+            ET.SubElement(question_elt, 'title').text = CDATA(f"{q_row['QuestionName']} ({course_id}-Q{quiz_id}-{q_row['QuestionId']})")
 
             # XML: /wpProQuiz/data/quiz/questions/question/questionText
             # Question content
@@ -1501,7 +1501,7 @@ def main():
         # Write out to disk
         tree = ET.ElementTree(root)
         
-        out_filepath = os.path.join(output_dir, f"C{course_id}-T{quiz_id}.xml")
+        out_filepath = os.path.join(output_dir, f"{course_id}-Q{quiz_id}.xml")
         tree.write(out_filepath, 
                    encoding='utf-8', 
                    xml_declaration=True, 
