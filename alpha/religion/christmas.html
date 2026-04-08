@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Weight');
+        data.addRows([
+          [ 'A', 'St. Stephen\'s Day', 1 ],
+          [ 'A', 'Boxing Day', 1 ],
+          [ 'A', 'Kwanzaa', 1 ],
+          [ 'B', 'Hanukkah', 1 ],
+          [ 'B', 'Christmas', 1 ],
+          [ 'B', 'Yule', 1 ],
+          [ 'A', 'Ōmisoka', 1 ],
+          [ 'A', 'New Year\'s Eve', 1 ],
+          [ 'A', 'Inti Raymi', 1 ],
+          [ 'B', 'Dong Zhi', 1 ],
+          [ 'B', 'Shab-e Yalda', 1 ],
+          [ 'B', 'Soyal', 1 ],
+          [ 'B', 'Toji', 1 ],
+          [ 'B', 'St. Lucia\'s Day', 1 ],
+          [ 'B', 'Feast of Juul', 1 ],
+          [ 'B', 'Saturnalia', 1 ],
+          [ 'B', 'Burning of the Clocks', 1 ],
+          [ 'B', 'Newgrange gathering', 1 ],
+          [ 'B', 'Dongji', 1 ],
+          [ 'B', 'Montol Festival', 1 ]
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 600,
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
+  </body>
+</html>
